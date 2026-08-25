@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Men's Aura — Midnight Drive"
+description = "A cinematic single-product storefront for Men's Aura's Midnight Drive natural men's wellness oil, with responsive storytelling, ingredient education, reviews, and cash-on-delivery ordering."
+version = "1.0.0"
+id = "artifacts/mens-aura"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 25831
+
+[services.development]
+run = "pnpm --filter @workspace/mens-aura run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/mens-aura", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/mens-aura/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "25831"
+BASE_PATH = "/"
