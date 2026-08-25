@@ -246,6 +246,11 @@ function WebGLProductScene() {
       const host = canvas.parentElement;
       host?.style.setProperty('--tilt-x', `${pointerRef.current.y * -5}deg`);
       host?.style.setProperty('--tilt-y', `${pointerRef.current.x * 7}deg`);
+      const card = canvas.closest('.product-card') as HTMLElement | null;
+      card?.style.setProperty('--card-rotate-x', `${pointerRef.current.y * -3.5}deg`);
+      card?.style.setProperty('--card-rotate-y', `${pointerRef.current.x * 5}deg`);
+      host?.style.setProperty('--glare-x', `${((pointerRef.current.x + 1) / 2) * 100}%`);
+      host?.style.setProperty('--glare-y', `${((pointerRef.current.y + 1) / 2) * 100}%`);
     };
     const leave = () => {
       pointerRef.current.x *= 0.35;
@@ -253,6 +258,11 @@ function WebGLProductScene() {
       const host = canvas.parentElement;
       host?.style.setProperty('--tilt-x', '0deg');
       host?.style.setProperty('--tilt-y', '0deg');
+      host?.style.setProperty('--glare-x', '50%');
+      host?.style.setProperty('--glare-y', '38%');
+      const card = canvas.closest('.product-card') as HTMLElement | null;
+      card?.style.setProperty('--card-rotate-x', '0deg');
+      card?.style.setProperty('--card-rotate-y', '0deg');
     };
     const render = (now: number) => {
       gl.uniform1f(time, now);
@@ -278,7 +288,9 @@ function WebGLProductScene() {
   return (
     <div className="relative h-full w-full overflow-hidden bg-[#0c111a]" data-testid="webgl-product-scene">
       <canvas ref={canvasRef} className="h-full w-full" aria-label="Interactive floating Midnight Drive bottle" />
+      <div className="scene-grid pointer-events-none absolute inset-0" />
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_38%,transparent_0%,transparent_46%,rgba(5,8,13,.36)_100%)]" />
+      <div className="scene-glare pointer-events-none absolute inset-0" />
       <div className="pointer-events-none absolute left-1/2 top-1/2 h-[370px] w-[220px] -translate-x-1/2 -translate-y-1/2 [perspective:900px] sm:h-[490px] sm:w-[270px]">
         <div className="bottle-3d relative h-full w-full" style={{ transform: 'rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg))' }}>
           <div className="bottle-shadow absolute bottom-[3%] left-1/2 h-8 w-44 -translate-x-1/2 rounded-[50%] bg-black/70 blur-xl" />
@@ -361,7 +373,7 @@ function Home() {
           </div>
           <div className="relative mt-10 flex justify-center lg:mt-0 lg:justify-end">
             <div className="absolute bottom-8 right-8 h-[78%] w-[80%] border border-[#d8ad73]/20 sm:right-10 lg:right-4" />
-             <div className="relative h-[430px] w-[min(100%,460px)] overflow-hidden border border-[#cfb58d]/25 bg-[#131a23] product-shadow sm:h-[570px] lg:h-[655px]">
+             <div className="product-card relative h-[430px] w-[min(100%,460px)] overflow-hidden border border-[#cfb58d]/25 bg-[#131a23] product-shadow sm:h-[570px] lg:h-[655px]">
                <WebGLProductScene />
              </div>
           </div>

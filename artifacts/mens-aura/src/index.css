@@ -75,6 +75,10 @@
 ::selection { background: #d8ad73; color: #101720; }
 
 .aura-page { overflow: hidden; background: #0c111a; }
+.product-card { --card-rotate-x: 0deg; --card-rotate-y: 0deg; transform-style: preserve-3d; transition: transform .5s cubic-bezier(.2,.8,.2,1), box-shadow .5s ease; will-change: transform; }
+.product-card:hover { transform: perspective(1100px) rotateX(var(--card-rotate-x)) rotateY(var(--card-rotate-y)); box-shadow: 0 48px 72px -30px rgba(0,0,0,.98), 0 0 110px rgba(173,114,51,.18); }
+.scene-grid { background-image: linear-gradient(rgba(216,173,115,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(216,173,115,.1) 1px, transparent 1px); background-size: 54px 54px; mask-image: radial-gradient(ellipse at center, black 18%, transparent 82%); opacity: .13; animation: gridPulse 7s ease-in-out infinite; }
+.scene-glare { background: radial-gradient(circle 130px at var(--glare-x, 50%) var(--glare-y, 38%), rgba(255,221,163,.34), rgba(216,173,115,.1) 28%, transparent 72%); mix-blend-mode: screen; opacity: .5; transition: background-position .15s ease-out, opacity .4s ease; }
 .noise {
   position: fixed; inset: 0; pointer-events: none; z-index: 50; opacity: .035;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.7'/%3E%3C/svg%3E");
@@ -97,9 +101,16 @@
 @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 @keyframes breathe { 0%, 100% { transform: scale(1); opacity: .55; } 50% { transform: scale(1.07); opacity: .8; } }
 .breathe { animation: breathe 6s ease-in-out infinite; }
+@keyframes gridPulse { 0%, 100% { opacity: .08; } 50% { opacity: .18; } }
 .modal-in { animation: modalIn .3s ease both; }
 @keyframes modalIn { from { opacity: 0; transform: translateY(12px) scale(.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
   .reveal { opacity: 1; transform: none; }
+}
+@media (max-width: 767px) {
+  .product-card { transition-duration: .35s; }
+  .product-card:hover { transform: none; }
+  .scene-grid { background-size: 44px 44px; }
+  .scene-glare { opacity: .36; }
 }
