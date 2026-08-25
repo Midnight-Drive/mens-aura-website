@@ -134,6 +134,181 @@ function OrderModal({ onClose }: { onClose: () => void }) {
   );
 }
 
+function WebGLProductScene() {
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const frameRef = useRef<number | null>(null);
+  const pointerRef = useRef({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const gl = canvas.getContext('webgl', { alpha: false, antialias: true });
+    if (!gl) return;
+
+    const vertexSource = `
+      attribute vec2 position;
+      varying vec2 uv;
+      void main() {
+        uv = position * 0.5 + 0.5;
+        gl_Position = vec4(position, 0.0, 1.0);
+      }
+    `;
+    const fragmentSource = `
+      precision highp float;
+      varying vec2 uv;
+      uniform vec2 resolution;
+      uniform vec2 pointer;
+      uniform float time;
+
+      float box(vec2 p, vec2 b, float r) {
+        vec2 q = abs(p) - b + r;
+        return length(max(q, 0.0)) + min(max(q.x, q.y), 0.0) - r;
+      }
+
+      void main() {
+        vec2 p = (uv - 0.5) * vec2(resolution.x / resolution.y, 1.0);
+        float floatY = sin(time * 0.0012) * 0.018;
+        float tilt = pointer.x * 0.06;
+        p.y -= floatY;
+        p.x -= tilt * p.y * 0.15;
+
+        vec3 bg = vec3(0.035, 0.055, 0.08);
+        float halo = exp(-length((p - vec2(pointer.x * 0.08, pointer.y * 0.04)) * vec2(1.0, 1.3)) * 2.5);
+        bg += vec3(0.23, 0.14, 0.07) * halo * 0.18;
+
+        float body = box(p - vec2(0.0, -0.06), vec2(0.19, 0.30), 0.07);
+        float shoulders = box(p - vec2(0.0, 0.22), vec2(0.14, 0.085), 0.035);
+        float neck = box(p - vec2(0.0, 0.33), vec2(0.082, 0.105), 0.025);
+        float cap = box(p - vec2(0.0, 0.445), vec2(0.105, 0.065), 0.024);
+        float shape = min(min(body, shoulders), neck);
+        float glass = 1.0 - smoothstep(-0.008, 0.008, shape);
+        float glassEdge = 1.0 - smoothstep(0.0, 0.018, abs(shape));
+        float metal = 1.0 - smoothstep(-0.008, 0.008, cap);
+
+        float edge = smoothstep(0.16, 0.0, abs(p.x + pointer.x * 0.03));
+        float reflection = pow(max(0.0, 1.0 - abs(p.x + pointer.x * 0.04) / 0.22), 5.0);
+        float warm = 0.5 + 0.5 * sin(p.y * 13.0 + time * 0.0003);
+        vec3 amber = mix(vec3(0.16, 0.035, 0.008), vec3(0.72, 0.24, 0.035), warm * 0.45 + 0.25);
+        amber += vec3(0.48, 0.20, 0.05) * reflection;
+        amber += vec3(0.16, 0.07, 0.02) * edge;
+        vec3 gold = mix(vec3(0.35, 0.18, 0.07), vec3(0.92, 0.63, 0.28), reflection * 0.8 + 0.2);
+
+        vec3 color = bg;
+        color = mix(color, amber, glass);
+        color += vec3(0.45, 0.22, 0.07) * glassEdge * 0.7;
+        color = mix(color, gold, metal);
+
+        float ground = exp(-pow((p.y + 0.40) * 18.0, 2.0)) * exp(-pow(p.x * 3.0, 2.0));
+        color += vec3(0.22, 0.10, 0.035) * ground;
+        gl_FragColor = vec4(color, 1.0);
+      }
+    `;
+
+    const compile = (type: number, source: string) => {
+      const shader = gl.createShader(type);
+      if (!shader) return null;
+      gl.shaderSource(shader, source);
+      gl.compileShader(shader);
+      return gl.getShaderParameter(shader, gl.COMPILE_STATUS) ? shader : null;
+    };
+    const vertex = compile(gl.VERTEX_SHADER, vertexSource);
+    const fragment = compile(gl.FRAGMENT_SHADER, fragmentSource);
+    if (!vertex || !fragment) return;
+    const program = gl.createProgram();
+    if (!program) return;
+    gl.attachShader(program, vertex);
+    gl.attachShader(program, fragment);
+    gl.linkProgram(program);
+    if (!gl.getProgramParameter(program, gl.LINK_STATUS)) return;
+    gl.useProgram(program);
+
+    const buffer = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]), gl.STATIC_DRAW);
+    const position = gl.getAttribLocation(program, 'position');
+    gl.enableVertexAttribArray(position);
+    gl.vertexAttribPointer(position, 2, gl.FLOAT, false, 0, 0);
+    const resolution = gl.getUniformLocation(program, 'resolution');
+    const pointer = gl.getUniformLocation(program, 'pointer');
+    const time = gl.getUniformLocation(program, 'time');
+
+    const resize = () => {
+      const ratio = Math.min(window.devicePixelRatio || 1, 2);
+      canvas.width = canvas.clientWidth * ratio;
+      canvas.height = canvas.clientHeight * ratio;
+      gl.viewport(0, 0, canvas.width, canvas.height);
+      gl.uniform2f(resolution, canvas.width, canvas.height);
+    };
+    const move = (event: PointerEvent) => {
+      const rect = canvas.getBoundingClientRect();
+      pointerRef.current.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+      pointerRef.current.y = -(((event.clientY - rect.top) / rect.height) * 2 - 1);
+      const host = canvas.parentElement;
+      host?.style.setProperty('--tilt-x', `${pointerRef.current.y * -5}deg`);
+      host?.style.setProperty('--tilt-y', `${pointerRef.current.x * 7}deg`);
+    };
+    const leave = () => {
+      pointerRef.current.x *= 0.35;
+      pointerRef.current.y *= 0.35;
+      const host = canvas.parentElement;
+      host?.style.setProperty('--tilt-x', '0deg');
+      host?.style.setProperty('--tilt-y', '0deg');
+    };
+    const render = (now: number) => {
+      gl.uniform1f(time, now);
+      gl.uniform2f(pointer, pointerRef.current.x, pointerRef.current.y);
+      gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+      frameRef.current = requestAnimationFrame(render);
+    };
+
+    resize();
+    window.addEventListener('resize', resize);
+    canvas.addEventListener('pointermove', move);
+    canvas.addEventListener('pointerleave', leave);
+    frameRef.current = requestAnimationFrame(render);
+    return () => {
+      window.removeEventListener('resize', resize);
+      canvas.removeEventListener('pointermove', move);
+      canvas.removeEventListener('pointerleave', leave);
+      if (frameRef.current) cancelAnimationFrame(frameRef.current);
+      gl.deleteProgram(program);
+    };
+  }, []);
+
+  return (
+    <div className="relative h-full w-full overflow-hidden bg-[#0c111a]" data-testid="webgl-product-scene">
+      <canvas ref={canvasRef} className="h-full w-full" aria-label="Interactive floating Midnight Drive bottle" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_38%,transparent_0%,transparent_46%,rgba(5,8,13,.36)_100%)]" />
+      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[370px] w-[220px] -translate-x-1/2 -translate-y-1/2 [perspective:900px] sm:h-[490px] sm:w-[270px]">
+        <div className="bottle-3d relative h-full w-full" style={{ transform: 'rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg))' }}>
+          <div className="bottle-shadow absolute bottom-[3%] left-1/2 h-8 w-44 -translate-x-1/2 rounded-[50%] bg-black/70 blur-xl" />
+          <div className="bottle-neck absolute left-1/2 top-[13%] h-[16%] w-[28%] -translate-x-1/2 rounded-t-[28%] border border-[#a9652f]/55 bg-gradient-to-r from-[#160802] via-[#783014] to-[#210b03] shadow-[inset_10px_0_15px_rgba(255,179,104,.13),inset_-8px_0_15px_rgba(0,0,0,.7)]" />
+          <div className="bottle-cap absolute left-1/2 top-[5%] h-[12%] w-[35%] -translate-x-1/2 rounded-[28%] border border-[#e2aa60]/60 bg-gradient-to-r from-[#43210e] via-[#d19752] to-[#6e3817] shadow-[inset_6px_0_10px_rgba(255,228,168,.3),inset_-8px_0_12px_rgba(28,8,2,.7),0_4px_12px_rgba(0,0,0,.5)]" />
+          <div className="bottle-body absolute bottom-[8%] left-1/2 h-[70%] w-[68%] -translate-x-1/2 rounded-[21%_21%_13%_13%] border border-[#a85c28]/70 bg-gradient-to-r from-[#180a04] via-[#6e270d] via-45% to-[#200b04] shadow-[inset_15px_0_25px_rgba(245,166,77,.14),inset_-18px_0_25px_rgba(0,0,0,.7),0_18px_30px_rgba(0,0,0,.55)]">
+            <div className="absolute left-[13%] top-[5%] h-[82%] w-[9%] rounded-full bg-[#ffc27d]/25 blur-[3px]" />
+            <div className="absolute inset-x-[10%] top-[35%] border-y border-[#d8ad73]/45 bg-[#0e1117]/85 px-2 py-3 text-center shadow-[0_0_18px_rgba(0,0,0,.35)] sm:py-4">
+              <p className="font-mono-ui text-[7px] uppercase tracking-[.18em] text-[#e8c796]">Men&apos;s Aura</p>
+              <p className="mt-2 font-display text-xl leading-[.9] text-[#e9c38d] sm:text-2xl">Midnight</p>
+              <p className="font-display text-xl leading-[.9] text-[#e9c38d] sm:text-2xl">Drive</p>
+              <p className="mt-2 font-mono-ui text-[5px] uppercase tracking-[.12em] text-[#b9824e]">Massage oil · 100 ml</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="pointer-events-none absolute left-1/2 top-[44%] w-[136px] -translate-x-1/2 -translate-y-1/2 text-center text-[#e8c796] drop-shadow-[0_0_12px_rgba(216,173,115,.24)]" style={{ transform: 'translate(-50%, -50%) rotate(-1deg)' }}>
+        <div className="border-y border-[#d8ad73]/45 py-2">
+          <p className="font-mono-ui text-[8px] uppercase tracking-[.2em]">Men&apos;s Aura</p>
+          <p className="mt-2 font-display text-[21px] leading-none">Midnight</p>
+          <p className="font-display text-[21px] leading-none">Drive</p>
+          <p className="mt-2 font-mono-ui text-[7px] uppercase tracking-[.14em] text-[#b9824e]">Long lasting massage oil</p>
+        </div>
+      </div>
+      <div className="pointer-events-none absolute left-5 top-5 flex items-center gap-2 font-mono-ui text-[9px] uppercase tracking-[.2em] text-[#d8ad73]"><span className="h-1.5 w-1.5 rounded-full bg-[#d8ad73] shadow-[0_0_10px_#d8ad73]" /> Live formula</div>
+      <div className="pointer-events-none absolute bottom-5 left-5 right-5 flex items-center justify-between font-mono-ui text-[9px] uppercase tracking-[.2em] text-[#7f8792]"><span>Move to explore</span><span>100 ML / 01</span></div>
+    </div>
+  );
+}
+
 function Home() {
   const [orderOpen, setOrderOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -186,10 +361,9 @@ function Home() {
           </div>
           <div className="relative mt-10 flex justify-center lg:mt-0 lg:justify-end">
             <div className="absolute bottom-8 right-8 h-[78%] w-[80%] border border-[#d8ad73]/20 sm:right-10 lg:right-4" />
-            <div className="relative h-[430px] w-[min(100%,460px)] overflow-hidden border border-[#cfb58d]/25 bg-[#131a23] product-shadow sm:h-[570px] lg:h-[655px]">
-              <img src={productImage} alt="Midnight Drive massage oil bottle and box on a dark stone surface" className="h-full w-full object-cover object-center opacity-95 transition-transform duration-700 hover:scale-[1.03]" data-testid="img-hero-product" />
-              <div className="absolute inset-x-0 bottom-0 flex items-end justify-between bg-gradient-to-t from-[#0b1018] via-[#0b1018]/70 to-transparent px-5 pb-5 pt-20"><div><p className="font-mono-ui text-[9px] uppercase tracking-[.25em] text-[#d8ad73]">The original formula</p><p className="mt-1 font-display text-xl text-[#f0e4d4]">Midnight Drive / 01</p></div><span className="font-mono-ui text-[10px] text-[#8e96a1]">100 ML</span></div>
-            </div>
+             <div className="relative h-[430px] w-[min(100%,460px)] overflow-hidden border border-[#cfb58d]/25 bg-[#131a23] product-shadow sm:h-[570px] lg:h-[655px]">
+               <WebGLProductScene />
+             </div>
           </div>
         </div>
         <div className="absolute bottom-5 left-6 font-mono-ui text-[9px] uppercase tracking-[.28em] text-[#656d78] lg:left-10">01 / 05</div>
