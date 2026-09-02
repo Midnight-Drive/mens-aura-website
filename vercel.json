@@ -1,5 +1,6 @@
 {
   "framework": "vite",
+  "installCommand": "pnpm install --no-frozen-lockfile",
   "buildCommand": "pnpm -r --filter @workspace/mens-aura run build",
   "outputDirectory": "artifacts/mens-aura/dist",
   "rewrites": [

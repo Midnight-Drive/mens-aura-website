@@ -2,6 +2,7 @@
   "name": "workspace",
   "version": "0.0.0",
   "license": "MIT",
+  "packageManager": "pnpm@10.33.0",
   "scripts": {
     "preinstall": "node -e \"const fs=require('fs'); try{fs.unlinkSync('package-lock.json');}catch(e){} try{fs.unlinkSync('yarn.lock');}catch(e){}\"",
     "build": "pnpm run typecheck && pnpm -r --filter @workspace/mens-aura run build && node -e \"const fs=require('fs'); fs.mkdirSync('dist',{recursive:true}); try{fs.cpSync('artifacts/mens-aura/dist','dist',{recursive:true});}catch(e){}\"",
