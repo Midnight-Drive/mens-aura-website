@@ -1,7 +1,7 @@
 {
   "framework": "vite",
   "buildCommand": "pnpm -r --filter @workspace/mens-aura run build",
-  "outputDirectory": "artifacts/mens-aura/dist/public",
+  "outputDirectory": "artifacts/mens-aura/dist",
   "rewrites": [
     {
       "source": "/(.*)",
