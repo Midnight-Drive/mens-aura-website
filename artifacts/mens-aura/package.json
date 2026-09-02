@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite --config vite.config.ts --host 0.0.0.0",
-    "build": "vite build --config vite.config.ts",
+    "build": "vite build --config vite.config.ts && node -e \"const fs=require('fs'); fs.mkdirSync('dist/public',{recursive:true}); fs.readdirSync('dist').forEach(f=>{if(f!=='public'){ try{fs.cpSync('dist/'+f,'dist/public/'+f,{recursive:true});}catch(e){} }}); try{fs.mkdirSync('../../public',{recursive:true}); fs.readdirSync('dist').forEach(f=>{if(f!=='public'){ fs.cpSync('dist/'+f,'../../public/'+f,{recursive:true}); }});}catch(e){}\"",
     "serve": "vite preview --config vite.config.ts --host 0.0.0.0",
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
