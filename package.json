@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "preinstall": "sh -c 'rm -f package-lock.json yarn.lock; case \"$npm_config_user_agent\" in pnpm/*) ;; *) echo \"Use pnpm instead\" >&2; exit 1 ;; esac'",
+    "preinstall": "node -e \"const fs=require('fs'); try{fs.unlinkSync('package-lock.json');}catch(e){} try{fs.unlinkSync('yarn.lock');}catch(e){}\"",
     "build": "pnpm run typecheck && pnpm -r --filter @workspace/mens-aura run build && node -e \"const fs=require('fs'); fs.mkdirSync('dist',{recursive:true}); try{fs.cpSync('artifacts/mens-aura/dist','dist',{recursive:true});}catch(e){}\"",
     "typecheck:libs": "tsc --build",
     "typecheck": "pnpm run typecheck:libs && pnpm -r --filter \"./artifacts/**\" --filter \"./scripts\" --if-present run typecheck"
