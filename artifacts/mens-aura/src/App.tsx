@@ -623,15 +623,20 @@ function Home() {
           {/* Full-Screen Pure Video Background Layer - Direct Fast Stream & Instant Poster Fallback */}
           <div className="absolute inset-0 z-0 overflow-hidden bg-[#070b12]">
             <video
-              src={VIDEO_CONFIG.hero.backgroundVideo}
-              poster="/assets/midnight-drive.png"
               autoPlay
               loop
               muted
               playsInline
               preload="auto"
+              poster="/assets/midnight-drive.png"
               className="h-full w-full object-cover object-center opacity-100 transition-all duration-500"
-            />
+              onLoadedData={(e) => {
+                e.currentTarget.play().catch(() => {});
+              }}
+            >
+              <source src={VIDEO_CONFIG.hero.backgroundVideo} type="video/mp4" />
+              <source src="/videos/main1.mp4" type="video/mp4" />
+            </video>
           </div>
 
           {/* Subtle Hero Grid */}
