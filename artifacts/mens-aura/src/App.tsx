@@ -620,15 +620,17 @@ function Home() {
           id="hero"
           className="relative min-h-[calc(100vh-80px)] overflow-hidden border-b border-[#c5a059]/15 pb-0 pt-0 flex items-center"
         >
-          {/* Full-Screen Pure Video Background Layer (main1.mp4) - 100% Screen Fit */}
+          {/* Full-Screen Pure Video Background Layer - Direct Fast Stream & Instant Poster Fallback */}
           <div className="absolute inset-0 z-0 overflow-hidden bg-[#070b12]">
-            <SafeVideo
+            <video
               src={VIDEO_CONFIG.hero.backgroundVideo}
+              poster="/assets/midnight-drive.png"
               autoPlay
               loop
               muted
               playsInline
-              className="h-full w-full object-cover object-center opacity-100 transition-all duration-300"
+              preload="auto"
+              className="h-full w-full object-cover object-center opacity-100 transition-all duration-500"
             />
           </div>
 
