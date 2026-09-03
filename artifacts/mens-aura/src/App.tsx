@@ -1721,10 +1721,10 @@ function Home() {
                   href="https://wa.me/923110355309?text=Hello%20The%20Men's%20Aura%20Support"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-[#25D366] hover:underline"
+                  className="flex items-center gap-2 text-[#e5c583] hover:text-[#c5a059] transition-colors"
                 >
-                  <MessageCircle className="h-3.5 w-3.5" />
-                  <span className="font-bold">WhatsApp: +92 311 0355 309 (Text Support)</span>
+                  <MessageCircle className="h-3.5 w-3.5 text-[#c5a059]" />
+                  <span className="font-semibold">Official WhatsApp Support Concierge</span>
                 </a>
                 <div className="flex items-center gap-2 text-[#e5c583]">
                   <Mail className="h-3.5 w-3.5 text-[#c5a059]" />
