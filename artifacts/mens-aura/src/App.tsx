@@ -620,7 +620,7 @@ function Home() {
           id="hero"
           className="relative min-h-[calc(100vh-80px)] overflow-hidden border-b border-[#c5a059]/15 pb-0 pt-0 flex items-center"
         >
-          {/* Full-Screen Pure Video Background Layer - Direct Fast Stream & Instant Poster Fallback */}
+          {/* Full-Screen Pure Video Background Layer - Native 1st Frame Seamless Playback */}
           <div className="absolute inset-0 z-0 overflow-hidden bg-[#070b12]">
             <video
               autoPlay
@@ -628,7 +628,6 @@ function Home() {
               muted
               playsInline
               preload="auto"
-              poster="/assets/midnight-drive.png"
               className="h-full w-full object-cover object-center opacity-100 transition-all duration-500"
               onLoadedData={(e) => {
                 e.currentTarget.play().catch(() => {});
