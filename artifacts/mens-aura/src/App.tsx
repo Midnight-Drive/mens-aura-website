@@ -1170,6 +1170,24 @@ function Home() {
             <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-[#9aa4b5]">
               A step-by-step guidance ritual designed to maximize botanical transdermal absorption, awaken deep warmth, and restore intimate vigor.
             </p>
+
+            {/* Simple Language Quick Guide Bar for Older & Simple Users */}
+            <div className="mt-8 mx-auto max-w-3xl rounded-2xl border border-[#c5a059]/40 bg-[#0d1422] p-5 text-center shadow-xl">
+              <span className="font-mono-ui text-[11px] font-bold uppercase tracking-wider text-[#e5c583]">
+                ⚡ Aasan Tariqa-e-Istemaal (Simple 3-Step Summary)
+              </span>
+              <div className="mt-3 grid gap-3 text-left sm:grid-cols-3">
+                <div className="rounded-xl border border-[#c5a059]/20 bg-[#070b12] p-3 text-xs text-[#f4ede2]">
+                  <span className="font-bold text-[#c5a059]">1. Raat Ko Apply:</span> 4 se 6 qatray oil lein.
+                </div>
+                <div className="rounded-xl border border-[#c5a059]/20 bg-[#070b12] p-3 text-xs text-[#f4ede2]">
+                  <span className="font-bold text-[#c5a059]">2. 3 Minut Massage:</span> Halke haath se massage karein.
+                </div>
+                <div className="rounded-xl border border-[#c5a059]/20 bg-[#070b12] p-3 text-xs text-[#f4ede2]">
+                  <span className="font-bold text-[#c5a059]">3. Raat Bhar Laga Rehne Dein:</span> Subah dho lein.
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* 3-Step Process Cards */}
