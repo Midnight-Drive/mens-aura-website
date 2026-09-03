@@ -40,21 +40,21 @@ export function ContactSection() {
           <div className="flex flex-col gap-6 lg:col-span-5">
             {/* Official WhatsApp Card */}
             <Card3D depth={8}>
-              <div className="glass-obsidian-card group relative flex flex-col justify-between rounded-3xl p-8 border border-[#25D366]/30 bg-gradient-to-br from-[#091410] to-[#070b12]">
+              <div className="glass-obsidian-card group relative flex flex-col justify-between rounded-3xl p-8 border border-[#c5a059]/30 bg-[#090e17]">
                 <div>
                   <div className="flex items-center justify-between">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-[#25D366]/40 bg-[#25D366]/15 text-[#25D366] shadow-[0_0_20px_rgba(37,211,102,0.2)]">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-[#c5a059]/40 bg-[#c5a059]/15 text-[#e5c583] shadow-[0_0_20px_rgba(197,160,89,0.2)]">
                       <MessageCircle className="h-6 w-6" />
                     </div>
-                    <span className="inline-flex items-center gap-1 rounded-full border border-[#25D366]/40 bg-[#25D366]/10 px-3 py-1 font-mono-ui text-[10px] text-[#25D366]">
-                      <span className="h-2 w-2 rounded-full bg-[#25D366] animate-pulse" /> Fastest Response
+                    <span className="inline-flex items-center gap-1 rounded-full border border-[#c5a059]/40 bg-[#c5a059]/10 px-3 py-1 font-mono-ui text-[10px] text-[#e5c583]">
+                      <span className="h-2 w-2 rounded-full bg-[#c5a059] animate-pulse" /> Direct Concierge
                     </span>
                   </div>
 
                   <h3 className="font-editorial mt-6 text-2xl font-semibold text-[#f4ede2]">
                     Official WhatsApp Support
                   </h3>
-                  <p className="font-mono-ui mt-1 text-sm font-bold text-[#25D366]">
+                  <p className="font-mono-ui mt-1 text-sm font-bold text-[#c5a059]">
                     +92 311 0355 309
                   </p>
                   <p className="mt-3 text-xs leading-relaxed text-[#9aa4b5]">
@@ -62,16 +62,16 @@ export function ContactSection() {
                   </p>
                 </div>
 
-                <div className="mt-8 border-t border-[#25D366]/20 pt-5">
+                <div className="mt-8 border-t border-[#c5a059]/20 pt-5">
                   <a
                     href="https://wa.me/923110355309?text=Hello%20The%20Men's%20Aura%20Support%2C%20I%20have%20a%20question%20about%20Midnight%20Drive"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex w-full items-center justify-center gap-2.5 rounded-xl bg-[#25D366] py-3.5 font-mono-ui text-xs font-bold uppercase tracking-wider text-[#070b12] transition-transform duration-300 hover:scale-[1.02] shadow-[0_0_25px_rgba(37,211,102,0.3)]"
+                    className="gold-glow-button flex w-full items-center justify-center gap-2.5 rounded-xl py-3.5 font-mono-ui text-xs font-bold uppercase tracking-wider text-[#070b12] transition-transform duration-300 hover:scale-[1.02]"
                     data-testid="whatsapp-contact-btn"
                   >
                     <MessageCircle className="h-4 w-4" />
-                    <span>Chat on WhatsApp (+92 311 0355 309)</span>
+                    <span>Chat on WhatsApp Concierge</span>
                   </a>
                 </div>
               </div>

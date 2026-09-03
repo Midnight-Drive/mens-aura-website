@@ -476,10 +476,10 @@ function Home() {
                     href="#contact"
                     className="flex items-start gap-3 rounded-xl p-3 transition-colors hover:bg-[#c5a059]/15"
                   >
-                    <MessageCircle className="h-4 w-4 mt-0.5 shrink-0 text-[#25D366]" />
+                    <MessageCircle className="h-4 w-4 mt-0.5 shrink-0 text-[#c5a059]" />
                     <div>
                       <div className="font-editorial text-sm font-semibold text-[#f4ede2]">Contact & WhatsApp</div>
-                      <div className="text-[11px] text-[#8c97a8]">WhatsApp +92 311 0355 309</div>
+                      <div className="text-[11px] text-[#8c97a8]">Official Concierge & Support</div>
                     </div>
                   </a>
                   <a
