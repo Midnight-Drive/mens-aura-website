@@ -135,7 +135,7 @@ export function Hero3DVideo({ onOrderClick }: Hero3DVideoProps) {
             {/* Ultra High-Res Transparent Render of Bottle & Box - ZERO Background Box */}
             <img
               src="/assets/midnight-drive.png"
-              alt="The Men's Aura - Midnight Drive 100ml Bottle & Box"
+              alt="The Men's Aura - Midnight Drive 30ml Bottle & Box"
               className="h-[92%] sm:h-full w-full object-contain filter drop-shadow-[0_30px_60px_rgba(0,0,0,0.95)]"
               loading="eager"
             />
@@ -218,7 +218,7 @@ export function Hero3DVideo({ onOrderClick }: Hero3DVideoProps) {
         <div className="pointer-events-none absolute bottom-3 right-3 z-20 hidden sm:flex items-center gap-2 rounded-xl border border-[#c5a059]/25 bg-[#090e17]/85 px-3.5 py-2 backdrop-blur-md shadow-xl">
           <Award className="h-3.5 w-3.5 text-[#c5a059]" />
           <span className="font-mono-ui text-[10px] font-medium uppercase tracking-wider text-[#f4ede2]">
-            100ml Cold-Pressed Formula
+            30ml Cold-Pressed Formula
           </span>
         </div>
       </div>

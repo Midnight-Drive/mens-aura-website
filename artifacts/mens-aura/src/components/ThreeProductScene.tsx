@@ -328,7 +328,7 @@ export function ThreeProductScene({ onOrderClick }: ThreeProductSceneProps) {
 
       ctx.font = 'italic 28px "Cormorant Garamond", serif';
       ctx.fillStyle = '#a1aab7';
-      ctx.fillText('Natural Treatment Formula · 100ml', 512, 760);
+      ctx.fillText('Natural Treatment Formula · 30ml', 512, 760);
 
       // Active Actives Tag
       ctx.font = 'bold 24px "DM Mono", monospace';

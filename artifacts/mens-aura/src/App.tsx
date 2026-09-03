@@ -58,6 +58,9 @@ import { LuxuryCursor } from '@/components/LuxuryCursor';
 import { OrderModal } from '@/components/OrderModal';
 import { StickyMobileCTA } from '@/components/StickyMobileCTA';
 import { Hero3DVideo } from '@/components/Hero3DVideo';
+import { PrivacyUnboxingSection } from '@/components/PrivacyUnboxingSection';
+import { SensationSlider } from '@/components/SensationSlider';
+import { BundleOffersSection } from '@/components/BundleOffersSection';
 import { SafeVideo } from '@/components/SafeVideo';
 import { BlogSection } from '@/components/BlogSection';
 import { ContactSection } from '@/components/ContactSection';
@@ -242,8 +245,8 @@ const FAQS = [
     a: 'You do not need to pay anything online or provide bank card details. We dispatch your parcel via TCS or Trax. When the rider arrives at your doorstep, you simply inspect the outer parcel and hand the exact cash amount (PKR 2,499) to the courier.',
   },
   {
-    q: 'How long does one 100ml bottle last?',
-    a: 'Because Midnight Drive uses a concentrated cold-pressed formula with high-glide ostrich and olive bio-carriers, only 4 to 6 drops are required per ritual. One 100ml bottle comfortably lasts 6 to 8 weeks with regular daily use.',
+    q: 'How long does one 30ml bottle last?',
+    a: 'Because Midnight Drive uses a concentrated cold-pressed formula with high-glide ostrich and olive bio-carriers, only 4 to 6 drops are required per ritual. One 30ml bottle comfortably lasts 3 to 4 weeks with regular daily use.',
   },
 ];
 
@@ -733,7 +736,7 @@ function Home() {
                   <span className="hidden text-[#c5a059]/40 sm:inline">|</span>
                   <div className="flex items-center gap-1.5 text-[11px] text-[#dbe2ee]">
                     <Sparkles className="h-3.5 w-3.5 text-[#c5a059]" />
-                    <span>Pay Cash When Delivered (100ml Dropper)</span>
+                    <span>Pay Cash When Delivered (30ml Dropper)</span>
                   </div>
                 </div>
               </div>
@@ -1004,6 +1007,11 @@ function Home() {
             </div>
           </div>
         </section>
+
+        {/* ========================================================================= */}
+        {/* 3.5 MULTI-BOTTLE 30ML QUANTITY BUNDLES & OFFERS */}
+        {/* ========================================================================= */}
+        <BundleOffersSection onSelectBundle={(qty) => handleShopifyOrder(qty)} />
 
         {/* ========================================================================= */}
         {/* 4. THE 5 BOTANICAL ACTIVES (INGREDIENTS DEEP DIVE) */}
@@ -1300,6 +1308,16 @@ function Home() {
             </div>
           </div>
         </section>
+
+        {/* ========================================================================= */}
+        {/* 6.5 APPLICATION SENSATION TIMELINE SLIDER */}
+        {/* ========================================================================= */}
+        <SensationSlider />
+
+        {/* ========================================================================= */}
+        {/* 7. DISCREET UNBOXING 3D PRIVACY SIMULATOR */}
+        {/* ========================================================================= */}
+        <PrivacyUnboxingSection />
 
         {/* ========================================================================= */}
         {/* 7.5 DOCTOR & MEDICAL EXPERT AI HIGHLIGHTS SHOWCASE */}

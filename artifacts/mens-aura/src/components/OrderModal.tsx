@@ -60,10 +60,10 @@ export function OrderModal({ onClose }: OrderModalProps) {
 
   // Updated Official Pre-Launch Pricing
   const getPricing = (qty: number) => {
-    if (qty === 1) return { total: 2499, original: 3000, savings: 501, title: 'Single Bottle (100ml) — Pre-Launch Offer' };
-    if (qty === 2) return { total: 4499, original: 6000, savings: 1501, title: 'Duopack (2x 100ml) — Save PKR 1,501' };
-    if (qty === 3) return { total: 6299, original: 9000, savings: 2701, title: 'Triopack Complete Ritual — Save PKR 2,701' };
-    return { total: qty * 2200, original: qty * 3000, savings: qty * 800, title: `${qty}x Master Pack` };
+    if (qty === 1) return { total: 2499, original: 3000, savings: 501, title: 'Single Bottle (30ml) — Pre-Launch Offer' };
+    if (qty === 2) return { total: 4499, original: 6000, savings: 1501, title: 'Duopack (2x 30ml) — Save PKR 1,501' };
+    if (qty === 3) return { total: 5999, original: 9000, savings: 3001, title: 'Triopack Master Pack (3x 30ml) — Save PKR 3,001' };
+    return { total: qty * 2000, original: qty * 3000, savings: qty * 1000, title: `${qty}x Master Pack (30ml)` };
   };
 
   const currentPricing = getPricing(quantity);
@@ -127,7 +127,7 @@ export function OrderModal({ onClose }: OrderModalProps) {
               </div>
               <div className="mt-3 flex items-center justify-between text-xs text-[#8c97a8]">
                 <span>Product Selected:</span>
-                <span className="text-[#f4ede2]">Midnight Drive (100ml) × {quantity}</span>
+                <span className="text-[#f4ede2]">Midnight Drive (30ml) × {quantity}</span>
               </div>
               <div className="mt-2 flex items-center justify-between text-xs text-[#8c97a8]">
                 <span>Destination:</span>
