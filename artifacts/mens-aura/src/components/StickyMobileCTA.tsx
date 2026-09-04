@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import { ShoppingBag, MessageCircle, ShieldCheck } from 'lucide-react';
 
 interface StickyMobileCTAProps {
@@ -6,23 +5,6 @@ interface StickyMobileCTAProps {
 }
 
 export function StickyMobileCTA({ onOrderClick }: StickyMobileCTAProps) {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 300) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  if (!isVisible) return null;
-
   const handleWhatsAppClick = () => {
     const text = encodeURIComponent(
       "Hello The Men's Aura Support! I want to order Midnight Drive 30ml (PKR 2,499) Cash on Delivery. Please confirm my order."

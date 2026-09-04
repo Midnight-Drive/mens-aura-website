@@ -305,20 +305,42 @@ function Home() {
       {/* Ambient Gradient Mesh Background */}
       <div className="ambient-mesh pointer-events-none fixed inset-0 z-0" />
 
-      {/* Top Announcement Ribbon */}
-      <div className="relative z-50 border-b border-[#c5a059]/20 bg-[#070a10]/95 px-3 py-1.5 text-center text-xs backdrop-blur-md">
-        <div className="mx-auto flex max-w-6xl items-center justify-center gap-2 sm:gap-6 overflow-hidden">
-          <span className="flex shrink-0 items-center gap-1.5 font-mono-ui text-[9px] sm:text-[10px] uppercase tracking-wider sm:tracking-[0.2em] text-[#e5c583]">
+      {/* Desktop Top Announcement Ribbon */}
+      <div className="relative z-50 hidden sm:block border-b border-[#c5a059]/20 bg-[#070a10]/95 px-4 py-2 text-center text-xs backdrop-blur-md">
+        <div className="mx-auto flex max-w-6xl items-center justify-center gap-6">
+          <span className="flex items-center gap-1.5 font-mono-ui text-[10px] uppercase tracking-[0.2em] text-[#e5c583]">
             <Sparkles className="h-3 w-3 text-[#c5a059]" /> Pre-Launch Batch: PKR 2,499 <span className="line-through text-[#8c97a8]">PKR 3,000</span>
           </span>
-          <span className="hidden text-[#c5a059]/40 sm:inline">•</span>
-          <span className="hidden items-center gap-1.5 font-mono-ui text-[10px] uppercase tracking-[0.2em] text-[#8c97a8] sm:flex">
+          <span className="text-[#c5a059]/40">•</span>
+          <span className="flex items-center gap-1.5 font-mono-ui text-[10px] uppercase tracking-[0.2em] text-[#8c97a8]">
             <Lock className="h-3 w-3 text-[#c5a059]" /> 100% Discreet Unbranded Packaging
           </span>
-          <span className="hidden text-[#c5a059]/40 sm:inline">•</span>
-          <span className="flex shrink-0 items-center gap-1.5 font-mono-ui text-[9px] sm:text-[10px] uppercase tracking-wider sm:tracking-[0.2em] text-[#c5a059]">
+          <span className="text-[#c5a059]/40">•</span>
+          <span className="flex items-center gap-1.5 font-mono-ui text-[10px] uppercase tracking-[0.2em] text-[#c5a059]">
             <Truck className="h-3 w-3" /> Free Express COD All Across Pakistan
           </span>
+        </div>
+      </div>
+
+      {/* Mobile Top Announcement Streaming Ticker */}
+      <div className="relative z-50 block sm:hidden overflow-hidden border-b border-[#c5a059]/20 bg-[#070a10]/95 py-2 backdrop-blur-md marquee-container">
+        <div className="marquee-track flex items-center gap-6 whitespace-nowrap font-mono-ui text-[10px] uppercase tracking-wider text-[#e5c583]">
+          {Array.from({ length: 4 }).flatMap((_, loopIdx) => (
+            <div key={loopIdx} className="flex items-center gap-6">
+              <span className="flex items-center gap-1 text-[#e5c583]">
+                <Sparkles className="h-3 w-3 text-[#c5a059]" /> Pre-Launch Batch: PKR 2,499 <span className="line-through text-[#8c97a8] ml-1">PKR 3,000</span>
+              </span>
+              <span className="text-[#c5a059]/40">•</span>
+              <span className="flex items-center gap-1 text-[#8c97a8]">
+                <Lock className="h-3 w-3 text-[#c5a059]" /> 100% Discreet Packaging
+              </span>
+              <span className="text-[#c5a059]/40">•</span>
+              <span className="flex items-center gap-1 text-[#c5a059]">
+                <Truck className="h-3 w-3" /> Free Express COD Pakistan
+              </span>
+              <span className="text-[#c5a059]/40">•</span>
+            </div>
+          ))}
         </div>
       </div>
 
