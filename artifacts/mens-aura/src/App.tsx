@@ -654,7 +654,7 @@ function Home() {
               playsInline
               preload="auto"
               poster="/assets/hero-poster-custom.jpg"
-              className="h-full w-full object-cover object-[75%_center] sm:object-center opacity-100 transition-all duration-500"
+              className="h-full w-full object-cover object-[75%_center] lg:object-center opacity-25 lg:opacity-100 transition-all duration-500"
               onLoadedData={(e) => {
                 e.currentTarget.play().catch(() => {});
               }}
@@ -662,6 +662,8 @@ function Home() {
               <source src={VIDEO_CONFIG.hero.backgroundVideo} type="video/mp4" />
               <source src="/videos/main1.mp4" type="video/mp4" />
             </video>
+            {/* Mobile Ambient Obsidian Dark Overlay for 100% Text Readability */}
+            <div className="absolute inset-0 bg-gradient-to-b from-[#070b12]/95 via-[#070b12]/90 to-[#070b12] lg:hidden pointer-events-none" />
           </div>
 
           {/* Subtle Hero Grid */}
@@ -760,6 +762,33 @@ function Home() {
                   <div className="flex items-center gap-1.5 text-[10px] sm:text-[11px] text-[#dbe2ee]">
                     <Sparkles className="h-3.5 w-3.5 shrink-0 text-[#c5a059]" />
                     <span>Pay Cash When Delivered (30ml Dropper)</span>
+                  </div>
+                </div>
+
+                {/* Mobile Dedicated 16:9 Video Showcase Card (Visible on mobile/tablet, hidden on desktop) */}
+                <div className="mt-7 w-full lg:hidden">
+                  <div className="relative overflow-hidden rounded-2xl border border-[#c5a059]/40 bg-[#070a10] shadow-[0_20px_50px_rgba(0,0,0,0.9)] aspect-video">
+                    <video
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      preload="auto"
+                      poster="/assets/hero-poster-custom.jpg"
+                      className="h-full w-full object-cover"
+                      onLoadedData={(e) => {
+                        e.currentTarget.play().catch(() => {});
+                      }}
+                    >
+                      <source src={VIDEO_CONFIG.hero.backgroundVideo} type="video/mp4" />
+                      <source src="/videos/main1.mp4" type="video/mp4" />
+                    </video>
+                    <div className="absolute top-3 left-3 z-20">
+                      <span className="inline-flex items-center gap-1.5 rounded-full border border-[#c5a059]/40 bg-[#090e17]/90 px-3 py-1 font-mono-ui text-[9px] uppercase tracking-wider text-[#e5c583] backdrop-blur-md">
+                        <Sparkles className="h-3 w-3 text-[#c5a059]" />
+                        3D 4K Product Showcase
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
