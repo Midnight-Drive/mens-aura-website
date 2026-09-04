@@ -58,15 +58,15 @@ export function BundleOffersSection({ onSelectBundle }: BundleOffersProps) {
   return (
     <section
       id="bundles"
-      className="relative border-t border-[#c5a059]/15 bg-gradient-to-b from-[#070b12] via-[#0b101a] to-[#070b12] py-24 sm:py-32"
+      className="relative border-t border-[#c5a059]/15 bg-gradient-to-b from-[#070b12] via-[#0b101a] to-[#070b12] py-16 sm:py-32"
     >
-      <div className="mx-auto max-w-7xl px-5 sm:px-8">
+      <div className="mx-auto max-w-7xl px-4 sm:px-8">
         {/* Header */}
         <div className="text-center">
           <div className="inline-flex items-center gap-2 rounded-full border border-[#c5a059]/30 bg-[#c5a059]/10 px-4 py-1.5 font-mono-ui text-[10px] uppercase tracking-[0.25em] text-[#e5c583]">
             <Sparkles className="h-3.5 w-3.5 text-[#c5a059]" /> Pre-Launch Bundle Offers
           </div>
-          <h2 className="font-editorial mx-auto mt-4 max-w-3xl text-4xl font-normal text-[#f4ede2] sm:text-5xl lg:text-6xl">
+          <h2 className="font-editorial mx-auto mt-4 max-w-3xl text-3xl font-normal text-[#f4ede2] sm:text-5xl lg:text-6xl">
             Choose Your <em className="text-gold-gradient italic">30ml Routine Pack.</em>
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-[#9aa4b5]">
@@ -75,7 +75,7 @@ export function BundleOffersSection({ onSelectBundle }: BundleOffersProps) {
         </div>
 
         {/* 3 Bundle Cards Grid */}
-        <div className="mt-16 grid gap-8 lg:grid-cols-3">
+        <div className="mt-12 sm:mt-16 grid gap-6 sm:gap-8 lg:grid-cols-3">
           {BUNDLES.map((b) => {
             const isSelected = selectedQty === b.qty;
 
@@ -83,9 +83,9 @@ export function BundleOffersSection({ onSelectBundle }: BundleOffersProps) {
               <Card3D key={b.qty} depth={b.popular ? 12 : 8}>
                 <div
                   onClick={() => setSelectedQty(b.qty)}
-                  className={`glass-obsidian-card group relative flex flex-col justify-between rounded-3xl p-8 transition-all duration-300 cursor-pointer ${
+                  className={`glass-obsidian-card group relative flex flex-col justify-between rounded-3xl p-5 sm:p-8 transition-all duration-300 cursor-pointer ${
                     b.popular
-                      ? 'border-2 border-[#c5a059] bg-gradient-to-b from-[#111929] via-[#090e17] to-[#111929] shadow-[0_0_40px_rgba(197,160,89,0.25)] scale-[1.03]'
+                      ? 'border-2 border-[#c5a059] bg-gradient-to-b from-[#111929] via-[#090e17] to-[#111929] shadow-[0_0_40px_rgba(197,160,89,0.25)] lg:scale-[1.03]'
                       : 'border border-[#c5a059]/25 bg-[#090e17] hover:border-[#c5a059]/50'
                   }`}
                   data-testid={`bundle-card-${b.qty}`}

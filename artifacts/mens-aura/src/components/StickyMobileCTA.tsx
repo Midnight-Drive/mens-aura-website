@@ -31,9 +31,9 @@ export function StickyMobileCTA({ onOrderClick }: StickyMobileCTAProps) {
   };
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 border-t border-[#c5a059]/40 bg-[#070b12]/98 p-3 backdrop-blur-2xl transition-all duration-300 md:hidden animate-in slide-in-from-bottom duration-300 shadow-[0_-10px_30px_rgba(0,0,0,0.9)]">
+    <div className="fixed bottom-0 left-0 right-0 z-50 border-t border-[#c5a059]/40 bg-[#070b12]/98 px-3 py-2.5 backdrop-blur-2xl transition-all duration-300 md:hidden animate-in slide-in-from-bottom duration-300 shadow-[0_-10px_30px_rgba(0,0,0,0.9)]">
       {/* Simple Trust Micro Banner */}
-      <div className="mb-2 flex items-center justify-between px-1 text-[9.5px] font-medium text-[#e5c583]">
+      <div className="mb-1.5 flex items-center justify-between px-1 text-[9px] sm:text-[9.5px] font-medium text-[#e5c583]">
         <span className="flex items-center gap-1">
           <ShieldCheck className="h-3 w-3 text-[#c5a059]" />
           <span>Saada Secret Box (No Name)</span>
@@ -46,7 +46,7 @@ export function StickyMobileCTA({ onOrderClick }: StickyMobileCTAProps) {
         <button
           type="button"
           onClick={onOrderClick}
-          className="gold-glow-button relative flex items-center justify-center gap-1.5 overflow-hidden rounded-xl py-3 font-mono-ui text-[11px] font-bold uppercase tracking-wider text-[#0b0f17]"
+          className="gold-glow-button relative flex items-center justify-center gap-1.5 overflow-hidden rounded-xl py-2.5 font-mono-ui text-[10.5px] font-bold uppercase tracking-wider text-[#0b0f17]"
           data-testid="mobile-sticky-order-btn"
         >
           <span className="btn-shine" />
@@ -58,7 +58,7 @@ export function StickyMobileCTA({ onOrderClick }: StickyMobileCTAProps) {
         <button
           type="button"
           onClick={handleWhatsAppClick}
-          className="flex items-center justify-center gap-1.5 rounded-xl border border-[#c5a059]/50 bg-[#0d1422] py-3 font-mono-ui text-[11px] font-bold uppercase tracking-wider text-[#e5c583] hover:bg-[#c5a059]/20 transition-colors"
+          className="flex items-center justify-center gap-1.5 rounded-xl border border-[#c5a059]/50 bg-[#0d1422] py-2.5 font-mono-ui text-[10.5px] font-bold uppercase tracking-wider text-[#e5c583] hover:bg-[#c5a059]/20 transition-colors"
           data-testid="mobile-sticky-whatsapp-btn"
         >
           <MessageCircle className="h-3.5 w-3.5 text-[#c5a059]" />

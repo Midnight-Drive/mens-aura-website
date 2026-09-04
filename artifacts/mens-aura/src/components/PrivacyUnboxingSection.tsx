@@ -28,34 +28,34 @@ export function PrivacyUnboxingSection() {
         </div>
 
         {/* Interactive Unboxing Toggle Box */}
-        <div className="mt-14 mx-auto max-w-4xl">
+        <div className="mt-10 sm:mt-14 mx-auto max-w-4xl">
           {/* Toggle Tab Switcher */}
-          <div className="flex items-center justify-center gap-3">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-2.5 sm:gap-3">
             <button
               type="button"
               onClick={() => setViewMode('outer')}
-              className={`flex items-center gap-2 rounded-2xl px-6 py-3 font-mono-ui text-xs font-bold uppercase tracking-wider transition-all duration-300 ${
+              className={`flex items-center justify-center gap-2 rounded-2xl px-4 py-3 sm:px-6 font-mono-ui text-[11px] sm:text-xs font-bold uppercase tracking-wider transition-all duration-300 ${
                 viewMode === 'outer'
                   ? 'border border-[#c5a059] bg-[#c5a059] text-[#070b12] shadow-[0_0_20px_rgba(197,160,89,0.35)]'
                   : 'border border-[#c5a059]/30 bg-[#090e17] text-[#8c97a8] hover:border-[#c5a059]/60 hover:text-[#f4ede2]'
               }`}
               data-testid="unboxing-outer-tab"
             >
-              <PackageCheck className="h-4 w-4" />
+              <PackageCheck className="h-4 w-4 shrink-0" />
               <span>1. Outer Box (What Courier & Family Sees)</span>
             </button>
 
             <button
               type="button"
               onClick={() => setViewMode('inner')}
-              className={`flex items-center gap-2 rounded-2xl px-6 py-3 font-mono-ui text-xs font-bold uppercase tracking-wider transition-all duration-300 ${
+              className={`flex items-center justify-center gap-2 rounded-2xl px-4 py-3 sm:px-6 font-mono-ui text-[11px] sm:text-xs font-bold uppercase tracking-wider transition-all duration-300 ${
                 viewMode === 'inner'
                   ? 'border border-[#c5a059] bg-[#c5a059] text-[#070b12] shadow-[0_0_20px_rgba(197,160,89,0.35)]'
                   : 'border border-[#c5a059]/30 bg-[#090e17] text-[#8c97a8] hover:border-[#c5a059]/60 hover:text-[#f4ede2]'
               }`}
               data-testid="unboxing-inner-tab"
             >
-              <Eye className="h-4 w-4" />
+              <Eye className="h-4 w-4 shrink-0" />
               <span>2. Inside Box (Your Private 30ml Bottle)</span>
             </button>
           </div>

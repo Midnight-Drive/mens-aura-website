@@ -40,15 +40,15 @@ export function SensationSlider() {
   return (
     <section
       id="sensation-timeline"
-      className="relative border-t border-[#c5a059]/15 bg-[#070b12] py-24 sm:py-32 overflow-hidden"
+      className="relative border-t border-[#c5a059]/15 bg-[#070b12] py-16 sm:py-32 overflow-hidden"
     >
-      <div className="mx-auto max-w-7xl px-5 sm:px-8">
+      <div className="mx-auto max-w-7xl px-4 sm:px-8">
         {/* Header */}
         <div className="text-center">
           <div className="inline-flex items-center gap-2 rounded-full border border-[#c5a059]/30 bg-[#c5a059]/10 px-4 py-1.5 font-mono-ui text-[10px] uppercase tracking-[0.25em] text-[#e5c583]">
             <Clock className="h-3.5 w-3.5 text-[#c5a059]" /> Application & Sensation Timeline
           </div>
-          <h2 className="font-editorial mx-auto mt-4 max-w-3xl text-4xl font-normal text-[#f4ede2] sm:text-5xl lg:text-6xl">
+          <h2 className="font-editorial mx-auto mt-4 max-w-3xl text-3xl font-normal text-[#f4ede2] sm:text-5xl lg:text-6xl">
             What You Feel <em className="text-gold-gradient italic">From Minute 1.</em>
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-[#9aa4b5]">
@@ -57,7 +57,7 @@ export function SensationSlider() {
         </div>
 
         {/* Timeline Stage Buttons */}
-        <div className="mt-14 flex items-center justify-center gap-3 sm:gap-6 flex-wrap">
+        <div className="mt-10 flex items-center justify-center gap-2 sm:gap-6 flex-wrap">
           {STAGES.map((s, idx) => {
             const StageIcon = s.icon;
             const isActive = activeStage === idx;
@@ -67,18 +67,18 @@ export function SensationSlider() {
                 key={s.step}
                 type="button"
                 onClick={() => setActiveStage(idx)}
-                className={`flex items-center gap-3 rounded-2xl px-5 py-3.5 transition-all duration-300 ${
+                className={`flex items-center gap-2.5 rounded-2xl px-3.5 py-2.5 sm:px-5 sm:py-3.5 transition-all duration-300 ${
                   isActive
                     ? 'border border-[#c5a059] bg-[#c5a059] text-[#070b12] shadow-[0_0_25px_rgba(197,160,89,0.35)] scale-105'
                     : 'border border-[#c5a059]/25 bg-[#090e17] text-[#8c97a8] hover:border-[#c5a059]/50 hover:text-[#f4ede2]'
                 }`}
                 data-testid={`sensation-stage-${idx}`}
               >
-                <div className={`flex h-7 w-7 items-center justify-center rounded-lg ${isActive ? 'bg-[#070b12] text-[#e5c583]' : 'bg-[#c5a059]/15 text-[#c5a059]'}`}>
-                  <StageIcon className="h-4 w-4" />
+                <div className={`flex h-6 w-6 sm:h-7 sm:w-7 items-center justify-center rounded-lg ${isActive ? 'bg-[#070b12] text-[#e5c583]' : 'bg-[#c5a059]/15 text-[#c5a059]'}`}>
+                  <StageIcon className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                 </div>
                 <div className="text-left">
-                  <div className="font-mono-ui text-[10px] uppercase tracking-wider opacity-80">
+                  <div className="font-mono-ui text-[9px] sm:text-[10px] uppercase tracking-wider opacity-80">
                     Stage 0{s.step}
                   </div>
                   <div className="font-editorial text-xs font-bold sm:text-sm">
@@ -91,9 +91,9 @@ export function SensationSlider() {
         </div>
 
         {/* Active Stage Display Card */}
-        <div className="mt-10 mx-auto max-w-3xl">
+        <div className="mt-8 sm:mt-10 mx-auto max-w-3xl">
           <Card3D depth={8}>
-            <div className="glass-obsidian-card relative rounded-3xl border border-[#c5a059]/30 bg-gradient-to-br from-[#0a101c] via-[#070b12] to-[#0a101c] p-8 sm:p-10 shadow-2xl">
+            <div className="glass-obsidian-card relative rounded-3xl border border-[#c5a059]/30 bg-gradient-to-br from-[#0a101c] via-[#070b12] to-[#0a101c] p-5 sm:p-10 shadow-2xl">
               <div className="flex items-center justify-between border-b border-[#c5a059]/15 pb-6">
                 <div className="flex items-center gap-3">
                   <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-[#c5a059]/40 bg-[#c5a059]/15 text-[#e5c583] shadow-[0_0_20px_rgba(197,160,89,0.2)]">

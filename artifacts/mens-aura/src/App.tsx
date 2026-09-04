@@ -306,9 +306,9 @@ function Home() {
       <div className="ambient-mesh pointer-events-none fixed inset-0 z-0" />
 
       {/* Top Announcement Ribbon */}
-      <div className="relative z-50 border-b border-[#c5a059]/20 bg-[#070a10]/90 px-4 py-2 text-center text-xs backdrop-blur-md">
-        <div className="mx-auto flex max-w-6xl items-center justify-center gap-2 sm:gap-6">
-          <span className="flex items-center gap-1.5 font-mono-ui text-[10px] uppercase tracking-[0.2em] text-[#e5c583]">
+      <div className="relative z-50 border-b border-[#c5a059]/20 bg-[#070a10]/95 px-3 py-1.5 text-center text-xs backdrop-blur-md">
+        <div className="mx-auto flex max-w-6xl items-center justify-center gap-2 sm:gap-6 overflow-hidden">
+          <span className="flex shrink-0 items-center gap-1.5 font-mono-ui text-[9px] sm:text-[10px] uppercase tracking-wider sm:tracking-[0.2em] text-[#e5c583]">
             <Sparkles className="h-3 w-3 text-[#c5a059]" /> Pre-Launch Batch: PKR 2,499 <span className="line-through text-[#8c97a8]">PKR 3,000</span>
           </span>
           <span className="hidden text-[#c5a059]/40 sm:inline">•</span>
@@ -316,7 +316,7 @@ function Home() {
             <Lock className="h-3 w-3 text-[#c5a059]" /> 100% Discreet Unbranded Packaging
           </span>
           <span className="hidden text-[#c5a059]/40 sm:inline">•</span>
-          <span className="flex items-center gap-1.5 font-mono-ui text-[10px] uppercase tracking-[0.2em] text-[#c5a059]">
+          <span className="flex shrink-0 items-center gap-1.5 font-mono-ui text-[9px] sm:text-[10px] uppercase tracking-wider sm:tracking-[0.2em] text-[#c5a059]">
             <Truck className="h-3 w-3" /> Free Express COD All Across Pakistan
           </span>
         </div>
@@ -615,13 +615,13 @@ function Home() {
         )}
       </header>
 
-      <main>
+      <main className="pb-28 md:pb-0">
         {/* ========================================================================= */}
         {/* 1. HERO SECTION WITH DIRECT 16:9 VIDEO BACKGROUND */}
         {/* ========================================================================= */}
         <section
           id="hero"
-          className="relative min-h-[calc(100vh-80px)] overflow-hidden border-b border-[#c5a059]/15 pb-0 pt-0 flex items-center"
+          className="relative min-h-[calc(100vh-80px)] overflow-hidden border-b border-[#c5a059]/15 pb-8 pt-6 sm:py-16 flex items-center"
         >
           {/* Full-Screen Pure Video Background Layer - Custom Bottle Thumbnail & Fast Video Stream */}
           <div className="absolute inset-0 z-0 overflow-hidden bg-[#070b12]">
@@ -632,7 +632,7 @@ function Home() {
               playsInline
               preload="auto"
               poster="/assets/hero-poster-custom.jpg"
-              className="h-full w-full object-cover object-center opacity-100 transition-all duration-500"
+              className="h-full w-full object-cover object-[75%_center] sm:object-center opacity-100 transition-all duration-500"
               onLoadedData={(e) => {
                 e.currentTarget.play().catch(() => {});
               }}
@@ -645,97 +645,98 @@ function Home() {
           {/* Subtle Hero Grid */}
           <div className="luxury-grid pointer-events-none absolute inset-0 z-[2] opacity-10" />
 
-          <div className="relative z-10 mx-auto max-w-7xl px-5 sm:px-8 py-16 sm:py-20 lg:py-24 w-full">
-            <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-8 hero-grid">
+          <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-8 py-6 sm:py-20 lg:py-24 w-full">
+            <div className="grid items-center gap-8 lg:grid-cols-12 lg:gap-8 hero-grid">
               {/* Left Column: Brand Copy & CTAs Floating Directly Over Video */}
               <div className="flex flex-col items-start lg:col-span-7 xl:col-span-6">
                 {/* Pre-title Badge */}
-                <div className="inline-flex items-center gap-2.5 rounded-full border border-[#c5a059]/35 bg-[#0e1624]/90 px-4 py-1.5 backdrop-blur-md shadow-2xl">
+                <div className="inline-flex items-center gap-2 rounded-full border border-[#c5a059]/35 bg-[#0e1624]/90 px-3 py-1 sm:px-4 sm:py-1.5 backdrop-blur-md shadow-2xl">
                   <span className="h-2 w-2 rounded-full bg-[#c5a059] shadow-[0_0_10px_#c5a059]" />
-                  <span className="font-mono-ui text-[10px] uppercase tracking-[0.25em] text-[#e5c583]">
+                  <span className="font-mono-ui text-[9px] sm:text-[10px] uppercase tracking-wider sm:tracking-[0.25em] text-[#e5c583]">
                     Pre-Launch Offer · Limited Batch #MD-042
                   </span>
                 </div>
 
                 {/* Main Headline */}
-                <h1 className="font-editorial mt-6 text-4xl font-normal leading-[1.05] tracking-tight text-[#f4ede2] sm:text-6xl lg:text-[4.85rem] drop-shadow-xl">
+                <h1 className="font-editorial mt-4 sm:mt-6 text-3xl font-normal leading-tight tracking-tight text-[#f4ede2] sm:text-6xl lg:text-[4.85rem] drop-shadow-xl">
                   Feel the<br />
                   <em className="text-gold-gradient font-serif italic font-light">Difference</em> <br />
-                  <span className="font-cinzel text-3xl font-semibold tracking-wider sm:text-5xl lg:text-[3.7rem]">
+                  <span className="font-cinzel text-2.5xl font-semibold tracking-wider sm:text-5xl lg:text-[3.7rem]">
                     Tonight.
                   </span>
                 </h1>
 
                 {/* Subtitle / Brand Copy */}
-                <p className="mt-6 max-w-xl text-base leading-relaxed text-[#dbe2ee] sm:text-lg drop-shadow-lg">
+                <p className="mt-4 sm:mt-6 max-w-xl text-sm leading-relaxed text-[#dbe2ee] sm:text-lg drop-shadow-lg">
                   Pakistan's most powerful natural vitality oil. Made from <strong className="text-[#f4ede2]">Raig Mahi, Clove & Ostrich Oil</strong> — trusted for centuries. Boost your <strong className="text-[#f4ede2]">energy, confidence & intimate life</strong>. Feel the warmth from the very first use.
                 </p>
 
-                {/* Core Value Micro-Bullets with 3D depth */}
-                <div className="mt-8 grid w-full grid-cols-1 gap-3.5 sm:grid-cols-2 sm:gap-4 max-w-xl">
-                  <div className="flex items-center gap-2.5 rounded-xl border border-[#c5a059]/30 bg-[#0e1522]/90 p-3.5 backdrop-blur-md shadow-xl transition-all hover:border-[#c5a059]">
-                    <ShieldCheck className="h-4 w-4 shrink-0 text-[#c5a059]" />
-                    <span className="text-xs font-medium text-[#f4ede2]">Boosts Energy & Stamina</span>
+                {/* Core Value Micro-Bullets with 3D depth - Compact 2-column grid on mobile */}
+                <div className="mt-6 sm:mt-8 grid w-full grid-cols-2 gap-2 sm:gap-4 max-w-xl">
+                  <div className="flex items-center gap-2 rounded-xl border border-[#c5a059]/30 bg-[#0e1522]/90 p-2.5 sm:p-3.5 backdrop-blur-md shadow-xl transition-all hover:border-[#c5a059]">
+                    <ShieldCheck className="h-3.5 w-3.5 sm:h-4 sm:w-4 shrink-0 text-[#c5a059]" />
+                    <span className="text-[10.5px] sm:text-xs font-medium text-[#f4ede2] leading-tight">Boosts Energy & Stamina</span>
                   </div>
-                  <div className="flex items-center gap-2.5 rounded-xl border border-[#c5a059]/30 bg-[#0e1522]/90 p-3.5 backdrop-blur-md shadow-xl transition-all hover:border-[#c5a059]">
-                    <Flame className="h-4 w-4 shrink-0 text-[#c5a059]" />
-                    <span className="text-xs font-medium text-[#f4ede2]">Builds Real Confidence</span>
+                  <div className="flex items-center gap-2 rounded-xl border border-[#c5a059]/30 bg-[#0e1522]/90 p-2.5 sm:p-3.5 backdrop-blur-md shadow-xl transition-all hover:border-[#c5a059]">
+                    <Flame className="h-3.5 w-3.5 sm:h-4 sm:w-4 shrink-0 text-[#c5a059]" />
+                    <span className="text-[10.5px] sm:text-xs font-medium text-[#f4ede2] leading-tight">Builds Real Confidence</span>
                   </div>
-                  <div className="flex items-center gap-2.5 rounded-xl border border-[#c5a059]/30 bg-[#0e1522]/90 p-3.5 backdrop-blur-md shadow-xl transition-all hover:border-[#c5a059]">
-                    <Droplets className="h-4 w-4 shrink-0 text-[#c5a059]" />
-                    <span className="text-xs font-medium text-[#f4ede2]">Strengthens Intimate Life</span>
+                  <div className="flex items-center gap-2 rounded-xl border border-[#c5a059]/30 bg-[#0e1522]/90 p-2.5 sm:p-3.5 backdrop-blur-md shadow-xl transition-all hover:border-[#c5a059]">
+                    <Droplets className="h-3.5 w-3.5 sm:h-4 sm:w-4 shrink-0 text-[#c5a059]" />
+                    <span className="text-[10.5px] sm:text-xs font-medium text-[#f4ede2] leading-tight">Strengthens Intimate Life</span>
                   </div>
-                  <div className="flex items-center gap-2.5 rounded-xl border border-[#c5a059]/30 bg-[#0e1522]/90 p-3.5 backdrop-blur-md shadow-xl transition-all hover:border-[#c5a059]">
-                    <Truck className="h-4 w-4 shrink-0 text-[#c5a059]" />
-                    <span className="text-xs font-medium text-[#f4ede2]">Plain Packaging · COD</span>
+                  <div className="flex items-center gap-2 rounded-xl border border-[#c5a059]/30 bg-[#0e1522]/90 p-2.5 sm:p-3.5 backdrop-blur-md shadow-xl transition-all hover:border-[#c5a059]">
+                    <Truck className="h-3.5 w-3.5 sm:h-4 sm:w-4 shrink-0 text-[#c5a059]" />
+                    <span className="text-[10.5px] sm:text-xs font-medium text-[#f4ede2] leading-tight">Plain Packaging · COD</span>
                   </div>
                 </div>
 
                 {/* Pricing & CTA Actions */}
-                <div className="mt-9 flex w-full flex-col gap-4 sm:flex-row sm:items-center">
+                <div className="mt-6 sm:mt-9 flex w-full flex-col gap-3 sm:flex-row sm:items-center">
                   <button
                     type="button"
                     onClick={() => handleShopifyOrder(1)}
                     disabled={isCheckingOut}
-                    className="gold-glow-button group relative flex items-center justify-center gap-3 overflow-hidden rounded-xl px-8 py-4 font-mono-ui text-xs font-bold uppercase tracking-[0.2em] text-[#0b0f17] transition-all disabled:opacity-80 shadow-2xl"
+                    className="gold-glow-button group relative flex items-center justify-center gap-2.5 overflow-hidden rounded-xl px-5 py-3.5 sm:px-8 sm:py-4 font-mono-ui text-xs font-bold uppercase tracking-wider sm:tracking-[0.2em] text-[#0b0f17] transition-all disabled:opacity-80 shadow-2xl"
                     data-testid="hero-primary-order-btn"
                   >
                     <span className="btn-shine" />
                     {isCheckingOut ? (
                       <>
                         <span className="h-4 w-4 animate-spin rounded-full border-2 border-[#0b0f17] border-t-transparent" />
-                        <span>Redirecting to Shopify...</span>
+                        <span>Redirecting to Checkout...</span>
                       </>
                     ) : (
                       <>
-                        <ShoppingBag className="h-4 w-4 transition-transform duration-300 group-hover:scale-110" />
-                        <span>Order Midnight Drive — Cash on Delivery</span>
-                        <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                        <ShoppingBag className="h-4 w-4 shrink-0 transition-transform duration-300 group-hover:scale-110" />
+                        <span className="hidden sm:inline">Order Midnight Drive — Cash on Delivery</span>
+                        <span className="sm:hidden">Order COD — PKR 2,499</span>
+                        <ArrowRight className="h-4 w-4 shrink-0 transition-transform duration-300 group-hover:translate-x-1" />
                       </>
                     )}
                   </button>
 
                   <a
                     href="#actives"
-                    className="flex items-center justify-center gap-2 rounded-xl border border-[#c5a059]/40 bg-[#0c121d]/90 px-6 py-4 font-mono-ui text-xs font-medium uppercase tracking-[0.2em] text-[#c7d0de] backdrop-blur-md transition-colors hover:border-[#c5a059] hover:text-[#e5c583]"
+                    className="flex items-center justify-center gap-2 rounded-xl border border-[#c5a059]/40 bg-[#0c121d]/90 px-4 py-3 sm:px-6 sm:py-4 font-mono-ui text-xs font-medium uppercase tracking-wider sm:tracking-[0.2em] text-[#c7d0de] backdrop-blur-md transition-colors hover:border-[#c5a059] hover:text-[#e5c583]"
                   >
                     <span>See Ingredients</span>
                     <ArrowDown className="h-3.5 w-3.5" />
                   </a>
                 </div>
 
-                {/* Launch Batch Guarantee Badge with New Price */}
-                <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-[#c5a059]/25 pt-5 text-xs text-[#8c97a8]">
+                {/* Launch Batch Guarantee Badge with Price */}
+                <div className="mt-6 sm:mt-8 flex w-full flex-wrap items-center justify-between sm:justify-start gap-x-6 gap-y-2 border-t border-[#c5a059]/25 pt-4 text-xs text-[#8c97a8]">
                   <div className="flex items-center gap-2">
                     <span className="font-mono-ui text-xs text-[#8c97a8] line-through">PKR 3,000</span>
-                    <span className="font-cinzel text-lg font-bold text-[#e5c583]">PKR 2,499</span>
+                    <span className="font-cinzel text-base sm:text-lg font-bold text-[#e5c583]">PKR 2,499</span>
                     <span className="rounded bg-[#c5a059]/25 px-2 py-0.5 font-mono-ui text-[9px] font-bold text-[#e5c583]">
                       Save PKR 501
                     </span>
                   </div>
                   <span className="hidden text-[#c5a059]/40 sm:inline">|</span>
-                  <div className="flex items-center gap-1.5 text-[11px] text-[#dbe2ee]">
-                    <Sparkles className="h-3.5 w-3.5 text-[#c5a059]" />
+                  <div className="flex items-center gap-1.5 text-[10px] sm:text-[11px] text-[#dbe2ee]">
+                    <Sparkles className="h-3.5 w-3.5 shrink-0 text-[#c5a059]" />
                     <span>Pay Cash When Delivered (30ml Dropper)</span>
                   </div>
                 </div>
@@ -777,28 +778,29 @@ function Home() {
         <section
           id="why-midnight-drive"
           ref={whyRef}
-          className="reveal-init border-b border-[#c5a059]/15 bg-gradient-to-b from-[#070b12] via-[#0b101a] to-[#070b12] py-24 sm:py-32"
+          className="reveal-init border-b border-[#c5a059]/15 bg-gradient-to-b from-[#070b12] via-[#0b101a] to-[#070b12] py-16 sm:py-32"
         >
-          <div className="mx-auto max-w-7xl px-5 sm:px-8">
+          <div className="mx-auto max-w-7xl px-4 sm:px-8">
             <div className="text-center">
               <div className="inline-flex items-center gap-2 rounded-full border border-[#c5a059]/35 bg-[#c5a059]/10 px-4 py-1.5 font-mono-ui text-[10px] uppercase tracking-[0.25em] text-[#e5c583]">
                 <Sparkles className="h-3.5 w-3.5" /> The Essential Male Vitality Choice
               </div>
-              <h2 className="font-editorial mx-auto mt-4 max-w-3xl text-4xl font-normal text-[#f4ede2] sm:text-5xl lg:text-6xl">
+              <h2 className="font-editorial mx-auto mt-4 max-w-3xl text-3xl font-normal text-[#f4ede2] sm:text-5xl lg:text-6xl">
                 Why <em className="text-gold-gradient italic">Midnight Drive?</em>
               </h2>
-              <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-[#9aa4b5]">
+              <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-[#9aa4b5] sm:text-base">
                 Unlike synthetic pills that cause headaches and stomach strain, Midnight Drive is a 100% natural transdermal oil. It works directly where applied—delivering therapeutic thermal warmth, stamina, and firm tissue elasticity.
               </p>
             </div>
 
             {/* Why Video Player & Interactive Multi-Reel Selector */}
-            <div className="mt-16 grid gap-8 lg:grid-cols-12 lg:gap-12 items-center">
+            <div className="mt-12 sm:mt-16 grid gap-8 lg:grid-cols-12 lg:gap-12 items-center">
               {/* Left Column: Video Player Container */}
               <div className="relative overflow-hidden rounded-3xl border border-[#c5a059]/35 bg-[#070a10] shadow-[0_25px_80px_rgba(0,0,0,0.9)] lg:col-span-7 aspect-video">
                 <SafeVideo
                   key={WHY_VIDEOS[activeWhyVideoIndex].id}
                   src={WHY_VIDEOS[activeWhyVideoIndex].src}
+                  poster="/assets/hero-poster-custom.jpg"
                   controls
                   autoPlay
                   loop
@@ -815,7 +817,7 @@ function Home() {
               </div>
 
               {/* Right Column: Interactive Video Selector Cards */}
-              <div className="flex flex-col gap-4 lg:col-span-5">
+              <div className="flex flex-col gap-3 sm:gap-4 lg:col-span-5">
                 <h3 className="font-mono-ui text-xs uppercase tracking-[0.25em] text-[#c5a059]">
                   Select Video Demonstration
                 </h3>
@@ -826,7 +828,7 @@ function Home() {
                       key={vid.id}
                       type="button"
                       onClick={() => setActiveWhyVideoIndex(idx)}
-                      className={`group flex items-start gap-4 rounded-2xl border p-5 text-left transition-all duration-300 ${
+                      className={`group flex items-start gap-3 sm:gap-4 rounded-2xl border p-3.5 sm:p-5 text-left transition-all duration-300 ${
                         isActive
                           ? 'border-[#c5a059] bg-[#0e1624] shadow-[0_0_30px_rgba(197,160,89,0.2)]'
                           : 'border-[#c5a059]/15 bg-[#070b12]/70 hover:border-[#c5a059]/40 hover:bg-[#0a0f17]'
@@ -834,7 +836,7 @@ function Home() {
                       data-testid={`why-video-select-${idx}`}
                     >
                       <div
-                        className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border transition-colors ${
+                        className={`flex h-9 w-9 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-xl border transition-colors ${
                           isActive
                             ? 'border-[#c5a059] bg-[#c5a059] text-[#0b0f17]'
                             : 'border-[#c5a059]/30 bg-[#0e1522] text-[#c5a059] group-hover:border-[#c5a059]'
@@ -843,10 +845,10 @@ function Home() {
                         <Play className="h-4 w-4 fill-current" />
                       </div>
                       <div>
-                        <h4 className="font-editorial text-lg font-semibold text-[#f4ede2]">
+                        <h4 className="font-editorial text-base sm:text-lg font-semibold text-[#f4ede2]">
                           {vid.title}
                         </h4>
-                        <p className="mt-1 text-xs leading-relaxed text-[#8c97a8]">
+                        <p className="mt-1 text-[11px] sm:text-xs leading-relaxed text-[#8c97a8]">
                           {vid.subtitle}
                         </p>
                       </div>
