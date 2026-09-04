@@ -292,7 +292,7 @@ function Home() {
   };
 
   return (
-    <div className="relative min-h-screen bg-[#0b0f17] text-[#f4ede2] selection:bg-[#c5a059] selection:text-[#0b0f17]">
+    <div className="relative min-h-screen w-full max-w-[100vw] overflow-x-hidden bg-[#0b0f17] text-[#f4ede2] selection:bg-[#c5a059] selection:text-[#0b0f17]">
       {/* Luxury Interactive Cursor Glow (Desktop) */}
       <LuxuryCursor />
 
