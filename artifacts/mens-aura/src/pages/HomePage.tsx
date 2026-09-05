@@ -418,6 +418,9 @@ export function HomePage({ onOrderClick, isCheckingOut }: HomePageProps) {
               <p className="mt-2 text-xs sm:text-sm leading-relaxed text-[#9aa4b5]">
                 Apply 4 to 5 drops directly on the male shaft area. <strong className="text-[#e5c583]">Note:</strong> Avoid applying on the top tip (head/glans) area.
               </p>
+              <p className="mt-3 text-xs leading-relaxed text-[#e5c583] font-medium text-right w-full" dir="rtl">
+                ۴ سے ۵ قطرے عضومخصوص کے نچلے حصّے پر لگائیں۔ (اوپری سِرے کو چھوڑ کر)
+              </p>
             </div>
 
             {/* Step 2 */}
@@ -430,6 +433,9 @@ export function HomePage({ onOrderClick, isCheckingOut }: HomePageProps) {
               </h3>
               <p className="mt-2 text-xs sm:text-sm leading-relaxed text-[#9aa4b5]">
                 Gently massage for 2 to 3 minutes until fully absorbed. Leave on overnight and wash off normally in the morning.
+              </p>
+              <p className="mt-3 text-xs leading-relaxed text-[#e5c583] font-medium text-right w-full" dir="rtl">
+                ۲ سے ۳ منٹ ہلکے ہاتھوں سے مالش کریں تاکہ جذب ہو جائے۔ رات بھر لگا رہنے دیں اور صبح نہا لیں۔
               </p>
             </div>
 
@@ -444,6 +450,9 @@ export function HomePage({ onOrderClick, isCheckingOut }: HomePageProps) {
               <p className="mt-2 text-xs sm:text-sm leading-relaxed text-[#9aa4b5]">
                 Pure herbal formulation with Raig Mahi, Clove & Ostrich Oil. Completely safe for daily use with <strong className="text-[#f4ede2]">zero side effects</strong>.
               </p>
+              <p className="mt-3 text-xs leading-relaxed text-[#e5c583] font-medium text-right w-full" dir="rtl">
+                ریگ ماہی، لونگ اور شتر مرغ کا ۱۰۰٪ قدرتی فارمولا۔ روزانہ استعمال کے لیے مکمل محفوظ اور بے ضرر۔
+              </p>
             </div>
           </div>
 
@@ -453,12 +462,15 @@ export function HomePage({ onOrderClick, isCheckingOut }: HomePageProps) {
               <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#c5a059]/20 text-[#e5c583]">
                 <ShieldCheck className="h-5 w-5" />
               </div>
-              <div>
+              <div className="w-full">
                 <h4 className="font-mono-ui text-xs font-bold uppercase tracking-widest text-[#e5c583]">
-                  Important Precaution Notice
+                  Important Precaution Notice / ضروری احتیاطی تدبیر
                 </h4>
                 <p className="mt-1 text-xs sm:text-sm leading-relaxed text-[#dbe2ee]">
                   <strong className="text-[#f4ede2]">Do NOT engage in intimate contact while the oil is applied.</strong> Always wash and clean the area thoroughly with water before any intimate relations.
+                </p>
+                <p className="mt-2 text-xs sm:text-sm leading-relaxed text-[#e5c583] font-medium text-right" dir="rtl">
+                  اہم احتیاط: تیل لگا کر مباشرت (ہمبستری) بالکل نہ کریں۔ کسی بھی تعلق سے پہلے پانی سے اچھی طرح دھو لیں۔
                 </p>
               </div>
             </div>

@@ -58,7 +58,7 @@ export function ContactSection() {
                     +92 311 0355 309
                   </p>
                   <p className="mt-3 text-xs leading-relaxed text-[#9aa4b5]">
-                    Text-only WhatsApp concierge. Message us for fast order confirmation, shipment tracking, or usage advice. Responds within 15 minutes.
+                    Text-only WhatsApp support. Message us for fast order confirmation, shipment tracking, or usage advice. Responds within 15 minutes.
                   </p>
                 </div>
 
@@ -71,7 +71,7 @@ export function ContactSection() {
                     data-testid="whatsapp-contact-btn"
                   >
                     <MessageCircle className="h-4 w-4" />
-                    <span>Chat on WhatsApp Concierge</span>
+                    <span>Order & Chat on WhatsApp</span>
                   </a>
                 </div>
               </div>

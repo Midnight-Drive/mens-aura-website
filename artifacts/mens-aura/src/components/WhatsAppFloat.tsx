@@ -7,7 +7,7 @@ export function WhatsAppFloat() {
       target="_blank"
       rel="noopener noreferrer"
       className="fixed bottom-6 right-6 z-40 flex items-center gap-2.5 rounded-full border border-[#c5a059]/40 bg-[#0b1019]/95 px-4 py-3 text-[#e5c583] shadow-[0_0_25px_rgba(197,160,89,0.25)] backdrop-blur-xl transition-all duration-300 hover:scale-105 hover:border-[#c5a059] hover:bg-[#c5a059] hover:text-[#0b0f17]"
-      title="WhatsApp Concierge Support"
+      title="WhatsApp Order & Support"
       data-testid="whatsapp-floating-btn"
     >
       <div className="relative flex h-6 w-6 items-center justify-center">
@@ -15,7 +15,7 @@ export function WhatsAppFloat() {
         <MessageCircle className="relative h-5 w-5 fill-current" />
       </div>
       <span className="font-mono-ui text-xs font-bold uppercase tracking-wider hidden sm:inline">
-        WhatsApp Concierge
+        WhatsApp Order & Support
       </span>
     </a>
   );
