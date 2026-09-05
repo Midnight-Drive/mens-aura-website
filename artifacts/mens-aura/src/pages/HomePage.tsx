@@ -178,7 +178,7 @@ export function HomePage({ onOrderClick, isCheckingOut }: HomePageProps) {
         {/* Subtle Hero Grid */}
         <div className="luxury-grid pointer-events-none absolute inset-0 z-[2] opacity-10" />
 
-        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-8 py-6 sm:py-20 lg:py-24 w-full">
+        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-8 pt-2 sm:pt-6 lg:pt-6 pb-8 sm:pb-16 lg:pb-20 w-full">
           <div className="grid items-center gap-8 lg:grid-cols-12 lg:gap-8 hero-grid">
             {/* Left Column: Brand Copy & CTAs */}
             <div className="flex flex-col items-start lg:col-span-7 xl:col-span-6">
