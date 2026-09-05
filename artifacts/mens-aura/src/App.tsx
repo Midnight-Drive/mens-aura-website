@@ -163,11 +163,11 @@ function MainLayout() {
           </Link>
 
           {/* Desktop Nav Links */}
-          <nav className="hidden items-center gap-8 md:flex" aria-label="Main Navigation">
+          <nav className="hidden items-center gap-6 lg:gap-8 md:flex" aria-label="Main Navigation">
             <Link
               href="/"
-              className={`font-mono-ui text-xs uppercase tracking-[0.2em] transition-colors py-2 font-medium ${
-                location === '/' ? 'text-[#e5c583] font-semibold' : 'text-[#8c97a8] hover:text-[#e5c583]'
+              className={`font-mono-ui text-[11px] uppercase tracking-wider transition-colors py-2 font-medium ${
+                location === '/' ? 'text-[#e5c583] font-semibold border-b border-[#c5a059]' : 'text-[#8c97a8] hover:text-[#e5c583]'
               }`}
             >
               Home
@@ -175,26 +175,26 @@ function MainLayout() {
 
             <Link
               href="/science"
-              className={`font-mono-ui text-xs uppercase tracking-[0.2em] transition-colors py-2 font-medium ${
-                location === '/science' ? 'text-[#e5c583] font-semibold' : 'text-[#8c97a8] hover:text-[#e5c583]'
+              className={`font-mono-ui text-[11px] uppercase tracking-wider transition-colors py-2 font-medium ${
+                location === '/science' ? 'text-[#e5c583] font-semibold border-b border-[#c5a059]' : 'text-[#8c97a8] hover:text-[#e5c583]'
               }`}
             >
-              Science & Timeline
+              Science
             </Link>
 
             <Link
               href="/story"
-              className={`font-mono-ui text-xs uppercase tracking-[0.2em] transition-colors py-2 font-medium ${
-                location === '/story' ? 'text-[#e5c583] font-semibold' : 'text-[#8c97a8] hover:text-[#e5c583]'
+              className={`font-mono-ui text-[11px] uppercase tracking-wider transition-colors py-2 font-medium ${
+                location === '/story' ? 'text-[#e5c583] font-semibold border-b border-[#c5a059]' : 'text-[#8c97a8] hover:text-[#e5c583]'
               }`}
             >
-              Product Film
+              Film & Story
             </Link>
 
             <Link
               href="/journal"
-              className={`font-mono-ui text-xs uppercase tracking-[0.2em] transition-colors py-2 font-medium ${
-                location === '/journal' ? 'text-[#e5c583] font-semibold' : 'text-[#8c97a8] hover:text-[#e5c583]'
+              className={`font-mono-ui text-[11px] uppercase tracking-wider transition-colors py-2 font-medium ${
+                location === '/journal' ? 'text-[#e5c583] font-semibold border-b border-[#c5a059]' : 'text-[#8c97a8] hover:text-[#e5c583]'
               }`}
             >
               Journal
@@ -202,11 +202,11 @@ function MainLayout() {
 
             <Link
               href="/contact"
-              className={`font-mono-ui text-xs uppercase tracking-[0.2em] transition-colors py-2 font-medium ${
-                location === '/contact' ? 'text-[#e5c583] font-semibold' : 'text-[#8c97a8] hover:text-[#e5c583]'
+              className={`font-mono-ui text-[11px] uppercase tracking-wider transition-colors py-2 font-medium ${
+                location === '/contact' ? 'text-[#e5c583] font-semibold border-b border-[#c5a059]' : 'text-[#8c97a8] hover:text-[#e5c583]'
               }`}
             >
-              Contact & Concierge
+              Contact
             </Link>
           </nav>
 
