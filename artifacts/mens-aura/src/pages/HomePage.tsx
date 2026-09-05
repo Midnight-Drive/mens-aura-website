@@ -191,16 +191,16 @@ export function HomePage({ onOrderClick, isCheckingOut }: HomePageProps) {
               </div>
 
               {/* Main Headline */}
-              <h1 className="font-editorial mt-4 sm:mt-6 text-3xl font-normal leading-tight tracking-tight text-[#f4ede2] sm:text-6xl lg:text-[4.85rem] drop-shadow-xl">
+              <h1 className="font-editorial mt-3 sm:mt-5 text-3xl font-normal leading-[1.12] tracking-tight text-[#f4ede2] sm:text-5xl lg:text-[3.6rem] drop-shadow-xl">
                 Make Your<br />
-                <em className="text-gold-gradient font-serif italic font-light">Married Life Happy.</em> <br />
-                <span className="font-cinzel text-2.5xl font-semibold tracking-wider sm:text-5xl lg:text-[3.3rem]">
-                  Get Full Strength & Stamina.
+                <em className="text-gold-gradient font-serif italic font-light">Married Life Happy.</em>
+                <span className="block mt-2.5 font-cinzel text-base sm:text-xl lg:text-[1.85rem] font-semibold tracking-wider text-[#e5c583] leading-snug uppercase">
+                  Full Strength & Stamina.
                 </span>
               </h1>
 
               {/* Subtitle / Brand Copy */}
-              <p className="mt-4 sm:mt-6 max-w-xl text-sm leading-relaxed text-[#dbe2ee] sm:text-lg drop-shadow-lg">
+              <p className="mt-3 sm:mt-5 max-w-xl text-sm leading-relaxed text-[#dbe2ee] sm:text-base lg:text-lg drop-shadow-lg">
                 Say goodbye to tiredness and weakness. 100% natural oil made from pure <strong className="text-[#f4ede2]">Raig Mahi, Clove & Ostrich Oil</strong> to boost your stamina, energy and give your partner full happiness.
               </p>
 
