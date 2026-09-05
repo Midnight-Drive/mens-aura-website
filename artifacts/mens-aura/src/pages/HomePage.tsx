@@ -192,16 +192,16 @@ export function HomePage({ onOrderClick, isCheckingOut }: HomePageProps) {
 
               {/* Main Headline */}
               <h1 className="font-editorial mt-4 sm:mt-6 text-3xl font-normal leading-tight tracking-tight text-[#f4ede2] sm:text-6xl lg:text-[4.85rem] drop-shadow-xl">
-                Awaken Your<br />
-                <em className="text-gold-gradient font-serif italic font-light">True Strength</em> <br />
-                <span className="font-cinzel text-2.5xl font-semibold tracking-wider sm:text-5xl lg:text-[3.7rem]">
-                  Tonight.
+                Stop Holding<br />
+                <em className="text-gold-gradient font-serif italic font-light">Back.</em> <br />
+                <span className="font-cinzel text-2.5xl font-semibold tracking-wider sm:text-5xl lg:text-[3.5rem]">
+                  Restore Maximum Hardness.
                 </span>
               </h1>
 
               {/* Subtitle / Brand Copy */}
               <p className="mt-4 sm:mt-6 max-w-xl text-sm leading-relaxed text-[#dbe2ee] sm:text-lg drop-shadow-lg">
-                Reclaim your <strong className="text-[#f4ede2]">peak energy, lasting stamina & real male confidence</strong> naturally. Made from pure <strong className="text-[#f4ede2]">Raig Mahi, Clove & Ostrich Oil</strong> — experience warmth & performance from your very first night.
+                Target the root cause of premature fatigue and weakness. Pure <strong className="text-[#f4ede2]">Raig Mahi, Clove & Ostrich Oil</strong> formula engineered to maximize blood flow, double your endurance, and give you 100% control.
               </p>
 
               {/* Core Value Micro-Bullets - 2-column grid on mobile */}
