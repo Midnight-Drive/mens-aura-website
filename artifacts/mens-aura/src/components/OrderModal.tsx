@@ -363,7 +363,7 @@ export function OrderModal({ onClose }: OrderModalProps) {
                 ) : (
                   <>
                     <ShoppingBag className="h-4 w-4" />
-                    <span>Confirm Pre-Launch COD Order</span>
+                    <span>CONFIRM ORDER NOW</span>
                     <ArrowRight className="h-4 w-4" />
                   </>
                 )}

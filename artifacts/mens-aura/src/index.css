@@ -125,23 +125,35 @@
 /* Glowing Elements & Luxury Button Styling */
 .gold-glow-button {
   position: relative;
-  background: linear-gradient(135deg, #e5c583 0%, #c5a059 50%, #ab8235 100%);
-  box-shadow: 
-    0 0 0 1px rgba(229, 197, 131, 0.4),
-    0 8px 28px -6px rgba(197, 160, 89, 0.5),
-    0 0 50px rgba(197, 160, 89, 0.25);
+  background: linear-gradient(135deg, #f5dfa8 0%, #d4af37 40%, #c5a059 70%, #9e7a36 100%);
+  animation: goldGlowPulse 2.8s infinite ease-in-out;
   transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
   cursor: pointer;
   overflow: hidden;
 }
 
+@keyframes goldGlowPulse {
+  0%, 100% {
+    box-shadow: 
+      0 0 0 1px rgba(245, 223, 168, 0.5),
+      0 8px 25px -6px rgba(197, 160, 89, 0.55),
+      0 0 30px rgba(197, 160, 89, 0.3);
+  }
+  50% {
+    box-shadow: 
+      0 0 0 2px rgba(255, 238, 194, 0.9),
+      0 12px 36px -4px rgba(212, 175, 55, 0.85),
+      0 0 50px rgba(212, 175, 55, 0.55);
+  }
+}
+
 .gold-glow-button:hover {
-  background: linear-gradient(135deg, #f4dca6 0%, #d4af37 50%, #be9441 100%);
+  background: linear-gradient(135deg, #fff2cb 0%, #e5c583 40%, #d4af37 70%, #ab8235 100%);
+  transform: translateY(-2px) scale(1.015);
   box-shadow: 
-    0 0 0 1px rgba(245, 223, 168, 0.8),
-    0 14px 38px -6px rgba(197, 160, 89, 0.75),
-    0 0 70px rgba(197, 160, 89, 0.4);
-  transform: translateY(-2px);
+    0 0 0 2px rgba(255, 245, 215, 0.95),
+    0 16px 42px -6px rgba(212, 175, 55, 0.9),
+    0 0 70px rgba(212, 175, 55, 0.6);
 }
 
 .gold-glow-button:active {
@@ -174,18 +186,18 @@
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(255, 255, 255, 0.35),
+    rgba(255, 255, 255, 0.45),
     transparent
   );
   transform: skewX(-25deg);
-  animation: luxury-btn-shine 5s infinite ease-in-out;
+  animation: luxury-btn-shine 3.5s infinite ease-in-out;
   pointer-events: none;
 }
 
 @keyframes luxury-btn-shine {
   0% { left: -120%; }
-  20% { left: 160%; }
-  100% { left: 160%; }
+  35% { left: 180%; }
+  100% { left: 180%; }
 }
 
 

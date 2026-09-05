@@ -228,7 +228,7 @@ function MainLayout() {
               ) : (
                 <>
                   <ShoppingBag className="h-3.5 w-3.5" />
-                  <span>Order COD (PKR 2,499)</span>
+                  <span>ORDER NOW (PKR 2,499)</span>
                 </>
               )}
             </button>
@@ -302,7 +302,7 @@ function MainLayout() {
                 ) : (
                   <>
                     <ShoppingBag className="h-4 w-4" />
-                    <span>Order Pre-Launch COD (PKR 2,499)</span>
+                    <span>ORDER NOW — PKR 2,499</span>
                   </>
                 )}
               </button>
@@ -369,7 +369,7 @@ function MainLayout() {
                 ) : (
                   <>
                     <ShoppingBag className="h-4 w-4 transition-transform group-hover:scale-110" />
-                    <span>Claim Pre-Launch Offer · PKR 2,499 (COD)</span>
+                    <span>ORDER NOW — PKR 2,499</span>
                     <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </>
                 )}

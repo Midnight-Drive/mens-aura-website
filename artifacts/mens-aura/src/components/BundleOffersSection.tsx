@@ -143,7 +143,7 @@ export function BundleOffersSection({ onSelectBundle }: BundleOffersProps) {
                       data-testid={`buy-bundle-${b.qty}`}
                     >
                       <ShoppingBag className="h-4 w-4" />
-                      <span>Order COD — PKR {b.price.toLocaleString()}</span>
+                      <span>ORDER NOW — PKR {b.price.toLocaleString()}</span>
                     </button>
 
                     <button

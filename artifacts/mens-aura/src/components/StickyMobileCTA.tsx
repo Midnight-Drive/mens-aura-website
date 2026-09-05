@@ -33,7 +33,7 @@ export function StickyMobileCTA({ onOrderClick }: StickyMobileCTAProps) {
         >
           <span className="btn-shine" />
           <ShoppingBag className="h-3.5 w-3.5 shrink-0" />
-          <span className="truncate">Order COD (2,499)</span>
+          <span className="truncate">ORDER NOW (2,499)</span>
         </button>
 
         {/* 1-Click WhatsApp Direct Order Button */}

@@ -230,30 +230,29 @@ export function HomePage({ onOrderClick, isCheckingOut }: HomePageProps) {
                   type="button"
                   onClick={() => onOrderClick(1)}
                   disabled={isCheckingOut}
-                  className="gold-glow-button group relative flex items-center justify-center gap-2.5 overflow-hidden rounded-xl px-5 py-3.5 sm:px-8 sm:py-4 font-mono-ui text-xs font-bold uppercase tracking-wider sm:tracking-[0.2em] text-[#0b0f17] transition-all disabled:opacity-80 shadow-2xl"
+                  className="gold-glow-button group relative flex items-center justify-center gap-2.5 overflow-hidden rounded-xl px-6 py-3.5 sm:px-8 sm:py-4 font-mono-ui text-xs font-bold uppercase tracking-wider sm:tracking-[0.2em] text-[#0b0f17] transition-all disabled:opacity-80 shadow-2xl"
                   data-testid="hero-primary-order-btn"
                 >
                   <span className="btn-shine" />
                   {isCheckingOut ? (
                     <>
                       <span className="h-4 w-4 animate-spin rounded-full border-2 border-[#0b0f17] border-t-transparent" />
-                      <span>Redirecting to Checkout...</span>
+                      <span>Redirecting...</span>
                     </>
                   ) : (
                     <>
                       <ShoppingBag className="h-4 w-4 shrink-0 transition-transform duration-300 group-hover:scale-110" />
-                      <span className="hidden sm:inline">Order Midnight Drive — Cash on Delivery</span>
-                      <span className="sm:hidden">Order COD — PKR 2,499</span>
+                      <span>ORDER NOW — PKR 2,499</span>
                       <ArrowRight className="h-4 w-4 shrink-0 transition-transform duration-300 group-hover:translate-x-1" />
                     </>
                   )}
                 </button>
 
                 <a
-                  href="#actives"
-                  className="flex items-center justify-center gap-2 rounded-xl border border-[#c5a059]/40 bg-[#0c121d]/90 px-4 py-3 sm:px-6 sm:py-4 font-mono-ui text-xs font-medium uppercase tracking-wider sm:tracking-[0.2em] text-[#c7d0de] backdrop-blur-md transition-colors hover:border-[#c5a059] hover:text-[#e5c583]"
+                  href="#bundles"
+                  className="flex items-center justify-center gap-2 rounded-xl border border-[#c5a059]/40 bg-[#0c121d]/90 px-4 py-3.5 sm:px-6 sm:py-4 font-mono-ui text-xs font-medium uppercase tracking-wider sm:tracking-[0.2em] text-[#c7d0de] backdrop-blur-md transition-colors hover:border-[#c5a059] hover:text-[#e5c583]"
                 >
-                  <span>See Ingredients</span>
+                  <span>SEE PLANS & BUNDLES</span>
                   <ArrowDown className="h-3.5 w-3.5" />
                 </a>
               </div>
