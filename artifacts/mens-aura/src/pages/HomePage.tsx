@@ -390,59 +390,77 @@ export function HomePage({ onOrderClick, isCheckingOut }: HomePageProps) {
       {/* ========================================================================= */}
       <section
         id="ritual"
-        className="relative border-b border-[#c5a059]/15 bg-[#070b12] py-16 sm:py-24"
+        className="relative border-b border-[#c5a059]/15 bg-[#070b12] py-14 sm:py-20"
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-8">
           <div className="text-center">
             <div className="inline-flex items-center gap-2 rounded-full border border-[#c5a059]/30 bg-[#c5a059]/10 px-4 py-1.5 font-mono-ui text-[10px] uppercase tracking-[0.25em] text-[#e5c583]">
-              <Flame className="h-3.5 w-3.5 text-[#c5a059]" /> 3-Step Daily Night Ritual
+              <Flame className="h-3.5 w-3.5 text-[#c5a059]" /> Easy Daily Night Routine
             </div>
             <h2 className="font-editorial mx-auto mt-4 max-w-3xl text-3xl font-normal text-[#f4ede2] sm:text-5xl lg:text-6xl">
-              How To Apply <em className="text-gold-gradient italic">For Peak Warmth.</em>
+              How To Apply <em className="text-gold-gradient italic">For Best Results.</em>
             </h2>
-            <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-[#9aa4b5]">
+            <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-[#9aa4b5]">
               Follow this simple 3-step application routine every night before sleeping.
             </p>
           </div>
 
-          <div className="mt-12 grid gap-6 sm:grid-cols-3">
+          {/* 3 Steps Grid */}
+          <div className="mt-10 grid gap-6 sm:grid-cols-3">
             {/* Step 1 */}
-            <div className="rounded-3xl border border-[#c5a059]/25 bg-[#090e17] p-6 text-center shadow-xl">
-              <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl border border-[#c5a059]/40 bg-[#c5a059]/15 font-mono-ui text-lg font-bold text-[#e5c583]">
+            <div className="rounded-3xl border border-[#c5a059]/25 bg-[#090e17] p-6 text-center shadow-xl flex flex-col items-center">
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-[#c5a059]/40 bg-[#c5a059]/15 font-mono-ui text-lg font-bold text-[#e5c583]">
                 01
               </div>
               <h3 className="font-editorial mt-4 text-xl font-semibold text-[#f4ede2]">
-                Dispense 4-6 Drops
+                Apply 4-5 Drops
               </h3>
-              <p className="mt-2 text-xs leading-relaxed text-[#8c97a8]">
-                Warm 4 to 6 drops of Midnight Drive between clean, dry palms for 5 seconds.
+              <p className="mt-2 text-xs sm:text-sm leading-relaxed text-[#9aa4b5]">
+                Apply 4 to 5 drops directly on the male shaft area. <strong className="text-[#e5c583]">Note:</strong> Avoid applying on the top tip (head/glans) area.
               </p>
             </div>
 
             {/* Step 2 */}
-            <div className="rounded-3xl border border-[#c5a059]/25 bg-[#090e17] p-6 text-center shadow-xl">
-              <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl border border-[#c5a059]/40 bg-[#c5a059]/15 font-mono-ui text-lg font-bold text-[#e5c583]">
+            <div className="rounded-3xl border border-[#c5a059]/25 bg-[#090e17] p-6 text-center shadow-xl flex flex-col items-center">
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-[#c5a059]/40 bg-[#c5a059]/15 font-mono-ui text-lg font-bold text-[#e5c583]">
                 02
               </div>
               <h3 className="font-editorial mt-4 text-xl font-semibold text-[#f4ede2]">
-                5-Min Gentle Massage
+                Gentle Night Massage
               </h3>
-              <p className="mt-2 text-xs leading-relaxed text-[#8c97a8]">
-                Massage gently in smooth, upward circular strokes until fully absorbed into tissue.
+              <p className="mt-2 text-xs sm:text-sm leading-relaxed text-[#9aa4b5]">
+                Gently massage for 2 to 3 minutes until fully absorbed. Leave on overnight and wash off normally in the morning.
               </p>
             </div>
 
             {/* Step 3 */}
-            <div className="rounded-3xl border border-[#c5a059]/25 bg-[#090e17] p-6 text-center shadow-xl">
-              <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl border border-[#c5a059]/40 bg-[#c5a059]/15 font-mono-ui text-lg font-bold text-[#e5c583]">
+            <div className="rounded-3xl border border-[#c5a059]/25 bg-[#090e17] p-6 text-center shadow-xl flex flex-col items-center">
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-[#c5a059]/40 bg-[#c5a059]/15 font-mono-ui text-lg font-bold text-[#e5c583]">
                 03
               </div>
               <h3 className="font-editorial mt-4 text-xl font-semibold text-[#f4ede2]">
-                Leave Overnight
+                100% Safe & Natural
               </h3>
-              <p className="mt-2 text-xs leading-relaxed text-[#8c97a8]">
-                Allow the cold-pressed bio-actives to nourish local micro-circulation while you rest.
+              <p className="mt-2 text-xs sm:text-sm leading-relaxed text-[#9aa4b5]">
+                Pure herbal formulation with Raig Mahi, Clove & Ostrich Oil. Completely safe for daily use with <strong className="text-[#f4ede2]">zero side effects</strong>.
               </p>
+            </div>
+          </div>
+
+          {/* Important Precaution Banner */}
+          <div className="mt-8 rounded-2xl border border-[#c5a059]/40 bg-gradient-to-r from-[#141b29] via-[#1a2336] to-[#141b29] p-5 shadow-2xl">
+            <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 text-center sm:text-left">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#c5a059]/20 text-[#e5c583]">
+                <ShieldCheck className="h-5 w-5" />
+              </div>
+              <div>
+                <h4 className="font-mono-ui text-xs font-bold uppercase tracking-widest text-[#e5c583]">
+                  Important Precaution Notice
+                </h4>
+                <p className="mt-1 text-xs sm:text-sm leading-relaxed text-[#dbe2ee]">
+                  <strong className="text-[#f4ede2]">Do NOT engage in intimate contact while the oil is applied.</strong> Always wash and clean the area thoroughly with water before any intimate relations.
+                </p>
+              </div>
             </div>
           </div>
         </div>
