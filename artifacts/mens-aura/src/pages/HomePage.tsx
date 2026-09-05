@@ -192,8 +192,8 @@ export function HomePage({ onOrderClick, isCheckingOut }: HomePageProps) {
 
               {/* Main Headline */}
               <h1 className="font-editorial mt-4 sm:mt-6 text-3xl font-normal leading-tight tracking-tight text-[#f4ede2] sm:text-6xl lg:text-[4.85rem] drop-shadow-xl">
-                Feel the<br />
-                <em className="text-gold-gradient font-serif italic font-light">Difference</em> <br />
+                Awaken Your<br />
+                <em className="text-gold-gradient font-serif italic font-light">True Strength</em> <br />
                 <span className="font-cinzel text-2.5xl font-semibold tracking-wider sm:text-5xl lg:text-[3.7rem]">
                   Tonight.
                 </span>
@@ -201,7 +201,7 @@ export function HomePage({ onOrderClick, isCheckingOut }: HomePageProps) {
 
               {/* Subtitle / Brand Copy */}
               <p className="mt-4 sm:mt-6 max-w-xl text-sm leading-relaxed text-[#dbe2ee] sm:text-lg drop-shadow-lg">
-                Pakistan's most powerful natural vitality oil. Made from <strong className="text-[#f4ede2]">Raig Mahi, Clove & Ostrich Oil</strong> — trusted for centuries. Boost your <strong className="text-[#f4ede2]">energy, confidence & intimate life</strong>. Feel the warmth from the very first use.
+                Reclaim your <strong className="text-[#f4ede2]">peak energy, lasting stamina & real male confidence</strong> naturally. Made from pure <strong className="text-[#f4ede2]">Raig Mahi, Clove & Ostrich Oil</strong> — experience warmth & performance from your very first night.
               </p>
 
               {/* Core Value Micro-Bullets - 2-column grid on mobile */}
