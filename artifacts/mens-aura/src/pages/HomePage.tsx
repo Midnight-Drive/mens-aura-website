@@ -192,16 +192,16 @@ export function HomePage({ onOrderClick, isCheckingOut }: HomePageProps) {
 
               {/* Main Headline */}
               <h1 className="font-editorial mt-4 sm:mt-6 text-3xl font-normal leading-tight tracking-tight text-[#f4ede2] sm:text-6xl lg:text-[4.85rem] drop-shadow-xl">
-                Stop Holding<br />
-                <em className="text-gold-gradient font-serif italic font-light">Back.</em> <br />
+                Transform Your<br />
+                <em className="text-gold-gradient font-serif italic font-light">Married Life.</em> <br />
                 <span className="font-cinzel text-2.5xl font-semibold tracking-wider sm:text-5xl lg:text-[3.5rem]">
-                  Restore Maximum Hardness.
+                  Unlock Peak Performance.
                 </span>
               </h1>
 
               {/* Subtitle / Brand Copy */}
               <p className="mt-4 sm:mt-6 max-w-xl text-sm leading-relaxed text-[#dbe2ee] sm:text-lg drop-shadow-lg">
-                Target the root cause of premature fatigue and weakness. Pure <strong className="text-[#f4ede2]">Raig Mahi, Clove & Ostrich Oil</strong> formula engineered to maximize blood flow, double your endurance, and give you 100% control.
+                Bring back passion, warmth, and complete satisfaction to your marriage. Formulated with pure <strong className="text-[#f4ede2]">Raig Mahi, Clove & Ostrich Oil</strong> to eliminate fatigue, double your stamina, and give your partner the happiness she deserves.
               </p>
 
               {/* Core Value Micro-Bullets - 2-column grid on mobile */}
