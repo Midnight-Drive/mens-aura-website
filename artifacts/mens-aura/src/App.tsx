@@ -38,6 +38,7 @@ import { SciencePage } from '@/pages/SciencePage';
 import { StoryPage } from '@/pages/StoryPage';
 import { JournalPage } from '@/pages/JournalPage';
 import { ContactPage } from '@/pages/ContactPage';
+import { CheckoutPage } from '@/pages/CheckoutPage';
 import NotFound from '@/pages/not-found';
 
 const queryClient = new QueryClient();
@@ -80,16 +81,10 @@ function MainLayout() {
   const [orderOpen, setOrderOpen] = useState(false);
   const [isCheckingOut, setIsCheckingOut] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [location] = useLocation();
+  const [location, setLocation] = useLocation();
 
   const handleOrder = (qty: number = 1) => {
-    setIsCheckingOut(true);
-    try {
-      redirectToShopifyCheckout(qty);
-    } catch {
-      setIsCheckingOut(false);
-      setOrderOpen(true);
-    }
+    setLocation('/checkout');
   };
 
   return (
@@ -495,6 +490,7 @@ function Router() {
     <RoutedErrorBoundary>
       <Switch>
         <Route path="/" component={MainLayout} />
+        <Route path="/checkout" component={CheckoutPage} />
         <Route path="/science" component={MainLayout} />
         <Route path="/story" component={MainLayout} />
         <Route path="/journal" component={MainLayout} />

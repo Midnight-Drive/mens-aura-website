@@ -14,7 +14,7 @@ import {
   Lock,
   Mail
 } from 'lucide-react';
-import { redirectToShopifyCheckout } from '@/lib/shopify';
+import { redirectToShopifyCheckout, createShopifyCheckoutOrder } from '@/lib/shopify';
 
 
 interface OrderModalProps {
@@ -68,17 +68,33 @@ export function OrderModal({ onClose }: OrderModalProps) {
 
   const currentPricing = getPricing(quantity);
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate luxury order submission
-    setTimeout(() => {
-      const randomOrder = 'MA-' + Math.floor(100000 + Math.random() * 900000);
-      setOrderNumber(randomOrder);
-      setIsSubmitting(false);
+    const nameParts = formData.fullName.trim().split(' ');
+    const firstName = nameParts[0] || 'Valued';
+    const lastName = nameParts.slice(1).join(' ') || 'Customer';
+    const finalCity = formData.city === 'Other City / Area' ? formData.customCity.trim() || 'Other' : formData.city;
+
+    const result = await createShopifyCheckoutOrder({
+      email: '',
+      phone: formData.phone,
+      firstName,
+      lastName,
+      address1: formData.address,
+      city: finalCity,
+      country: 'Pakistan',
+      quantity,
+      paymentMethod: 'cod',
+      notes: formData.notes,
+    });
+
+    setIsSubmitting(false);
+    if (result.success) {
+      setOrderNumber(result.orderNumber);
       setIsSuccess(true);
-    }, 700);
+    }
   };
 
   return (
