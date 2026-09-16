@@ -227,12 +227,27 @@ export function HomePage({ onOrderClick, isCheckingOut }: HomePageProps) {
 
               {/* Pricing & CTA Actions */}
               <div className="mt-6 sm:mt-9 flex w-full flex-col gap-3 sm:flex-row sm:items-center">
-                <div className="w-full sm:w-auto flex-1 min-w-[260px]">
-                  <ShopifyBuyButton
-                    elementId="product-component-1789550414545"
-                    buttonText="BUY NOW — PKR 2,499"
-                  />
-                </div>
+                <button
+                  type="button"
+                  onClick={() => onOrderClick(1)}
+                  disabled={isCheckingOut}
+                  className="gold-glow-button group relative flex items-center justify-center gap-2.5 overflow-hidden rounded-xl px-6 py-3.5 sm:px-8 sm:py-4 font-mono-ui text-xs font-bold uppercase tracking-wider sm:tracking-[0.2em] text-[#0b0f17] transition-all disabled:opacity-80 shadow-2xl"
+                  data-testid="hero-primary-order-btn"
+                >
+                  <span className="btn-shine" />
+                  {isCheckingOut ? (
+                    <>
+                      <span className="h-4 w-4 animate-spin rounded-full border-2 border-[#0b0f17] border-t-transparent" />
+                      <span>Redirecting...</span>
+                    </>
+                  ) : (
+                    <>
+                      <ShoppingBag className="h-4 w-4 shrink-0 transition-transform duration-300 group-hover:scale-110" />
+                      <span>ORDER NOW — PKR 2,499</span>
+                      <ArrowRight className="h-4 w-4 shrink-0 transition-transform duration-300 group-hover:translate-x-1" />
+                    </>
+                  )}
+                </button>
 
                 <a
                   href="#bundles"
@@ -241,6 +256,9 @@ export function HomePage({ onOrderClick, isCheckingOut }: HomePageProps) {
                   <span>SEE PLANS & BUNDLES</span>
                   <ArrowDown className="h-3.5 w-3.5" />
                 </a>
+
+                {/* Target element for Shopify SDK */}
+                <div id="product-component-1789550414545" className="hidden" />
               </div>
 
               {/* Price Tag */}
