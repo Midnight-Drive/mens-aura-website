@@ -38,7 +38,7 @@ const PAKISTAN_CITIES = [
 export interface BundleTier {
   qty: number;
   badge: string;
-  tag: string;
+  badgeColor: string;
   name: string;
   packName: string;
   subtitle: string;
@@ -47,13 +47,14 @@ export interface BundleTier {
   savings: number;
   discountPercent: number;
   popular?: boolean;
+  benefits: string[];
 }
 
 export const BUNDLE_TIERS: Record<number, BundleTier> = {
   1: {
     qty: 1,
     badge: 'Starter Ritual',
-    tag: 'Save PKR 501',
+    badgeColor: 'border-[#c5a059]/30 bg-[#c5a059]/10 text-[#e5c583]',
     name: '1 Bottle (30ml)',
     packName: '1 Bottle (30ml) — Starter Ritual',
     subtitle: '30-Day Routine Supply',
@@ -61,11 +62,13 @@ export const BUNDLE_TIERS: Record<number, BundleTier> = {
     originalPrice: 3000,
     savings: 501,
     discountPercent: 17,
+    popular: false,
+    benefits: ['1x 30ml Amber Glass Dropper', '30-Day Daily Night Ritual', 'Free COD Shipping Pakistan'],
   },
   2: {
     qty: 2,
-    badge: 'Most Popular',
-    tag: 'Save PKR 1,501 (25% OFF)',
+    badge: 'Most Popular — Save PKR 1,501',
+    badgeColor: 'border-[#c5a059] bg-[#c5a059] text-[#070b12]',
     name: '2 Bottles Pack (2x 30ml)',
     packName: '2 Bottles Pack (2x 30ml) — Most Popular',
     subtitle: '60-Day Full Vigor Protocol',
@@ -74,11 +77,12 @@ export const BUNDLE_TIERS: Record<number, BundleTier> = {
     savings: 1501,
     discountPercent: 25,
     popular: true,
+    benefits: ['2x 30ml Amber Glass Droppers', '60-Day Full Vigor Protocol', 'Save PKR 1,501 + Priority COD'],
   },
   3: {
     qty: 3,
-    badge: 'Best Value',
-    tag: 'Save PKR 3,001 (33% OFF)',
+    badge: 'Best Value — Save PKR 3,001',
+    badgeColor: 'border-[#c5a059]/50 bg-[#c5a059]/20 text-[#e5c583]',
     name: '3 Bottles Master Pack (3x 30ml)',
     packName: '3 Bottles Master Pack (3x 30ml) — Best Value',
     subtitle: '90-Day Peak Vigor Pack',
@@ -86,6 +90,8 @@ export const BUNDLE_TIERS: Record<number, BundleTier> = {
     originalPrice: 9000,
     savings: 3001,
     discountPercent: 33,
+    popular: false,
+    benefits: ['3x 30ml Amber Glass Droppers', '90-Day Maximum Stamina Pack', 'Save PKR 3,001 + VIP Support'],
   },
 };
 
@@ -133,7 +139,7 @@ export function CheckoutPage() {
     return {
       qty,
       badge: `Custom Pack (${qty} Bottles)`,
-      tag: `Save PKR ${savings.toLocaleString()}`,
+      badgeColor: 'border-[#c5a059]/30 bg-[#c5a059]/10 text-[#e5c583]',
       name: `${qty} Bottles Pack`,
       packName: `${qty}x Midnight Drive 30ml Dropper Bottles`,
       subtitle: `${qty * 30}-Day Routine Supply`,
@@ -141,6 +147,7 @@ export function CheckoutPage() {
       originalPrice,
       savings,
       discountPercent: Math.round((savings / originalPrice) * 100),
+      benefits: [`${qty}x 30ml Amber Glass Droppers`, 'Custom Routine Protocol', 'Free COD Express Shipping'],
     };
   };
 
@@ -304,83 +311,113 @@ export function CheckoutPage() {
           </div>
         )}
 
-        <form onSubmit={handleSubmit} className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
-          {/* Left Column: Form Controls & Bundle Selector */}
-          <div className="lg:col-span-7 space-y-6">
-            
-            {/* Interactive Bundle Plan Selector Card */}
-            <div className="rounded-2xl border-2 border-[#c5a059]/50 bg-gradient-to-r from-[#0d1527] via-[#121c33] to-[#0d1527] p-5 sm:p-6 shadow-2xl space-y-4">
-              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 border-b border-[#c5a059]/25 pb-3">
-                <div>
-                  <span className="inline-flex items-center gap-1.5 rounded-full border border-[#c5a059]/40 bg-[#c5a059]/15 px-3 py-0.5 text-[10px] font-bold uppercase tracking-wider text-[#e5c583]">
-                    <Sparkles className="h-3 w-3 text-[#c5a059]" /> Selected Bundle Plan
-                  </span>
-                  <h3 className="font-editorial text-xl font-normal text-white mt-1">
-                    {activeBundle.name}
-                  </h3>
-                </div>
-                <div className="text-left sm:text-right">
-                  <span className="text-xs text-slate-400 line-through block">
-                    PKR {originalTotal.toLocaleString()}
-                  </span>
-                  <span className="font-cinzel text-xl font-bold text-[#e5c583]">
-                    PKR {subtotal.toLocaleString()}
-                  </span>
-                </div>
+        {/* ========================================================================= */}
+        {/* TOP LUXURY BUNDLE SELECTION SECTION (HOMEPAGE DESIGN & BEAUTY) */}
+        {/* ========================================================================= */}
+        <section className="mb-12">
+          <div className="text-center sm:text-left mb-6 flex flex-col sm:flex-row sm:items-end justify-between gap-3 border-b border-[#c5a059]/20 pb-4">
+            <div>
+              <div className="inline-flex items-center gap-2 rounded-full border border-[#c5a059]/40 bg-[#c5a059]/15 px-4 py-1.5 font-mono-ui text-[10px] uppercase tracking-[0.2em] text-[#e5c583]">
+                <Sparkles className="h-3.5 w-3.5 text-[#c5a059]" /> Select Your Midnight Drive Package
               </div>
+              <h2 className="font-editorial mt-2 text-2xl sm:text-4xl font-normal text-[#f4ede2]">
+                Choose Your <em className="text-gold-gradient italic">30ml Routine Pack.</em>
+              </h2>
+            </div>
+            <div className="text-xs text-[#a0aec0] flex items-center gap-2 bg-[#0c1220] px-4 py-2 rounded-xl border border-[#c5a059]/30 self-start sm:self-auto">
+              <Check className="h-4 w-4 text-emerald-400 shrink-0" />
+              <span>Tap any package to select. Instant discount applied!</span>
+            </div>
+          </div>
 
-              {/* 3 Clickable Plan Cards */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                {[1, 2, 3].map((q) => {
-                  const b = BUNDLE_TIERS[q];
-                  const isSelected = quantity === q;
-                  return (
+          {/* 3 Luxury Bundle Cards Grid */}
+          <div className="grid gap-6 md:grid-cols-3">
+            {[1, 2, 3].map((q) => {
+              const b = BUNDLE_TIERS[q];
+              const isSelected = quantity === q;
+
+              return (
+                <div
+                  key={q}
+                  onClick={() => setQuantity(q)}
+                  className={`relative flex flex-col justify-between rounded-3xl p-6 sm:p-7 transition-all duration-300 cursor-pointer ${
+                    isSelected
+                      ? 'border-2 border-[#c5a059] bg-gradient-to-b from-[#111929] via-[#090e17] to-[#111929] shadow-[0_0_40px_rgba(197,160,89,0.35)] ring-2 ring-[#c5a059]/50 scale-[1.02]'
+                      : 'border border-[#c5a059]/30 bg-[#0c1220] hover:border-[#c5a059]/60 hover:bg-[#101728]'
+                  }`}
+                >
+                  {/* Card Header */}
+                  <div>
+                    <div className="flex items-center justify-between gap-2">
+                      <span className={`inline-flex items-center rounded-full px-3 py-1 font-mono-ui text-[10px] font-bold uppercase tracking-wider ${b.badgeColor}`}>
+                        {b.badge}
+                      </span>
+                      {isSelected ? (
+                        <span className="flex items-center gap-1 rounded-full bg-emerald-500/20 px-2.5 py-0.5 font-mono-ui text-[10px] font-extrabold text-emerald-400 border border-emerald-500/40">
+                          <Check className="h-3 w-3 stroke-[3]" /> ACTIVE
+                        </span>
+                      ) : b.popular ? (
+                        <span className="font-mono-ui text-[9px] uppercase tracking-widest text-[#c5a059] font-bold">★ Top Seller</span>
+                      ) : null}
+                    </div>
+
+                    <h3 className="font-editorial mt-5 text-2xl font-semibold text-[#f4ede2]">
+                      {b.name}
+                    </h3>
+                    <p className="font-mono-ui mt-1 text-xs text-[#8c97a8]">
+                      {b.subtitle}
+                    </p>
+
+                    {/* Price Tag */}
+                    <div className="mt-5 flex items-baseline gap-3 border-y border-[#c5a059]/15 py-3.5">
+                      <span className="font-cinzel text-3xl font-extrabold text-[#e5c583]">
+                        PKR {b.unitPrice.toLocaleString()}
+                      </span>
+                      <span className="text-xs text-[#5c6675] line-through">
+                        PKR {b.originalPrice.toLocaleString()}
+                      </span>
+                    </div>
+
+                    {/* Benefits List */}
+                    <ul className="mt-5 space-y-2.5 text-xs text-[#c8d2e1]">
+                      {b.benefits.map((benefit) => (
+                        <li key={benefit} className="flex items-center gap-2">
+                          <div className={`flex h-4 w-4 shrink-0 items-center justify-center rounded-full ${isSelected ? 'bg-[#c5a059] text-[#070b12]' : 'bg-[#c5a059]/15 text-[#e5c583]'}`}>
+                            <Check className="h-2.5 w-2.5 stroke-[3]" />
+                          </div>
+                          <span>{benefit}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* Action Button */}
+                  <div className="mt-7">
                     <button
-                      key={q}
                       type="button"
-                      onClick={() => setQuantity(q)}
-                      className={`relative rounded-xl border p-3.5 text-left transition-all cursor-pointer ${
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setQuantity(b.qty);
+                      }}
+                      className={`w-full flex items-center justify-center gap-2 rounded-xl py-3.5 font-mono-ui text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${
                         isSelected
-                          ? 'border-2 border-[#c5a059] bg-[#162542] shadow-[0_0_20px_rgba(197,160,89,0.3)] ring-1 ring-[#c5a059]'
-                          : 'border-[#c5a059]/30 bg-[#0f172a] hover:border-[#c5a059]/60'
+                          ? 'gold-glow-button text-[#070b12] shadow-xl'
+                          : 'border border-[#c5a059]/40 bg-[#121a2d] text-[#e5c583] hover:border-[#c5a059]'
                       }`}
                     >
-                      {b.popular && (
-                        <span className="absolute -top-2.5 right-2 rounded-full bg-[#c5a059] px-2 py-0.5 font-mono-ui text-[9px] font-extrabold uppercase text-[#070b12]">
-                          ★ Top Seller
-                        </span>
-                      )}
-                      <div className="flex items-center justify-between">
-                        <span className="text-xs font-bold text-white">{b.name}</span>
-                        <div className={`h-4 w-4 rounded-full border flex items-center justify-center shrink-0 ${isSelected ? 'border-[#c5a059] bg-[#c5a059] text-[#070b12]' : 'border-slate-500'}`}>
-                          {isSelected && <Check className="h-3 w-3 stroke-[3]" />}
-                        </div>
-                      </div>
-                      <div className="mt-2 flex items-baseline justify-between">
-                        <span className="text-sm font-bold text-[#e5c583] font-mono-ui">PKR {b.unitPrice.toLocaleString()}</span>
-                        <span className="text-[10px] text-slate-400 line-through">PKR {b.originalPrice.toLocaleString()}</span>
-                      </div>
-                      <div className="mt-1 text-[10px] font-semibold text-emerald-400 flex items-center gap-1">
-                        <Tag className="h-2.5 w-2.5" /> Save PKR {b.savings.toLocaleString()}
-                      </div>
+                      <ShoppingBag className="h-4 w-4" />
+                      <span>{isSelected ? '✓ SELECTED PLAN' : `SELECT — PKR ${b.unitPrice.toLocaleString()}`}</span>
                     </button>
-                  );
-                })}
-              </div>
-
-              {/* Active Discount Announcement Banner */}
-              <div className="rounded-xl border border-emerald-500/40 bg-emerald-950/50 p-3 flex items-center justify-between text-xs text-emerald-200">
-                <div className="flex items-center gap-2">
-                  <Gift className="h-4 w-4 text-emerald-400 shrink-0" />
-                  <span>
-                    <strong>Bundle Discount Applied:</strong> You are saving <strong>PKR {bundleSavings.toLocaleString()}</strong> ({activeBundle.discountPercent}% OFF) on this bundle!
-                  </span>
+                  </div>
                 </div>
-                <span className="font-mono-ui font-extrabold text-emerald-400 shrink-0 hidden sm:block">
-                  -{activeBundle.discountPercent}% OFF
-                </span>
-              </div>
-            </div>
+              );
+            })}
+          </div>
+        </section>
+
+        <form onSubmit={handleSubmit} className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+          {/* Left Column: Form Controls */}
+          <div className="lg:col-span-7 space-y-6">
 
             {/* Contact Section Card */}
             <div className="rounded-2xl border border-[#c5a059]/30 bg-[#0c1220] p-5 sm:p-7 shadow-xl space-y-5">
