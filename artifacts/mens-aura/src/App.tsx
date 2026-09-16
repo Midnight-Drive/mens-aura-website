@@ -84,7 +84,7 @@ function MainLayout() {
   const [location, setLocation] = useLocation();
 
   const handleOrder = (qty: number = 1) => {
-    setLocation('/checkout');
+    setLocation(`/checkout?qty=${qty}`);
   };
 
   return (

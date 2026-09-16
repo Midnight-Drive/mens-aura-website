@@ -6,7 +6,9 @@ import {
   Lock,
   ShoppingBag,
   Sparkles,
-  ChevronDown
+  ChevronDown,
+  Tag,
+  Gift
 } from 'lucide-react';
 import { Link } from 'wouter';
 import { createShopifyCheckoutOrder, CustomerOrderPayload } from '@/lib/shopify';
@@ -33,8 +35,71 @@ const PAKISTAN_CITIES = [
   'Other City',
 ];
 
+export interface BundleTier {
+  qty: number;
+  badge: string;
+  tag: string;
+  name: string;
+  packName: string;
+  subtitle: string;
+  unitPrice: number; // bundle total price
+  originalPrice: number;
+  savings: number;
+  discountPercent: number;
+  popular?: boolean;
+}
+
+export const BUNDLE_TIERS: Record<number, BundleTier> = {
+  1: {
+    qty: 1,
+    badge: 'Starter Ritual',
+    tag: 'Save PKR 501',
+    name: '1 Bottle (30ml)',
+    packName: '1 Bottle (30ml) — Starter Ritual',
+    subtitle: '30-Day Routine Supply',
+    unitPrice: 2499,
+    originalPrice: 3000,
+    savings: 501,
+    discountPercent: 17,
+  },
+  2: {
+    qty: 2,
+    badge: 'Most Popular',
+    tag: 'Save PKR 1,501 (25% OFF)',
+    name: '2 Bottles Pack (2x 30ml)',
+    packName: '2 Bottles Pack (2x 30ml) — Most Popular',
+    subtitle: '60-Day Full Vigor Protocol',
+    unitPrice: 4499,
+    originalPrice: 6000,
+    savings: 1501,
+    discountPercent: 25,
+    popular: true,
+  },
+  3: {
+    qty: 3,
+    badge: 'Best Value',
+    tag: 'Save PKR 3,001 (33% OFF)',
+    name: '3 Bottles Master Pack (3x 30ml)',
+    packName: '3 Bottles Master Pack (3x 30ml) — Best Value',
+    subtitle: '90-Day Peak Vigor Pack',
+    unitPrice: 5999,
+    originalPrice: 9000,
+    savings: 3001,
+    discountPercent: 33,
+  },
+};
+
 export function CheckoutPage() {
-  const [quantity, setQuantity] = useState(1);
+  const getInitialQty = () => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      const q = parseInt(params.get('qty') || '1', 10);
+      return q >= 1 ? q : 1;
+    }
+    return 1;
+  };
+
+  const [quantity, setQuantity] = useState(getInitialQty);
   const [formData, setFormData] = useState<CustomerOrderPayload>({
     email: '',
     phone: '',
@@ -45,7 +110,7 @@ export function CheckoutPage() {
     city: 'Lahore',
     zip: '',
     country: 'Pakistan',
-    quantity: 1,
+    quantity,
     paymentMethod: 'cod',
     notes: '',
   });
@@ -58,10 +123,32 @@ export function CheckoutPage() {
   const [emailNews, setEmailNews] = useState(false);
   const [billingSame, setBillingSame] = useState(true);
 
-  // Calculations
-  const unitPrice = 2499;
+  // Dynamic Bundle Calculations
+  const getBundleInfo = (qty: number): BundleTier => {
+    if (BUNDLE_TIERS[qty]) return BUNDLE_TIERS[qty];
+    const extra = qty - 3;
+    const unitPrice = 5999 + extra * 1999;
+    const originalPrice = qty * 3000;
+    const savings = originalPrice - unitPrice;
+    return {
+      qty,
+      badge: `Custom Pack (${qty} Bottles)`,
+      tag: `Save PKR ${savings.toLocaleString()}`,
+      name: `${qty} Bottles Pack`,
+      packName: `${qty}x Midnight Drive 30ml Dropper Bottles`,
+      subtitle: `${qty * 30}-Day Routine Supply`,
+      unitPrice,
+      originalPrice,
+      savings,
+      discountPercent: Math.round((savings / originalPrice) * 100),
+    };
+  };
+
+  const activeBundle = getBundleInfo(quantity);
   const shippingFee = 200;
-  const subtotal = unitPrice * quantity;
+  const subtotal = activeBundle.unitPrice;
+  const originalTotal = activeBundle.originalPrice;
+  const bundleSavings = activeBundle.savings;
   const grandTotal = subtotal + shippingFee;
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
@@ -98,6 +185,7 @@ export function CheckoutPage() {
       ...formData,
       city: finalCity,
       quantity,
+      notes: `Selected Plan: ${activeBundle.packName} (Save PKR ${bundleSavings.toLocaleString()})`,
     };
 
     const result = await createShopifyCheckoutOrder(payload);
@@ -114,7 +202,7 @@ export function CheckoutPage() {
   };
 
   const whatsappConfirmUrl = `https://wa.me/923110355309?text=${encodeURIComponent(
-    `Hello Men's Aura Team, I have placed Order #${orderId} for Midnight Drive (Total: Rs. ${grandTotal.toLocaleString()}). Please confirm my Cash on Delivery shipment!`
+    `Hello Men's Aura Team, I have placed Order #${orderId} for ${activeBundle.packName} (Total: Rs. ${grandTotal.toLocaleString()}). Please confirm my Cash on Delivery shipment!`
   )}`;
 
   if (isSuccess) {
@@ -133,13 +221,21 @@ export function CheckoutPage() {
             Thank You, {formData.firstName}!
           </h1>
           <p className="mt-2 text-xs sm:text-sm text-[#8c97a8]">
-            Your order <span className="font-mono-ui font-bold text-[#e5c583]">#{orderId}</span> for <strong className="text-[#f4ede2]">Midnight Drive</strong> is being processed.
+            Your order <span className="font-mono-ui font-bold text-[#e5c583]">#{orderId}</span> for <strong className="text-[#f4ede2]">{activeBundle.name}</strong> is being processed.
           </p>
 
           <div className="mt-6 rounded-xl border border-[#c5a059]/20 bg-[#070a10] p-4 text-left space-y-2.5 text-xs sm:text-sm">
             <div className="flex justify-between border-b border-[#c5a059]/10 pb-2">
               <span className="text-[#8c97a8]">Order Number:</span>
               <span className="font-mono-ui font-bold text-[#e5c583]">#{orderId}</span>
+            </div>
+            <div className="flex justify-between border-b border-[#c5a059]/10 pb-2">
+              <span className="text-[#8c97a8]">Selected Plan:</span>
+              <span className="font-medium text-[#e5c583] text-right truncate max-w-[200px]">{activeBundle.name}</span>
+            </div>
+            <div className="flex justify-between border-b border-[#c5a059]/10 pb-2">
+              <span className="text-[#8c97a8]">Discount Applied:</span>
+              <span className="text-emerald-400 font-bold">Save PKR {bundleSavings.toLocaleString()}</span>
             </div>
             <div className="flex justify-between border-b border-[#c5a059]/10 pb-2">
               <span className="text-[#8c97a8]">Address:</span>
@@ -209,9 +305,83 @@ export function CheckoutPage() {
         )}
 
         <form onSubmit={handleSubmit} className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
-          {/* Left Column: Form Controls in Sleek Luxury Container Cards */}
+          {/* Left Column: Form Controls & Bundle Selector */}
           <div className="lg:col-span-7 space-y-6">
             
+            {/* Interactive Bundle Plan Selector Card */}
+            <div className="rounded-2xl border-2 border-[#c5a059]/50 bg-gradient-to-r from-[#0d1527] via-[#121c33] to-[#0d1527] p-5 sm:p-6 shadow-2xl space-y-4">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 border-b border-[#c5a059]/25 pb-3">
+                <div>
+                  <span className="inline-flex items-center gap-1.5 rounded-full border border-[#c5a059]/40 bg-[#c5a059]/15 px-3 py-0.5 text-[10px] font-bold uppercase tracking-wider text-[#e5c583]">
+                    <Sparkles className="h-3 w-3 text-[#c5a059]" /> Selected Bundle Plan
+                  </span>
+                  <h3 className="font-editorial text-xl font-normal text-white mt-1">
+                    {activeBundle.name}
+                  </h3>
+                </div>
+                <div className="text-left sm:text-right">
+                  <span className="text-xs text-slate-400 line-through block">
+                    PKR {originalTotal.toLocaleString()}
+                  </span>
+                  <span className="font-cinzel text-xl font-bold text-[#e5c583]">
+                    PKR {subtotal.toLocaleString()}
+                  </span>
+                </div>
+              </div>
+
+              {/* 3 Clickable Plan Cards */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                {[1, 2, 3].map((q) => {
+                  const b = BUNDLE_TIERS[q];
+                  const isSelected = quantity === q;
+                  return (
+                    <button
+                      key={q}
+                      type="button"
+                      onClick={() => setQuantity(q)}
+                      className={`relative rounded-xl border p-3.5 text-left transition-all cursor-pointer ${
+                        isSelected
+                          ? 'border-2 border-[#c5a059] bg-[#162542] shadow-[0_0_20px_rgba(197,160,89,0.3)] ring-1 ring-[#c5a059]'
+                          : 'border-[#c5a059]/30 bg-[#0f172a] hover:border-[#c5a059]/60'
+                      }`}
+                    >
+                      {b.popular && (
+                        <span className="absolute -top-2.5 right-2 rounded-full bg-[#c5a059] px-2 py-0.5 font-mono-ui text-[9px] font-extrabold uppercase text-[#070b12]">
+                          ★ Top Seller
+                        </span>
+                      )}
+                      <div className="flex items-center justify-between">
+                        <span className="text-xs font-bold text-white">{b.name}</span>
+                        <div className={`h-4 w-4 rounded-full border flex items-center justify-center shrink-0 ${isSelected ? 'border-[#c5a059] bg-[#c5a059] text-[#070b12]' : 'border-slate-500'}`}>
+                          {isSelected && <Check className="h-3 w-3 stroke-[3]" />}
+                        </div>
+                      </div>
+                      <div className="mt-2 flex items-baseline justify-between">
+                        <span className="text-sm font-bold text-[#e5c583] font-mono-ui">PKR {b.unitPrice.toLocaleString()}</span>
+                        <span className="text-[10px] text-slate-400 line-through">PKR {b.originalPrice.toLocaleString()}</span>
+                      </div>
+                      <div className="mt-1 text-[10px] font-semibold text-emerald-400 flex items-center gap-1">
+                        <Tag className="h-2.5 w-2.5" /> Save PKR {b.savings.toLocaleString()}
+                      </div>
+                    </button>
+                  );
+                })}
+              </div>
+
+              {/* Active Discount Announcement Banner */}
+              <div className="rounded-xl border border-emerald-500/40 bg-emerald-950/50 p-3 flex items-center justify-between text-xs text-emerald-200">
+                <div className="flex items-center gap-2">
+                  <Gift className="h-4 w-4 text-emerald-400 shrink-0" />
+                  <span>
+                    <strong>Bundle Discount Applied:</strong> You are saving <strong>PKR {bundleSavings.toLocaleString()}</strong> ({activeBundle.discountPercent}% OFF) on this bundle!
+                  </span>
+                </div>
+                <span className="font-mono-ui font-extrabold text-emerald-400 shrink-0 hidden sm:block">
+                  -{activeBundle.discountPercent}% OFF
+                </span>
+              </div>
+            </div>
+
             {/* Contact Section Card */}
             <div className="rounded-2xl border border-[#c5a059]/30 bg-[#0c1220] p-5 sm:p-7 shadow-xl space-y-5">
               <div className="flex items-center justify-between border-b border-[#c5a059]/20 pb-3">
@@ -390,7 +560,7 @@ export function CheckoutPage() {
                 )}
               </div>
 
-              {/* Phone Field with clear visual indicator */}
+              {/* Phone Field */}
               <div>
                 <div className="flex items-center justify-between mb-1.5">
                   <label className="block text-xs font-semibold uppercase tracking-wider text-[#d4b06a]">
@@ -425,7 +595,7 @@ export function CheckoutPage() {
                 <span className="text-[11px] text-[#e5c583] font-semibold">Cash On Delivery</span>
               </div>
 
-              {/* Shipping method info */}
+              {/* Shipping method */}
               <div>
                 <label className="block text-xs font-semibold uppercase tracking-wider text-[#d4b06a] mb-1.5">
                   Shipping Method
@@ -442,7 +612,7 @@ export function CheckoutPage() {
                 </div>
               </div>
 
-              {/* Payment method selection */}
+              {/* Payment method */}
               <div>
                 <label className="block text-xs font-semibold uppercase tracking-wider text-[#d4b06a] mb-1.5">
                   Payment Method
@@ -467,7 +637,7 @@ export function CheckoutPage() {
                 </div>
               </div>
 
-              {/* Billing address radio selector */}
+              {/* Billing address */}
               <div>
                 <label className="block text-xs font-semibold uppercase tracking-wider text-[#d4b06a] mb-1.5">
                   Billing Address
@@ -530,7 +700,7 @@ export function CheckoutPage() {
             </div>
           </div>
 
-          {/* Right Column: Order Summary Card (Highly Visible & Crisp) */}
+          {/* Right Column: Order Summary Card */}
           <div className="lg:col-span-5 lg:sticky lg:top-24">
             <div className="rounded-2xl border-2 border-[#c5a059]/40 bg-[#0c1220] p-6 sm:p-7 shadow-2xl space-y-6">
               <div className="flex items-center justify-between border-b border-[#c5a059]/20 pb-4">
@@ -538,7 +708,7 @@ export function CheckoutPage() {
                   <ShoppingBag className="h-5 w-5 text-[#c5a059]" /> Order Summary
                 </h3>
                 <span className="rounded-full bg-[#c5a059]/20 px-2.5 py-0.5 text-[11px] font-bold text-[#e5c583] border border-[#c5a059]/30">
-                  1 Item
+                  {quantity} {quantity === 1 ? 'Bottle' : 'Bottles Pack'}
                 </span>
               </div>
 
@@ -563,18 +733,27 @@ export function CheckoutPage() {
                     <p className="text-sm font-bold text-white truncate">
                       Midnight Drive
                     </p>
-                    <p className="text-xs text-[#d4b06a] font-medium">by Men's Aura • 30ml Dropper</p>
+                    <p className="text-xs text-[#d4b06a] font-medium truncate">{activeBundle.name}</p>
+                    <p className="text-[10px] text-[#a0aec0]">{activeBundle.subtitle}</p>
                   </div>
                 </div>
-                <span className="font-mono-ui text-sm font-bold text-[#e5c583] whitespace-nowrap">
-                  Rs {subtotal.toLocaleString()}.00
-                </span>
+                <div className="text-right whitespace-nowrap">
+                  <span className="block text-[11px] text-slate-400 line-through font-mono-ui">
+                    Rs {originalTotal.toLocaleString()}.00
+                  </span>
+                  <span className="font-mono-ui text-sm font-bold text-[#e5c583]">
+                    Rs {subtotal.toLocaleString()}.00
+                  </span>
+                </div>
               </div>
 
-              {/* Quantity Controls */}
+              {/* Quantity Selector inside Order Summary */}
               <div className="flex items-center justify-between rounded-xl border border-[#c5a059]/30 bg-[#121a2d] p-3">
-                <span className="text-xs font-semibold text-[#d4b06a]">Quantity:</span>
-                <div className="flex items-center gap-3">
+                <div>
+                  <span className="text-xs font-semibold text-[#d4b06a] block">Selected Pack:</span>
+                  <span className="text-[11px] text-slate-300 font-medium">{activeBundle.name}</span>
+                </div>
+                <div className="flex items-center gap-2.5">
                   <button
                     type="button"
                     onClick={() => setQuantity(Math.max(1, quantity - 1))}
@@ -582,7 +761,7 @@ export function CheckoutPage() {
                   >
                     -
                   </button>
-                  <span className="font-mono-ui text-sm font-bold text-white">{quantity}</span>
+                  <span className="font-mono-ui text-sm font-bold text-white px-1">{quantity}</span>
                   <button
                     type="button"
                     onClick={() => setQuantity(quantity + 1)}
@@ -596,17 +775,35 @@ export function CheckoutPage() {
               {/* Price Breakdown */}
               <div className="space-y-3 text-sm border-b border-[#c5a059]/20 pb-5">
                 <div className="flex justify-between text-[#cbd5e1]">
-                  <span>Subtotal</span>
+                  <span>Retail Price</span>
+                  <span className="font-semibold text-slate-400 line-through">Rs {originalTotal.toLocaleString()}.00</span>
+                </div>
+
+                <div className="flex justify-between text-emerald-400 font-medium">
+                  <span className="flex items-center gap-1.5">
+                    <Tag className="h-3.5 w-3.5" /> Bundle Discount
+                  </span>
+                  <span className="font-bold">- Rs {bundleSavings.toLocaleString()}.00</span>
+                </div>
+
+                <div className="flex justify-between text-[#cbd5e1]">
+                  <span>Discounted Subtotal</span>
                   <span className="font-semibold text-white">Rs {subtotal.toLocaleString()}.00</span>
                 </div>
+
                 <div className="flex justify-between text-[#cbd5e1]">
-                  <span>Shipping Fee (Standard)</span>
+                  <span>Nationwide Shipping</span>
                   <span className="font-semibold text-[#e5c583]">Rs {shippingFee}.00</span>
                 </div>
               </div>
 
+              {/* Total Savings Highlight Pill */}
+              <div className="rounded-xl border border-emerald-500/30 bg-emerald-950/30 px-3.5 py-2 text-center text-xs font-bold text-emerald-300">
+                🎉 Total You Save On This Order: PKR {bundleSavings.toLocaleString()}!
+              </div>
+
               {/* Total Payable */}
-              <div className="rounded-xl border border-[#c5a059]/30 bg-[#142036] p-4 flex items-center justify-between">
+              <div className="rounded-xl border border-[#c5a059]/40 bg-[#142036] p-4 flex items-center justify-between shadow-lg">
                 <div>
                   <span className="font-editorial text-lg text-white font-normal block">Total Payable</span>
                   <span className="text-[10px] text-[#a0aec0] uppercase tracking-wider">Including Taxes & Delivery</span>
