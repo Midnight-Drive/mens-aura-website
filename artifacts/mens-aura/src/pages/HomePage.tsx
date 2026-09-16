@@ -23,6 +23,7 @@ import { PrivacyUnboxingSection } from '@/components/PrivacyUnboxingSection';
 import { SafeVideo } from '@/components/SafeVideo';
 import { VIDEO_CONFIG } from '@/config/videos';
 import { Card3D } from '@/components/Card3D';
+import { ShopifyBuyButton } from '@/components/ShopifyBuyButton';
 
 interface HomePageProps {
   onOrderClick: (qty?: number) => void;
@@ -226,31 +227,16 @@ export function HomePage({ onOrderClick, isCheckingOut }: HomePageProps) {
 
               {/* Pricing & CTA Actions */}
               <div className="mt-6 sm:mt-9 flex w-full flex-col gap-3 sm:flex-row sm:items-center">
-                <button
-                  type="button"
-                  onClick={() => onOrderClick(1)}
-                  disabled={isCheckingOut}
-                  className="gold-glow-button group relative flex items-center justify-center gap-2.5 overflow-hidden rounded-xl px-6 py-3.5 sm:px-8 sm:py-4 font-mono-ui text-xs font-bold uppercase tracking-wider sm:tracking-[0.2em] text-[#0b0f17] transition-all disabled:opacity-80 shadow-2xl"
-                  data-testid="hero-primary-order-btn"
-                >
-                  <span className="btn-shine" />
-                  {isCheckingOut ? (
-                    <>
-                      <span className="h-4 w-4 animate-spin rounded-full border-2 border-[#0b0f17] border-t-transparent" />
-                      <span>Redirecting...</span>
-                    </>
-                  ) : (
-                    <>
-                      <ShoppingBag className="h-4 w-4 shrink-0 transition-transform duration-300 group-hover:scale-110" />
-                      <span>ORDER NOW — PKR 2,499</span>
-                      <ArrowRight className="h-4 w-4 shrink-0 transition-transform duration-300 group-hover:translate-x-1" />
-                    </>
-                  )}
-                </button>
+                <div className="w-full sm:w-auto flex-1 min-w-[260px]">
+                  <ShopifyBuyButton
+                    elementId="product-component-1789550414545"
+                    buttonText="BUY NOW — PKR 2,499"
+                  />
+                </div>
 
                 <a
                   href="#bundles"
-                  className="flex items-center justify-center gap-2 rounded-xl border border-[#c5a059]/40 bg-[#0c121d]/90 px-4 py-3.5 sm:px-6 sm:py-4 font-mono-ui text-xs font-medium uppercase tracking-wider sm:tracking-[0.2em] text-[#c7d0de] backdrop-blur-md transition-colors hover:border-[#c5a059] hover:text-[#e5c583]"
+                  className="flex items-center justify-center gap-2 rounded-xl border border-[#c5a059]/40 bg-[#0c121d]/90 px-4 py-3.5 sm:px-6 sm:py-4 font-mono-ui text-xs font-medium uppercase tracking-wider sm:tracking-[0.2em] text-[#c7d0de] backdrop-blur-md transition-colors hover:border-[#c5a059] hover:text-[#e5c583] whitespace-nowrap"
                 >
                   <span>SEE PLANS & BUNDLES</span>
                   <ArrowDown className="h-3.5 w-3.5" />

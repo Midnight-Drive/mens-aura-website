@@ -1,16 +1,16 @@
 /**
  * Shopify Storefront Client Configuration
- * Store: Men's Aura (ssj1ic-1v.myshopify.com)
- * Product: Midnight Drive (ID: 10824116306230, Variant: 54469007245622)
+ * Store: Men's Aura (xj2wh7-ji.myshopify.com)
+ * Product: Midnight Drive (ID: 10716897706286, Variant: 52658897912110)
  */
 
 export const SHOPIFY_CONFIG = {
-  domain: 'ssj1ic-1v.myshopify.com',
-  storefrontAccessToken: '7055d4323e33ae4a56d0b72b1dda424a',
-  productId: '10824116306230',
-  variantId: '54469007245622',
-  variantGid: 'gid://shopify/ProductVariant/54469007245622',
-  productGid: 'gid://shopify/Product/10824116306230',
+  domain: 'xj2wh7-ji.myshopify.com',
+  storefrontAccessToken: '34135d059170a3aac9fefa1463d03d17',
+  productId: '10716897706286',
+  variantId: '52658897912110',
+  variantGid: 'gid://shopify/ProductVariant/52658897912110',
+  productGid: 'gid://shopify/Product/10716897706286',
   defaultPrice: 2499,
   currency: 'PKR',
 };
