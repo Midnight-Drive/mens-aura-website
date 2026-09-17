@@ -214,69 +214,101 @@ export function CheckoutPage() {
 
   if (isSuccess) {
     return (
-      <div className="min-h-screen bg-[#070b12] text-[#f4ede2] py-12 px-4 sm:px-8 flex items-center justify-center">
-        <div className="max-w-xl w-full bg-[#0e1522] border border-[#c5a059]/30 rounded-2xl p-6 sm:p-10 shadow-2xl text-center animate-in fade-in duration-200">
-          <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full border-2 border-[#c5a059] bg-[#c5a059]/15 text-[#e5c583]">
-            <Check className="h-8 w-8 stroke-[3]" />
+      <div className="min-h-screen bg-[#05080e] text-[#f4ede2] py-12 px-4 sm:px-8 flex items-center justify-center selection:bg-[#c5a059] selection:text-[#070b12]">
+        <div className="max-w-2xl w-full bg-[#0c1220] border-2 border-[#c5a059]/40 rounded-3xl p-6 sm:p-10 shadow-2xl animate-in fade-in zoom-in-95 duration-300 space-y-6">
+          
+          {/* Header Badge */}
+          <div className="text-center space-y-3">
+            <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full border-2 border-[#c5a059] bg-[#c5a059]/15 text-[#e5c583] shadow-lg">
+              <Check className="h-8 w-8 stroke-[3]" />
+            </div>
+
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#c5a059]/40 bg-[#c5a059]/15 px-4 py-1 font-mono-ui text-[11px] font-bold uppercase tracking-widest text-[#e5c583]">
+              <Sparkles className="h-3.5 w-3.5 text-[#c5a059]" /> Order Confirmed — Cash On Delivery
+            </div>
+
+            <h1 className="font-editorial text-3xl sm:text-4xl font-normal text-white">
+              Thank You, {formData.firstName}!
+            </h1>
+            <p className="text-xs sm:text-sm text-[#a0aec0] max-w-lg mx-auto leading-relaxed">
+              Gentleman, your order for <strong className="text-white">{activeBundle.name}</strong> has been successfully received by <strong className="text-[#e5c583]">The Men's Aura</strong>.
+            </p>
           </div>
 
-          <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-[#c5a059]/30 bg-[#c5a059]/10 px-3.5 py-1 font-mono-ui text-[11px] uppercase tracking-widest text-[#e5c583]">
-            <Sparkles className="h-3.5 w-3.5 text-[#c5a059]" /> Order Confirmed — Cash On Delivery
+          {/* Appreciation Message from The Men's Aura */}
+          <div className="rounded-2xl border border-[#c5a059]/30 bg-gradient-to-r from-[#121c33] via-[#16233f] to-[#121c33] p-5 text-xs sm:text-sm text-[#cbd5e1] leading-relaxed space-y-2 text-center shadow-inner">
+            <p className="font-semibold text-[#e5c583]">
+              🔒 100% Confidential & Discreet Packaging Covenant
+            </p>
+            <p className="text-[#a0aec0]">
+              Your parcel is currently being prepared and hand-packed in a plain, unbranded box. No product name or brand logos will be printed on the outside to ensure complete privacy upon delivery.
+            </p>
           </div>
 
-          <h1 className="font-editorial mt-4 text-3xl font-normal text-[#f4ede2]">
-            Thank You, {formData.firstName}!
-          </h1>
-          <p className="mt-2 text-xs sm:text-sm text-[#8c97a8]">
-            Your order <span className="font-mono-ui font-bold text-[#e5c583]">#{orderId}</span> for <strong className="text-[#f4ede2]">{activeBundle.name}</strong> is being processed.
-          </p>
-
-          <div className="mt-6 rounded-xl border border-[#c5a059]/20 bg-[#070a10] p-4 text-left space-y-2.5 text-xs sm:text-sm">
-            <div className="flex justify-between border-b border-[#c5a059]/10 pb-2">
-              <span className="text-[#8c97a8]">Order Number:</span>
+          {/* Order Receipt Box */}
+          <div className="rounded-2xl border border-[#c5a059]/25 bg-[#080d17] p-5 space-y-3 text-xs sm:text-sm">
+            <div className="flex justify-between border-b border-[#c5a059]/15 pb-2.5">
+              <span className="text-[#a0aec0]">Order Reference:</span>
               <span className="font-mono-ui font-bold text-[#e5c583]">#{orderId}</span>
             </div>
-            <div className="flex justify-between border-b border-[#c5a059]/10 pb-2">
-              <span className="text-[#8c97a8]">Selected Plan:</span>
-              <span className="font-medium text-[#e5c583] text-right truncate max-w-[200px]">{activeBundle.name}</span>
+            <div className="flex justify-between border-b border-[#c5a059]/15 pb-2.5">
+              <span className="text-[#a0aec0]">Selected Package:</span>
+              <span className="font-semibold text-white text-right truncate max-w-[220px]">{activeBundle.name}</span>
             </div>
-            <div className="flex justify-between border-b border-[#c5a059]/10 pb-2">
-              <span className="text-[#8c97a8]">Discount Applied:</span>
-              <span className="text-emerald-400 font-bold">Save PKR {bundleSavings.toLocaleString()}</span>
+            <div className="flex justify-between border-b border-[#c5a059]/15 pb-2.5">
+              <span className="text-[#a0aec0]">Bundle Savings:</span>
+              <span className="text-emerald-400 font-bold">Save PKR {bundleSavings.toLocaleString()} ({activeBundle.discountPercent}% OFF)</span>
             </div>
-            <div className="flex justify-between border-b border-[#c5a059]/10 pb-2">
-              <span className="text-[#8c97a8]">Address:</span>
-              <span className="text-right text-[#f4ede2] truncate max-w-[220px]">
+            <div className="flex justify-between border-b border-[#c5a059]/15 pb-2.5">
+              <span className="text-[#a0aec0]">Recipient Contact:</span>
+              <span className="text-white font-medium">{formData.phone}</span>
+            </div>
+            <div className="flex justify-between border-b border-[#c5a059]/15 pb-2.5">
+              <span className="text-[#a0aec0]">Delivery Address:</span>
+              <span className="text-right text-white font-medium truncate max-w-[220px]">
                 {formData.address1}, {formData.city}
               </span>
             </div>
-            <div className="flex justify-between border-b border-[#c5a059]/10 pb-2">
-              <span className="text-[#8c97a8]">Payment Method:</span>
-              <span className="text-[#c5a059] font-medium">Cash on Delivery (COD)</span>
+            <div className="flex justify-between border-b border-[#c5a059]/15 pb-2.5">
+              <span className="text-[#a0aec0]">Payment Method:</span>
+              <span className="text-[#e5c583] font-bold">Cash on Delivery (COD)</span>
             </div>
-            <div className="flex justify-between pt-1 font-bold text-sm">
-              <span className="text-[#f4ede2]">Total Payable:</span>
-              <span className="font-cinzel text-[#e5c583]">Rs. {grandTotal.toLocaleString()}</span>
+            <div className="flex justify-between pt-1 font-bold text-base">
+              <span className="text-white">Total Amount Payable:</span>
+              <span className="font-cinzel text-[#e5c583] text-lg">Rs. {grandTotal.toLocaleString()}</span>
             </div>
           </div>
 
-          <div className="mt-6 space-y-3">
+          {/* Quick Application Reminder Box */}
+          <div className="rounded-2xl border border-[#c5a059]/30 bg-[#0a101d] p-4 text-xs space-y-2">
+            <h4 className="font-mono-ui text-[11px] font-bold uppercase tracking-wider text-[#d4b06a] flex items-center gap-1.5">
+              <Sparkles className="h-3.5 w-3.5 text-[#c5a059]" /> Application Routine Quick Guide
+            </h4>
+            <ul className="space-y-1.5 text-[#cbd5e1] list-disc list-inside pl-1">
+              <li>Apply 4 to 5 drops on the shaft every night before sleeping (avoid the top tip area).</li>
+              <li>Gently massage for 2-3 minutes until absorbed. Leave on overnight.</li>
+              <li><strong>Precaution:</strong> Do NOT engage in intimate contact while oil is applied. Wash thoroughly beforehand.</li>
+            </ul>
+          </div>
+
+          {/* Action CTAs */}
+          <div className="space-y-3 pt-2">
             <a
               href={whatsappConfirmUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="gold-glow-button flex w-full items-center justify-center gap-2 rounded-xl py-3.5 font-mono-ui text-xs font-bold uppercase tracking-wider text-[#070b12]"
+              className="gold-glow-button flex w-full items-center justify-center gap-2 rounded-xl py-4 font-mono-ui text-xs font-extrabold uppercase tracking-wider text-[#070b12] shadow-xl hover:scale-[1.01] transition-transform"
             >
               <MessageCircle className="h-4 w-4 fill-current" />
-              <span>1-Click Confirm on WhatsApp</span>
+              <span>1-Click Order Confirmation on WhatsApp</span>
             </a>
 
             <Link
               href="/"
-              className="flex w-full items-center justify-center gap-2 rounded-xl border border-[#c5a059]/30 bg-[#070b12] py-3 font-mono-ui text-xs font-semibold uppercase tracking-wider text-[#8c97a8] hover:text-[#e5c583] transition-colors"
+              className="flex w-full items-center justify-center gap-2 rounded-xl border border-[#c5a059]/40 bg-[#070b12] py-3.5 font-mono-ui text-xs font-semibold uppercase tracking-wider text-[#a0aec0] hover:text-[#e5c583] hover:border-[#c5a059] transition-all"
             >
               <ArrowLeft className="h-4 w-4" />
-              <span>Back to Store</span>
+              <span>Return to Men's Aura Homepage</span>
             </Link>
           </div>
         </div>
@@ -302,7 +334,7 @@ export function CheckoutPage() {
         </div>
       </header>
 
-      {/* Main 2-Column Responsive Layout */}
+      {/* Main Responsive Area */}
       <main className="mx-auto max-w-6xl px-4 sm:px-8 py-8 sm:py-12">
         {formError && (
           <div className="mb-8 rounded-xl border-2 border-red-500/60 bg-red-950/70 p-4 text-xs sm:text-sm text-red-200 shadow-lg flex items-center justify-between">
@@ -310,110 +342,6 @@ export function CheckoutPage() {
             <button type="button" onClick={() => setFormError('')} className="text-red-400 hover:text-white font-bold ml-2">✕</button>
           </div>
         )}
-
-        {/* ========================================================================= */}
-        {/* TOP LUXURY BUNDLE SELECTION SECTION (HOMEPAGE DESIGN & BEAUTY) */}
-        {/* ========================================================================= */}
-        <section className="mb-12">
-          <div className="text-center sm:text-left mb-6 flex flex-col sm:flex-row sm:items-end justify-between gap-3 border-b border-[#c5a059]/20 pb-4">
-            <div>
-              <div className="inline-flex items-center gap-2 rounded-full border border-[#c5a059]/40 bg-[#c5a059]/15 px-4 py-1.5 font-mono-ui text-[10px] uppercase tracking-[0.2em] text-[#e5c583]">
-                <Sparkles className="h-3.5 w-3.5 text-[#c5a059]" /> Select Your Midnight Drive Package
-              </div>
-              <h2 className="font-editorial mt-2 text-2xl sm:text-4xl font-normal text-[#f4ede2]">
-                Choose Your <em className="text-gold-gradient italic">30ml Routine Pack.</em>
-              </h2>
-            </div>
-            <div className="text-xs text-[#a0aec0] flex items-center gap-2 bg-[#0c1220] px-4 py-2 rounded-xl border border-[#c5a059]/30 self-start sm:self-auto">
-              <Check className="h-4 w-4 text-emerald-400 shrink-0" />
-              <span>Tap any package to select. Instant discount applied!</span>
-            </div>
-          </div>
-
-          {/* 3 Luxury Bundle Cards Grid */}
-          <div className="grid gap-6 md:grid-cols-3">
-            {[1, 2, 3].map((q) => {
-              const b = BUNDLE_TIERS[q];
-              const isSelected = quantity === q;
-
-              return (
-                <div
-                  key={q}
-                  onClick={() => setQuantity(q)}
-                  className={`relative flex flex-col justify-between rounded-3xl p-6 sm:p-7 transition-all duration-300 cursor-pointer ${
-                    isSelected
-                      ? 'border-2 border-[#c5a059] bg-gradient-to-b from-[#111929] via-[#090e17] to-[#111929] shadow-[0_0_40px_rgba(197,160,89,0.35)] ring-2 ring-[#c5a059]/50 scale-[1.02]'
-                      : 'border border-[#c5a059]/30 bg-[#0c1220] hover:border-[#c5a059]/60 hover:bg-[#101728]'
-                  }`}
-                >
-                  {/* Card Header */}
-                  <div>
-                    <div className="flex items-center justify-between gap-2">
-                      <span className={`inline-flex items-center rounded-full px-3 py-1 font-mono-ui text-[10px] font-bold uppercase tracking-wider ${b.badgeColor}`}>
-                        {b.badge}
-                      </span>
-                      {isSelected ? (
-                        <span className="flex items-center gap-1 rounded-full bg-emerald-500/20 px-2.5 py-0.5 font-mono-ui text-[10px] font-extrabold text-emerald-400 border border-emerald-500/40">
-                          <Check className="h-3 w-3 stroke-[3]" /> ACTIVE
-                        </span>
-                      ) : b.popular ? (
-                        <span className="font-mono-ui text-[9px] uppercase tracking-widest text-[#c5a059] font-bold">★ Top Seller</span>
-                      ) : null}
-                    </div>
-
-                    <h3 className="font-editorial mt-5 text-2xl font-semibold text-[#f4ede2]">
-                      {b.name}
-                    </h3>
-                    <p className="font-mono-ui mt-1 text-xs text-[#8c97a8]">
-                      {b.subtitle}
-                    </p>
-
-                    {/* Price Tag */}
-                    <div className="mt-5 flex items-baseline gap-3 border-y border-[#c5a059]/15 py-3.5">
-                      <span className="font-cinzel text-3xl font-extrabold text-[#e5c583]">
-                        PKR {b.unitPrice.toLocaleString()}
-                      </span>
-                      <span className="text-xs text-[#5c6675] line-through">
-                        PKR {b.originalPrice.toLocaleString()}
-                      </span>
-                    </div>
-
-                    {/* Benefits List */}
-                    <ul className="mt-5 space-y-2.5 text-xs text-[#c8d2e1]">
-                      {b.benefits.map((benefit) => (
-                        <li key={benefit} className="flex items-center gap-2">
-                          <div className={`flex h-4 w-4 shrink-0 items-center justify-center rounded-full ${isSelected ? 'bg-[#c5a059] text-[#070b12]' : 'bg-[#c5a059]/15 text-[#e5c583]'}`}>
-                            <Check className="h-2.5 w-2.5 stroke-[3]" />
-                          </div>
-                          <span>{benefit}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  {/* Action Button */}
-                  <div className="mt-7">
-                    <button
-                      type="button"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        setQuantity(b.qty);
-                      }}
-                      className={`w-full flex items-center justify-center gap-2 rounded-xl py-3.5 font-mono-ui text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${
-                        isSelected
-                          ? 'gold-glow-button text-[#070b12] shadow-xl'
-                          : 'border border-[#c5a059]/40 bg-[#121a2d] text-[#e5c583] hover:border-[#c5a059]'
-                      }`}
-                    >
-                      <ShoppingBag className="h-4 w-4" />
-                      <span>{isSelected ? '✓ SELECTED PLAN' : `SELECT — PKR ${b.unitPrice.toLocaleString()}`}</span>
-                    </button>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </section>
 
         <form onSubmit={handleSubmit} className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
           {/* Left Column: Form Controls */}
