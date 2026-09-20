@@ -17,9 +17,19 @@
   {% endif %}
 {% endfor %}
 
-{% assign v1_id = section.settings.bundle_1_variant_id | default: v1.id | default: 52658897912110 %}
-{% assign v2_id = section.settings.bundle_2_variant_id | default: v2.id | default: v1_id %}
-{% assign v3_id = section.settings.bundle_3_variant_id | default: v3.id | default: v1_id %}
+{% assign v1_id = v1.id | default: 52696761893166 %}
+{% assign v2_id = v2.id | default: 52696761925934 %}
+{% assign v3_id = v3.id | default: 52696761958702 %}
+
+{% if section.settings.bundle_1_variant_id != blank and section.settings.bundle_1_variant_id != '52658897912110' %}
+  {% assign v1_id = section.settings.bundle_1_variant_id %}
+{% endif %}
+{% if section.settings.bundle_2_variant_id != blank and section.settings.bundle_2_variant_id != '52658897912110' %}
+  {% assign v2_id = section.settings.bundle_2_variant_id %}
+{% endif %}
+{% if section.settings.bundle_3_variant_id != blank and section.settings.bundle_3_variant_id != '52658897912110' %}
+  {% assign v3_id = section.settings.bundle_3_variant_id %}
+{% endif %}
 {% assign variant_id = v1_id %}
 
 {% assign video_src = section.settings.product_video_url %}
@@ -103,42 +113,6 @@
           <p style="font-size:14px;line-height:1.8;color:var(--slate);">
             Formulated with 100% natural, chemical-free ingredients, Midnight Drive absorbs smoothly, revitalizes deeply, and helps you perform at your absolute peak without any harsh side effects.
           </p>
-        </div>
-
-        <!-- 6 Legendary Botanical Oils Badges -->
-        <div style="border-radius:16px;border:1px solid rgba(197,160,89,0.25);background:#090e17;padding:18px;">
-          <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#c5a059" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-            <h4 style="font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:0.18em;color:var(--gold);margin:0;">
-              Formulated With 6 Legendary Cold-Pressed Oils:
-            </h4>
-          </div>
-          <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:8px;">
-            <div style="border-radius:8px;border:1px solid rgba(197,160,89,0.15);background:#070b12;padding:8px 10px;">
-              <span style="font-family:var(--font-heading);font-size:11px;color:var(--gold-light);font-weight:700;display:block;">1. Raig Mahi Oil</span>
-              <span style="font-size:10px;color:var(--slate);">Micro-circulation &amp; stamina</span>
-            </div>
-            <div style="border-radius:8px;border:1px solid rgba(197,160,89,0.15);background:#070b12;padding:8px 10px;">
-              <span style="font-family:var(--font-heading);font-size:11px;color:var(--gold-light);font-weight:700;display:block;">2. Pure Ostrich Bio-Oil</span>
-              <span style="font-size:10px;color:var(--slate);">Omega 3-6-9 transdermal carrier</span>
-            </div>
-            <div style="border-radius:8px;border:1px solid rgba(197,160,89,0.15);background:#070b12;padding:8px 10px;">
-              <span style="font-family:var(--font-heading);font-size:11px;color:var(--gold-light);font-weight:700;display:block;">3. Clove Oil (Eugenol)</span>
-              <span style="font-size:10px;color:var(--slate);">Natural warming sensation</span>
-            </div>
-            <div style="border-radius:8px;border:1px solid rgba(197,160,89,0.15);background:#070b12;padding:8px 10px;">
-              <span style="font-family:var(--font-heading);font-size:11px;color:var(--gold-light);font-weight:700;display:block;">4. Extra Virgin Olive Oil</span>
-              <span style="font-size:10px;color:var(--slate);">Velvet glide &amp; skin nourishment</span>
-            </div>
-            <div style="border-radius:8px;border:1px solid rgba(197,160,89,0.15);background:#070b12;padding:8px 10px;">
-              <span style="font-family:var(--font-heading);font-size:11px;color:var(--gold-light);font-weight:700;display:block;">5. Wild Rosemary Oil</span>
-              <span style="font-size:10px;color:var(--slate);">Tactile tone &amp; sensory response</span>
-            </div>
-            <div style="border-radius:8px;border:1px solid rgba(197,160,89,0.15);background:#070b12;padding:8px 10px;">
-              <span style="font-family:var(--font-heading);font-size:11px;color:var(--gold-light);font-weight:700;display:block;">6. Pure Black Seed Oil</span>
-              <span style="font-size:10px;color:var(--slate);">Kalonji extract for peak endurance</span>
-            </div>
-          </div>
         </div>
 
         <!-- Bundle Selection Cards (Dynamic) -->
@@ -294,6 +268,131 @@
               <strong style="font-size:13px;color:var(--gold-light);">Rs. 2,499 <span style="font-size:11px;color:var(--slate);text-decoration:line-through;">(MRP: Rs. 3,000)</span></strong>
             </div>
           </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Dedicated Full-Width Prominent 6 Cold-Pressed Botanical Oils Showcase -->
+    <div style="margin-top:64px;border-radius:24px;border:1px solid rgba(197,160,89,0.3);background:linear-gradient(135deg, #0d1424 0%, #080d17 50%, #0d1424 100%);padding:40px 32px;box-shadow:0 25px 80px rgba(0,0,0,0.6);">
+      
+      <div style="text-align:center;max-width:720px;margin:0 auto 36px;">
+        <div style="display:inline-flex;align-items:center;gap:8px;border-radius:100px;border:1px solid rgba(197,160,89,0.35);background:rgba(197,160,89,0.12);padding:6px 18px;margin-bottom:14px;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c5a059" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></svg>
+          <span style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold-light);">100% Pure Botanical Formulation</span>
+        </div>
+        <h2 style="font-family:var(--font-heading);font-size:32px;color:var(--cream);letter-spacing:0.04em;margin:0 0 10px;line-height:1.2;">
+          Formulated With 6 Legendary Cold-Pressed Oils
+        </h2>
+        <p style="font-size:14px;line-height:1.8;color:var(--slate);margin:0;">
+          Zero synthetic chemicals. Zero steroids. Zero greasy residue. Each botanical oil is cold-pressed and steam-distilled to maximize therapeutic warmth, sensory pleasure, and enduring male stamina.
+        </p>
+      </div>
+
+      <!-- 6 Oils Cards Grid -->
+      <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:20px;">
+        
+        <!-- Oil 01 -->
+        <div style="border-radius:18px;border:1px solid rgba(197,160,89,0.22);background:rgba(7,11,18,0.75);padding:24px;display:flex;flex-direction:column;gap:10px;transition:transform 0.3s, border-color 0.3s;">
+          <div style="display:flex;align-items:center;justify-content:space-between;">
+            <span style="font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:0.18em;color:var(--gold);font-weight:700;">Active 01 · Stamina</span>
+            <div style="width:32px;height:32px;border-radius:10px;background:rgba(197,160,89,0.15);border:1px solid rgba(197,160,89,0.3);display:flex;align-items:center;justify-content:center;color:var(--gold-light);">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+          </div>
+          <div>
+            <h3 style="font-family:var(--font-serif);font-size:20px;font-weight:600;color:var(--cream);margin:0;">Raig Mahi Oil</h3>
+            <span style="font-family:var(--font-mono);font-size:11px;color:var(--gold-light);letter-spacing:0.05em;display:block;margin-top:2px;">Sandfish Bio-Active Extract</span>
+          </div>
+          <p style="font-size:13px;line-height:1.7;color:#c0cbd9;margin:0;">
+            Prized in traditional Greco-Arab Unani medicine. Rich in stimulating lipids that invigorate micro-circulation, awaken therapeutic warmth, and boost natural staying power.
+          </p>
+        </div>
+
+        <!-- Oil 02 -->
+        <div style="border-radius:18px;border:1px solid rgba(197,160,89,0.22);background:rgba(7,11,18,0.75);padding:24px;display:flex;flex-direction:column;gap:10px;transition:transform 0.3s, border-color 0.3s;">
+          <div style="display:flex;align-items:center;justify-content:space-between;">
+            <span style="font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:0.18em;color:var(--gold);font-weight:700;">Active 02 · Bio-Carrier</span>
+            <div style="width:32px;height:32px;border-radius:10px;background:rgba(197,160,89,0.15);border:1px solid rgba(197,160,89,0.3);display:flex;align-items:center;justify-content:center;color:var(--gold-light);">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></svg>
+            </div>
+          </div>
+          <div>
+            <h3 style="font-family:var(--font-serif);font-size:20px;font-weight:600;color:var(--cream);margin:0;">Pure Ostrich Bio-Oil</h3>
+            <span style="font-family:var(--font-mono);font-size:11px;color:var(--gold-light);letter-spacing:0.05em;display:block;margin-top:2px;">Roghan-e-Shutarmurgh (Omega 3-6-9)</span>
+          </div>
+          <p style="font-size:13px;line-height:1.7;color:#c0cbd9;margin:0;">
+            Features a molecular lipid structure matching human skin. Allows deep cellular transdermal absorption within 60 seconds with zero greasiness or staining.
+          </p>
+        </div>
+
+        <!-- Oil 03 -->
+        <div style="border-radius:18px;border:1px solid rgba(197,160,89,0.22);background:rgba(7,11,18,0.75);padding:24px;display:flex;flex-direction:column;gap:10px;transition:transform 0.3s, border-color 0.3s;">
+          <div style="display:flex;align-items:center;justify-content:space-between;">
+            <span style="font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:0.18em;color:var(--gold);font-weight:700;">Active 03 · Warmth</span>
+            <div style="width:32px;height:32px;border-radius:10px;background:rgba(197,160,89,0.15);border:1px solid rgba(197,160,89,0.3);display:flex;align-items:center;justify-content:center;color:var(--gold-light);">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+          </div>
+          <div>
+            <h3 style="font-family:var(--font-serif);font-size:20px;font-weight:600;color:var(--cream);margin:0;">Clove Oil (Eugenol)</h3>
+            <span style="font-family:var(--font-mono);font-size:11px;color:var(--gold-light);letter-spacing:0.05em;display:block;margin-top:2px;">Steam-Distilled Roghan-e-Laung</span>
+          </div>
+          <p style="font-size:13px;line-height:1.7;color:#c0cbd9;margin:0;">
+            Natural bioactive Eugenol produces a gentle, comforting thermal sensation that relaxes muscle fibers and awakens heightened tactile pleasure.
+          </p>
+        </div>
+
+        <!-- Oil 04 -->
+        <div style="border-radius:18px;border:1px solid rgba(197,160,89,0.22);background:rgba(7,11,18,0.75);padding:24px;display:flex;flex-direction:column;gap:10px;transition:transform 0.3s, border-color 0.3s;">
+          <div style="display:flex;align-items:center;justify-content:space-between;">
+            <span style="font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:0.18em;color:var(--gold);font-weight:700;">Active 04 · Velvet Glide</span>
+            <div style="width:32px;height:32px;border-radius:10px;background:rgba(197,160,89,0.15);border:1px solid rgba(197,160,89,0.3);display:flex;align-items:center;justify-content:center;color:var(--gold-light);">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+            </div>
+          </div>
+          <div>
+            <h3 style="font-family:var(--font-serif);font-size:20px;font-weight:600;color:var(--cream);margin:0;">Extra Virgin Olive Oil</h3>
+            <span style="font-family:var(--font-mono);font-size:11px;color:var(--gold-light);letter-spacing:0.05em;display:block;margin-top:2px;">Cold-Pressed Roghan-e-Zaitoon</span>
+          </div>
+          <p style="font-size:13px;line-height:1.7;color:#c0cbd9;margin:0;">
+            First cold-press grade packed with natural Squalene and Oleic acid. Provides an enduring, friction-free velvet glide that deeply nourishes and softens tissue.
+          </p>
+        </div>
+
+        <!-- Oil 05 -->
+        <div style="border-radius:18px;border:1px solid rgba(197,160,89,0.22);background:rgba(7,11,18,0.75);padding:24px;display:flex;flex-direction:column;gap:10px;transition:transform 0.3s, border-color 0.3s;">
+          <div style="display:flex;align-items:center;justify-content:space-between;">
+            <span style="font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:0.18em;color:var(--gold);font-weight:700;">Active 05 · Tone</span>
+            <div style="width:32px;height:32px;border-radius:10px;background:rgba(197,160,89,0.15);border:1px solid rgba(197,160,89,0.3);display:flex;align-items:center;justify-content:center;color:var(--gold-light);">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/></svg>
+            </div>
+          </div>
+          <div>
+            <h3 style="font-family:var(--font-serif);font-size:20px;font-weight:600;color:var(--cream);margin:0;">Wild Rosemary Oil</h3>
+            <span style="font-family:var(--font-mono);font-size:11px;color:var(--gold-light);letter-spacing:0.05em;display:block;margin-top:2px;">Roghan-e-Ikleel (Botanical Tonic)</span>
+          </div>
+          <p style="font-size:13px;line-height:1.7;color:#c0cbd9;margin:0;">
+            Rich in natural Rosmarinic and Carnosic acids that stimulate sensory receptors, invigorate nerve tone, and impart a fresh botanical noble aroma.
+          </p>
+        </div>
+
+        <!-- Oil 06 -->
+        <div style="border-radius:18px;border:1px solid rgba(197,160,89,0.22);background:rgba(7,11,18,0.75);padding:24px;display:flex;flex-direction:column;gap:10px;transition:transform 0.3s, border-color 0.3s;">
+          <div style="display:flex;align-items:center;justify-content:space-between;">
+            <span style="font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:0.18em;color:var(--gold);font-weight:700;">Active 06 · Endurance</span>
+            <div style="width:32px;height:32px;border-radius:10px;background:rgba(197,160,89,0.15);border:1px solid rgba(197,160,89,0.3);display:flex;align-items:center;justify-content:center;color:var(--gold-light);">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            </div>
+          </div>
+          <div>
+            <h3 style="font-family:var(--font-serif);font-size:20px;font-weight:600;color:var(--cream);margin:0;">Pure Black Seed Oil</h3>
+            <span style="font-family:var(--font-mono);font-size:11px;color:var(--gold-light);letter-spacing:0.05em;display:block;margin-top:2px;">Roghan-e-Kalonji (Nigella Sativa)</span>
+          </div>
+          <p style="font-size:13px;line-height:1.7;color:#c0cbd9;margin:0;">
+            High in Thymoquinone and crystalline Nigellone. Renowned for fortifying micro-vascular integrity, accelerating tissue vitality, and maximizing intimate stamina.
+          </p>
         </div>
 
       </div>

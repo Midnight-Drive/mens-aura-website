@@ -2,7 +2,7 @@
 {% assign prod = all_products['midnight-drive-by-mens-aura'] %}
 {% if prod == blank or prod.id == blank %}{% assign prod = all_products['midnight-drive'] %}{% endif %}
 {% if prod == blank or prod.id == blank %}{% assign prod = collections.all.products.first %}{% endif %}
-{% assign variant_id = prod.selected_or_first_available_variant.id | default: 52658897912110 %}
+{% assign variant_id = prod.selected_or_first_available_variant.id | default: 52696761893166 %}
 
 <section class="product-info" id="product">
   <div class="container">
