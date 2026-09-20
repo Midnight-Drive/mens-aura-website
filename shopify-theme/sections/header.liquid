@@ -23,6 +23,7 @@
       <a
         href="/products/midnight-drive-by-mens-aura"
         class="gold-glow-button header-order-btn"
+        onclick="handleHeaderOrder(event)"
       >
         <span class="btn-shine"></span>
         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
@@ -80,13 +81,31 @@
           {{ cart.item_count }}
         </span>
       </a>
-      <a href="/products/midnight-drive-by-mens-aura" class="gold-glow-button mobile-menu__cta">
+      <a href="/products/midnight-drive-by-mens-aura" class="gold-glow-button mobile-menu__cta" onclick="handleHeaderOrder(event)">
         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
         ORDER NOW — PKR 2,499
       </a>
     </nav>
   </div>
 </header>
+
+<script>
+function handleHeaderOrder(e) {
+  var isProductPage = window.location.pathname.indexOf('/products/') !== -1;
+  if (isProductPage) {
+    e.preventDefault();
+    var target = document.getElementById('product-bundle-list') || document.getElementById('product-checkout-form') || document.getElementById('bundles');
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      var btn = document.getElementById('direct-checkout-btn');
+      if (btn) {
+        btn.style.boxShadow = '0 0 35px rgba(229,197,131,0.9)';
+        setTimeout(function() { btn.style.boxShadow = ''; }, 1500);
+      }
+    }
+  }
+}
+</script>
 
 {% schema %}
 {

@@ -15,9 +15,19 @@
   {% endif %}
 {% endfor %}
 
-{% assign v1_id = section.settings.variant_id_1 | default: v1.id | default: 52658897912110 %}
-{% assign v2_id = section.settings.variant_id_2 | default: v2.id | default: v1_id %}
-{% assign v3_id = section.settings.variant_id_3 | default: v3.id | default: v1_id %}
+{% assign v1_id = v1.id | default: 52696761893166 %}
+{% assign v2_id = v2.id | default: 52696761925934 %}
+{% assign v3_id = v3.id | default: 52696761958702 %}
+
+{% if section.settings.variant_id_1 != blank and section.settings.variant_id_1 != '52658897912110' %}
+  {% assign v1_id = section.settings.variant_id_1 %}
+{% endif %}
+{% if section.settings.variant_id_2 != blank and section.settings.variant_id_2 != '52658897912110' %}
+  {% assign v2_id = section.settings.variant_id_2 %}
+{% endif %}
+{% if section.settings.variant_id_3 != blank and section.settings.variant_id_3 != '52658897912110' %}
+  {% assign v3_id = section.settings.variant_id_3 %}
+{% endif %}
 {% assign variant_id = v1_id %}
 {% assign product_url = prod.url | default: '/products/midnight-drive-by-mens-aura' %}
 
