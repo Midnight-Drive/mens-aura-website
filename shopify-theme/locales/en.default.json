@@ -1,0 +1,18 @@
+{
+  "general": {
+    "404_page_title": "Page not found",
+    "404_page_description": "The page you requested does not exist.",
+    "username": "Username",
+    "password": "Password",
+    "submit": "Submit",
+    "continue": "Continue",
+    "email": "Email"
+  },
+  "layout": {
+    "cart": {
+      "title": "Your Cart",
+      "checkout": "Proceed to Checkout",
+      "empty": "Your cart is empty"
+    }
+  }
+}

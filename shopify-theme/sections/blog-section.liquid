@@ -1,0 +1,206 @@
+<!-- Blog / Journal Section — 3 Posts + Modal Reader -->
+<section class="blog-section section-pad" id="blogs" style="background:linear-gradient(to bottom, var(--bg-deep), #090e17, var(--bg-deep));border-top:1px solid var(--border-gold);">
+  <div class="container">
+
+    <div class="section-header">
+      <div style="display:inline-flex;align-items:center;gap:8px;border-radius:100px;border:1px solid rgba(197,160,89,0.3);background:rgba(197,160,89,0.1);padding:6px 16px;margin-bottom:16px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c5a059" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        <span style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold-light);">The Men's Aura Wellness Journal</span>
+      </div>
+      <h2 class="section-title">Scientific Insights &amp; <em>SEO Articles.</em></h2>
+      <p class="section-desc">Explore expert guides on Raig Mahi, transdermal male absorption, and natural stamina routines formulated for the modern gentleman.</p>
+    </div>
+
+    <!-- Blog Cards Grid -->
+    <div class="blog-grid" style="display:grid;gap:24px;margin-top:48px;">
+      <style>@media(min-width:768px){.blog-grid{grid-template-columns:repeat(3,1fr);}}</style>
+
+      <!-- Post 1 -->
+      <div class="blog-card">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:0.1em;">
+          <span style="border-radius:100px;background:rgba(197,160,89,0.1);border:1px solid rgba(197,160,89,0.2);padding:4px 12px;color:var(--gold-light);">Herbal Science &amp; Formulations</span>
+          <span style="display:flex;align-items:center;gap:4px;color:var(--slate);">
+            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#c5a059" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            5 min read
+          </span>
+        </div>
+        <h3 class="blog-card-title">The Science of Raig Mahi &amp; Clove Oil for Natural Male Stamina in Pakistan</h3>
+        <p class="blog-card-excerpt">Discover how ancient Unani apothecary principles combine Raig Mahi bio-lipids with cold-pressed Clove Eugenol to awaken localized blood circulation naturally without steroids.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;margin:16px 0;">
+          <span class="blog-tag">#Raig Mahi Benefits</span>
+          <span class="blog-tag">#Clove Oil Massage</span>
+          <span class="blog-tag">#Natural Male Vitality</span>
+        </div>
+        <div style="border-top:1px solid var(--border-gold);padding-top:16px;">
+          <button type="button" class="blog-read-btn" onclick="openBlogModal('post1')">
+            Read Full Article
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Post 2 -->
+      <div class="blog-card">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:0.1em;">
+          <span style="border-radius:100px;background:rgba(197,160,89,0.1);border:1px solid rgba(197,160,89,0.2);padding:4px 12px;color:var(--gold-light);">Transdermal Male Wellness</span>
+          <span style="display:flex;align-items:center;gap:4px;color:var(--slate);">
+            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#c5a059" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            4 min read
+          </span>
+        </div>
+        <h3 class="blog-card-title">Why Cold-Pressed Transdermal Massage Oils Outperform Synthetic Pills</h3>
+        <p class="blog-card-excerpt">Oral pills cause liver strain, headaches, and systemic side effects. Explore why external transdermal absorption delivers direct thermal warmth right where it is needed.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;margin:16px 0;">
+          <span class="blog-tag">#Transdermal Massage Oil</span>
+          <span class="blog-tag">#No Side Effects</span>
+          <span class="blog-tag">#Safe Male Wellness</span>
+        </div>
+        <div style="border-top:1px solid var(--border-gold);padding-top:16px;">
+          <button type="button" class="blog-read-btn" onclick="openBlogModal('post2')">
+            Read Full Article
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Post 3 -->
+      <div class="blog-card">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:0.1em;">
+          <span style="border-radius:100px;background:rgba(197,160,89,0.1);border:1px solid rgba(197,160,89,0.2);padding:4px 12px;color:var(--gold-light);">Application Ritual Guide</span>
+          <span style="display:flex;align-items:center;gap:4px;color:var(--slate);">
+            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#c5a059" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            6 min read
+          </span>
+        </div>
+        <h3 class="blog-card-title">The Ultimate 3-Step Night Application Ritual for Maximum Male Vigor</h3>
+        <p class="blog-card-excerpt">A complete step-by-step evening guide on how to dispense 4–6 drops of Midnight Drive, warm between palms, and glide for maximum cumulative vigor.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;margin:16px 0;">
+          <span class="blog-tag">#How to Use Midnight Drive</span>
+          <span class="blog-tag">#Night Massage Ritual</span>
+          <span class="blog-tag">#Male Energy Oil</span>
+        </div>
+        <div style="border-top:1px solid var(--border-gold);padding-top:16px;">
+          <button type="button" class="blog-read-btn" onclick="openBlogModal('post3')">
+            Read Full Article
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Blog Modal Overlay -->
+<div id="blog-modal-overlay" style="display:none;position:fixed;inset:0;z-index:9000;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,0.85);padding:16px;backdrop-filter:blur(16px);">
+  <div style="position:relative;max-height:90vh;width:100%;max-width:760px;overflow-y:auto;border-radius:24px;border:1px solid rgba(197,160,89,0.4);background:#090e17;padding:32px 28px;box-shadow:0 25px 90px rgba(0,0,0,0.95);color:var(--cream);" id="blog-modal-content">
+    <button type="button" onclick="closeBlogModal()" style="position:absolute;top:20px;right:20px;width:36px;height:36px;border-radius:50%;border:1px solid rgba(197,160,89,0.3);background:#0d1422;color:var(--gold-light);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:16px;">✕</button>
+    <div id="blog-modal-body"></div>
+  </div>
+</div>
+
+<style>
+.blog-card {
+  border-radius: 24px;
+  border: 1px solid rgba(197,160,89,0.2);
+  background: #090e17;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: border-color 0.3s, transform 0.3s;
+}
+.blog-card:hover { border-color: rgba(197,160,89,0.5); transform: translateY(-4px); }
+.blog-card-title { font-family: var(--font-serif); font-size: 18px; font-weight: 600; line-height: 1.4; color: var(--cream); margin-bottom: 12px; }
+.blog-card-excerpt { font-size: 12px; line-height: 1.75; color: var(--slate); }
+.blog-tag { border-radius: 4px; background: #070b12; border: 1px solid rgba(197,160,89,0.1); padding: 3px 8px; font-family: var(--font-mono); font-size: 9px; color: rgba(197,160,89,0.7); }
+.blog-read-btn { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: var(--gold-light); cursor: pointer; background: none; border: none; padding: 0; transition: color 0.2s; }
+.blog-read-btn:hover { color: white; }
+.blog-read-btn svg { transition: transform 0.2s; }
+.blog-read-btn:hover svg { transform: translateX(4px); }
+</style>
+
+<script>
+var BLOG_DATA = {
+  post1: {
+    category: 'Herbal Science & Formulations',
+    title: 'The Science of Raig Mahi & Clove Oil for Natural Male Stamina in Pakistan',
+    date: 'August 28, 2026',
+    readTime: '5 min read',
+    intro: 'For centuries, traditional practitioners across South Asia have revered Raig Mahi (Sand Lizard Oil extract) and Syzygium aromaticum (Clove essential oil) as the pinnacle of male vitality formulations. Unlike modern chemical alternatives that produce systemic strain, these cold-pressed natural bio-actives work directly through transdermal application.',
+    sections: [
+      { heading: '1. What is Raig Mahi and How Does It Benefit Male Tissue?', body: 'Raig Mahi is a legendary Unani botanical ingredient rich in natural bio-lipids and essential fatty acids. When formulated in cold-pressed carrier oils, it deeply penetrates localized skin layers to support tissue elasticity, firmness, and natural warmth.' },
+      { heading: '2. The Role of Clove Eugenol in 60-Second Thermal Heat Activation', body: 'Clove essential oil contains over 90% pure Eugenol — a organic compound known for its therapeutic warming properties. Upon contact with localized skin, Eugenol gently stimulates micro-vascular dilation, bringing soothing warmth and invigorating sensory awakening within 60 seconds.' },
+      { heading: '3. Why Ostrich & Extra Virgin Olive Oils are Essential Bio-Carriers', body: 'Pure botanical extracts require high-glide, non-comedogenic carrier oils to ensure smooth massage without friction. Ostrich oil possesses essential omega fatty acids that mirror human skin lipids, allowing the active compounds to absorb cleanly without leaving greasy residue.' }
+    ],
+    conclusion: 'By combining these 5 authentic ingredients into Midnight Drive, men in Pakistan can experience natural stamina, restored energy, and unhurried confidence without synthetic chemicals or side effects.'
+  },
+  post2: {
+    category: 'Transdermal Male Wellness',
+    title: 'Why Cold-Pressed Transdermal Massage Oils Outperform Synthetic Pills',
+    date: 'August 25, 2026',
+    readTime: '4 min read',
+    intro: 'When men face fatigue, stress, or declining intimate confidence, many turn to oral synthetic pills. However, oral supplements must pass through the digestive system and liver, often causing unwanted side effects such as elevated blood pressure, facial flushing, and stomach distress.',
+    sections: [
+      { heading: '1. The Mechanism of Transdermal Absorption', body: 'Transdermal delivery allows botanical bio-actives to bypass the stomach and liver entirely. Applied directly to localized areas, the cold-pressed active oils absorb into skin micro-vessels, providing localized benefits exactly where required.' },
+      { heading: '2. Zero Organ Burden & 100% Herbal Safety', body: 'Because Midnight Drive contains 0% parabens, 0% mineral paraffin, and 0% synthetic steroids, it is hypoallergenic and non-irritating. You get pure therapeutic thermal warmth without compromising your internal health.' },
+      { heading: '3. Mindful Evening Application & Stress Relief', body: 'The act of a 3-minute nightly massage ritual itself helps lower cortisol (stress hormone) levels. The warm herbaceous scent of wild rosemary and clove calms the mind while preparing the body for unhurried intimacy.' }
+    ],
+    conclusion: 'Transdermal male wellness represents a safer, more sustainable choice for long-term health and vitality.'
+  },
+  post3: {
+    category: 'Application Ritual Guide',
+    title: 'The Ultimate 3-Step Night Application Ritual for Maximum Male Vigor',
+    date: 'August 20, 2026',
+    readTime: '6 min read',
+    intro: 'To achieve the best cumulative results with Midnight Drive, consistent and proper application is key. Following this simple 3-step nightly ritual ensures deep transdermal absorption and maximum thermal warmth.',
+    sections: [
+      { heading: 'Step 1: Cleanse & Awaken Skin Pores', body: 'Cleanse the target area with warm water and dry thoroughly. Warm water opens skin pores and prepares the skin to receive the cold-pressed botanical essences.' },
+      { heading: 'Step 2: Calibrated Dropper Dose & Upward Glide', body: 'Dispense 4 to 6 drops of Midnight Drive golden oil onto clean palms. Gently rub your hands together for 10 seconds to warm the oil with body temperature, then massage smoothly using upward circular strokes for 3 to 5 minutes.' },
+      { heading: 'Step 3: Overnight Absorption for Cumulative Vigor', body: 'Feel the soothing thermal warmth activate within 60 seconds. Do not wash off immediately — allow the natural bio-actives to nourish deep tissue overnight. For peak firmness and stamina, continue daily for 14 to 21 days.' }
+    ],
+    conclusion: 'Make room for the moment. Incorporate Midnight Drive into your unhurried evening routine and feel the difference from night one.'
+  }
+};
+
+function openBlogModal(postId) {
+  var post = BLOG_DATA[postId];
+  if (!post) return;
+  var sectionsHtml = post.sections.map(function(s) {
+    return '<div style="margin-bottom:20px;"><h3 style="font-family:var(--font-serif);font-size:20px;font-weight:600;color:var(--cream);margin-bottom:8px;">' + s.heading + '</h3><p style="font-size:14px;line-height:1.8;color:#9aa4b5;">' + s.body + '</p></div>';
+  }).join('');
+  document.getElementById('blog-modal-body').innerHTML =
+    '<span style="display:inline-block;border-radius:100px;background:rgba(197,160,89,0.1);padding:4px 14px;font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:0.15em;color:var(--gold-light);border:1px solid rgba(197,160,89,0.3);margin-bottom:16px;">' + post.category + '</span>' +
+    '<h2 style="font-family:var(--font-serif);font-size:28px;font-weight:600;color:var(--cream);line-height:1.3;margin-bottom:16px;">' + post.title + '</h2>' +
+    '<div style="display:flex;align-items:center;gap:16px;font-family:var(--font-mono);font-size:11px;color:var(--slate);border-bottom:1px solid var(--border-gold);padding-bottom:20px;margin-bottom:24px;">' +
+    '<span>📅 ' + post.date + '</span><span>•</span><span>⏱ ' + post.readTime + '</span></div>' +
+    '<div style="margin-bottom:24px;"><p style="font-size:15px;color:var(--gold-light);font-weight:500;line-height:1.8;background:#0d1422;padding:16px;border-radius:12px;border:1px solid rgba(197,160,89,0.2);">' + post.intro + '</p></div>' +
+    sectionsHtml +
+    '<div style="border-radius:16px;border:1px solid rgba(197,160,89,0.3);background:#0d1422;padding:20px;margin-top:24px;"><h4 style="font-family:var(--font-serif);font-size:17px;font-weight:600;color:var(--cream);display:flex;align-items:center;gap:8px;margin-bottom:8px;">✦ Key Takeaway</h4><p style="font-size:12px;line-height:1.75;color:#9aa4b5;">' + post.conclusion + '</p></div>' +
+    '<div style="margin-top:24px;border-top:1px solid var(--border-gold);padding-top:20px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;">' +
+    '<a href="https://wa.me/923110355309?text=Hello%20The%20Men%27s%20Aura%2C%20I%20read%20your%20article%20and%20want%20to%20order%20Midnight%20Drive" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:12px;background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--bg-deep);padding:12px 24px;font-family:var(--font-mono);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;">Order via WhatsApp (+92 311 0355 309)</a>' +
+    '<button type="button" onclick="closeBlogModal()" style="font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:var(--slate);background:none;border:none;cursor:pointer;">Close Article</button></div>';
+  var overlay = document.getElementById('blog-modal-overlay');
+  overlay.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+
+function closeBlogModal() {
+  document.getElementById('blog-modal-overlay').style.display = 'none';
+  document.body.style.overflow = '';
+}
+
+document.getElementById('blog-modal-overlay').addEventListener('click', function(e) {
+  if (e.target === this) closeBlogModal();
+});
+</script>
+
+{% schema %}
+{
+  "name": "Blog Section",
+  "class": "blog-section-wrapper",
+  "tag": "div",
+  "settings": [],
+  "presets": [{ "name": "Blog Section" }]
+}
+{% endschema %}

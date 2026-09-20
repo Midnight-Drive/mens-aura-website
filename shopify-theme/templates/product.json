@@ -1,0 +1,41 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "settings": {}
+    },
+    "five-actives": {
+      "type": "five-actives",
+      "settings": {}
+    },
+    "how-to-use": {
+      "type": "how-to-use",
+      "settings": {}
+    },
+    "privacy-unboxing": {
+      "type": "privacy-unboxing",
+      "settings": {}
+    },
+    "testimonials": {
+      "type": "testimonials",
+      "settings": {}
+    },
+    "faq": {
+      "type": "faq",
+      "settings": {}
+    },
+    "final-cta": {
+      "type": "final-cta",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "five-actives",
+    "how-to-use",
+    "privacy-unboxing",
+    "testimonials",
+    "faq",
+    "final-cta"
+  ]
+}

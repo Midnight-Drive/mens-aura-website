@@ -1,0 +1,169 @@
+<!-- Doctor Insights Section — 2 AI Doctor Video Cards -->
+<section class="doctor-insights section-pad" id="doctor-insights" style="background:linear-gradient(to bottom, var(--bg-deep), #0a101b, var(--bg-deep));border-top:1px solid var(--border-gold);">
+  <div class="container">
+
+    <div class="section-header">
+      <div style="display:inline-flex;align-items:center;gap:8px;border-radius:100px;border:1px solid rgba(197,160,89,0.3);background:rgba(197,160,89,0.1);padding:6px 16px;margin-bottom:16px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c5a059" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold-light);">Specialist AI Doctor Commentary</span>
+      </div>
+      <h2 class="section-title">Medical Expert <em>Formulation Insights.</em></h2>
+      <p class="section-desc">Hear pharmacological and traditional Unani herbal commentary on Raig Mahi and Clove bio-carriers.</p>
+    </div>
+
+    <div class="doctor-grid" style="display:grid;gap:32px;margin-top:48px;">
+      <style>@media(min-width:768px){.doctor-grid{grid-template-columns:repeat(2,1fr);}}</style>
+
+      <!-- Doctor Video 1 -->
+      <div class="doctor-card">
+        <div class="doctor-video-wrap">
+          {% assign doc1_url = section.settings.doctor_video_1 | default: 'https://themensauraofficial.com/videos/doctor-insights/doctor-review1.mp4' %}
+          <video
+            src="{{ doc1_url }}"
+            controls
+            playsinline
+            preload="metadata"
+            class="doctor-video"
+          ></video>
+        </div>
+        <div class="doctor-info">
+          <h3 class="doctor-title">{{ section.settings.doctor_1_title | default: 'AI Expert Commentary: Raig Mahi & Thermal Bio-Stimulation' }}</h3>
+          <p class="doctor-subtitle">{{ section.settings.doctor_1_subtitle | default: 'Unani Pharmacology Expert · Herbal Formulations' }}</p>
+          <p class="doctor-quote">{{ section.settings.doctor_1_quote | default: '"Raig Mahi contains naturally occurring stimulatory lipids that have been documented in classical Unani texts for their role in supporting male vitality. When formulated with Clove Eugenol, the thermal activation is remarkable."' }}</p>
+        </div>
+      </div>
+
+      <!-- Doctor Video 2 -->
+      <div class="doctor-card">
+        <div class="doctor-video-wrap">
+          {% assign doc2_url = section.settings.doctor_video_2 | default: 'https://themensauraofficial.com/videos/doctor-insights/doctor-review2.mp4' %}
+          <video
+            src="{{ doc2_url }}"
+            controls
+            playsinline
+            preload="metadata"
+            class="doctor-video"
+          ></video>
+        </div>
+        <div class="doctor-info">
+          <h3 class="doctor-title">{{ section.settings.doctor_2_title | default: 'AI Expert Commentary: Ostrich Oil Transdermal Absorption' }}</h3>
+          <p class="doctor-subtitle">{{ section.settings.doctor_2_subtitle | default: 'Transdermal Pharmacology Researcher' }}</p>
+          <p class="doctor-quote">{{ section.settings.doctor_2_quote | default: '"Ostrich oil has a lipid profile uniquely compatible with human skin. Its Omega 3, 6, and 9 fatty acid composition allows the active botanical compounds to absorb within minutes without any greasy residue."' }}</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+.doctor-card {
+  border-radius: 24px;
+  border: 1px solid rgba(197,160,89,0.3);
+  background: #090e17;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+.doctor-video-wrap {
+  position: relative;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(197,160,89,0.2);
+  background: #070a10;
+}
+.doctor-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.doctor-video-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.doctor-info { padding: 24px; }
+.doctor-title {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--cream);
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+.doctor-subtitle {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+.doctor-quote {
+  font-size: 13px;
+  font-style: italic;
+  line-height: 1.7;
+  color: var(--slate);
+}
+</style>
+
+{% schema %}
+{
+  "name": "Doctor Insights",
+  "class": "doctor-insights-section",
+  "tag": "div",
+  "settings": [
+    {
+      "type": "text",
+      "id": "doctor_video_1",
+      "label": "Doctor Video 1 URL (.mp4)",
+      "info": "Paste the direct URL to your AI doctor video file"
+    },
+    {
+      "type": "text",
+      "id": "doctor_1_title",
+      "label": "Doctor 1 Title",
+      "default": "AI Expert Commentary: Raig Mahi & Thermal Bio-Stimulation"
+    },
+    {
+      "type": "text",
+      "id": "doctor_1_subtitle",
+      "label": "Doctor 1 Subtitle",
+      "default": "Unani Pharmacology Expert · Herbal Formulations"
+    },
+    {
+      "type": "textarea",
+      "id": "doctor_1_quote",
+      "label": "Doctor 1 Quote",
+      "default": "\"Raig Mahi contains naturally occurring stimulatory lipids that have been documented in classical Unani texts for their role in supporting male vitality.\""
+    },
+    {
+      "type": "text",
+      "id": "doctor_video_2",
+      "label": "Doctor Video 2 URL (.mp4)",
+      "info": "Paste the direct URL to your second AI doctor video file"
+    },
+    {
+      "type": "text",
+      "id": "doctor_2_title",
+      "label": "Doctor 2 Title",
+      "default": "AI Expert Commentary: Ostrich Oil Transdermal Absorption"
+    },
+    {
+      "type": "text",
+      "id": "doctor_2_subtitle",
+      "label": "Doctor 2 Subtitle",
+      "default": "Transdermal Pharmacology Researcher"
+    },
+    {
+      "type": "textarea",
+      "id": "doctor_2_quote",
+      "label": "Doctor 2 Quote",
+      "default": "\"Ostrich oil has a lipid profile uniquely compatible with human skin, allowing active botanical compounds to absorb within minutes without any greasy residue.\""
+    }
+  ],
+  "presets": [{ "name": "Doctor Insights" }]
+}
+{% endschema %}

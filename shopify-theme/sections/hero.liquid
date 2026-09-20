@@ -1,0 +1,169 @@
+<!-- Hero Section with Video Background -->
+<section class="hero" id="hero">
+
+  <!-- Full-Screen Video Background (Desktop & Ambient) -->
+  <div class="hero__video-bg">
+    <video
+      class="hero__video"
+      autoplay
+      loop
+      muted
+      playsinline
+      preload="auto"
+    >
+      <source src="{{ section.settings.video_url | default: 'https://themensauraofficial.com/videos/hero/hero-bg.mp4' }}" type="video/mp4">
+    </video>
+    <!-- Mobile Dark Overlay -->
+    <div class="hero__overlay-mobile" aria-hidden="true"></div>
+    <!-- Desktop Gradient Overlay (left side only) -->
+    <div class="hero__overlay-desktop" aria-hidden="true"></div>
+  </div>
+
+  <!-- Subtle Grid Pattern -->
+  <div class="hero__grid luxury-grid" aria-hidden="true"></div>
+
+  <div class="hero__content">
+    <div class="hero__grid-layout">
+
+      <!-- Left Column: Copy & CTAs -->
+      <div style="display:flex;flex-direction:column;align-items:flex-start;width:100%;">
+
+        <!-- Pre-title Badge -->
+        <div class="hero__badge">
+          <span class="hero__badge-dot"></span>
+          <span class="hero__badge-text">Pre-Launch Offer · Limited Batch #MD-042</span>
+        </div>
+
+        <!-- Main Headline -->
+        <h1 class="hero__title">
+          Make Your<br>
+          <em class="hero__title-em">Married Life Happy.</em>
+          <span class="hero__title-sub">Full Strength &amp; Stamina.</span>
+        </h1>
+
+        <!-- Subtitle / Brand Copy -->
+        <p class="hero__desc" style="max-width:580px;font-size:15px;line-height:1.75;color:#dbe2ee;margin-top:16px;">
+          Say goodbye to tiredness and weakness. 100% natural oil made from pure <strong style="color:#f4ede2">Raig Mahi, Clove &amp; Ostrich Oil</strong> to boost your stamina, energy and give your partner full happiness.
+        </p>
+
+        <!-- Core Value Micro-Bullets - 2-column grid -->
+        <div style="margin-top:24px;display:grid;grid-template-columns:repeat(2,1fr);gap:12px;width:100%;max-width:540px;">
+          <div style="display:flex;align-items:center;gap:10px;border-radius:12px;border:1px solid rgba(197,160,89,0.3);background:rgba(14,21,34,0.9);padding:10px 14px;backdrop-filter:blur(8px);">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c5a059" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span style="font-size:12px;font-weight:500;color:#f4ede2;line-height:1.2;">Boosts Energy &amp; Stamina</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;border-radius:12px;border:1px solid rgba(197,160,89,0.3);background:rgba(14,21,34,0.9);padding:10px 14px;backdrop-filter:blur(8px);">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c5a059" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            <span style="font-size:12px;font-weight:500;color:#f4ede2;line-height:1.2;">Builds Real Confidence</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;border-radius:12px;border:1px solid rgba(197,160,89,0.3);background:rgba(14,21,34,0.9);padding:10px 14px;backdrop-filter:blur(8px);">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c5a059" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></svg>
+            <span style="font-size:12px;font-weight:500;color:#f4ede2;line-height:1.2;">Strengthens Intimate Life</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;border-radius:12px;border:1px solid rgba(197,160,89,0.3);background:rgba(14,21,34,0.9);padding:10px 14px;backdrop-filter:blur(8px);">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c5a059" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            <span style="font-size:12px;font-weight:500;color:#f4ede2;line-height:1.2;">Plain Packaging · COD</span>
+          </div>
+        </div>
+
+        <!-- Pricing & CTA Actions -->
+        <div class="hero__ctas" style="margin-top:28px;">
+          <a href="/products/midnight-drive-by-mens-aura" class="gold-glow-button hero__main-cta">
+            <span class="btn-shine"></span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+            <span>ORDER NOW — PKR 2,499</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+          <a href="#bundles" class="ghost-button hero__sec-cta">
+            <span>SEE PLANS &amp; BUNDLES</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+          </a>
+        </div>
+
+        <!-- Price Tag Strip -->
+        <div style="margin-top:24px;display:flex;flex-wrap:wrap;align-items:center;gap:16px;border-top:1px solid rgba(197,160,89,0.25);padding-top:16px;width:100%;max-width:540px;">
+          <div style="display:flex;align-items:center;gap:8px;">
+            <span style="font-family:var(--font-mono);font-size:12px;color:var(--slate);text-decoration:line-through;">PKR 3,000</span>
+            <span style="font-family:var(--font-heading);font-size:18px;font-weight:700;color:var(--gold-light);">PKR 2,499</span>
+            <span style="border-radius:4px;background:rgba(197,160,89,0.25);padding:2px 6px;font-family:var(--font-mono);font-size:9px;font-weight:700;color:var(--gold-light);">Save PKR 501</span>
+          </div>
+          <span style="color:rgba(197,160,89,0.4);">|</span>
+          <div style="display:flex;align-items:center;gap:6px;font-size:11px;color:#dbe2ee;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#c5a059" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <span>Pay Cash When Delivered (30ml Dropper)</span>
+          </div>
+        </div>
+
+        <!-- Mobile Dedicated 16:9 Video Showcase Card -->
+        <div class="hero-mobile-video" style="display:none;margin-top:28px;width:100%;">
+          <style>
+            @media(max-width:1023px){ .hero-mobile-video { display:block !important; } }
+          </style>
+          <div style="position:relative;overflow:hidden;border-radius:20px;border:1px solid rgba(197,160,89,0.4);background:#070a10;aspect-ratio:16/9;box-shadow:0 20px 50px rgba(0,0,0,0.9);">
+            <video
+              autoplay
+              loop
+              muted
+              playsinline
+              preload="auto"
+              style="width:100%;height:100%;object-fit:cover;"
+            >
+              <source src="{{ section.settings.video_url | default: 'https://themensauraofficial.com/videos/hero/hero-bg.mp4' }}" type="video/mp4">
+            </video>
+            <div style="position:absolute;top:12px;left:12px;z-index:20;">
+              <span style="display:inline-flex;align-items:center;gap:6px;border-radius:100px;border:1px solid rgba(197,160,89,0.4);background:rgba(9,14,23,0.9);padding:4px 10px;font-family:var(--font-mono);font-size:9px;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold-light);backdrop-filter:blur(8px);">
+                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#c5a059" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                4K Product Showcase
+              </span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Clean Viewport on Desktop -->
+      <div style="display:none;"></div>
+
+    </div>
+  </div>
+
+</section>
+
+{% schema %}
+{
+  "name": "Hero",
+  "class": "hero-section",
+  "tag": "div",
+  "settings": [
+    {
+      "type": "text",
+      "id": "headline_line1",
+      "label": "Headline line 1",
+      "default": "Make Your"
+    },
+    {
+      "type": "text",
+      "id": "headline_em",
+      "label": "Headline italic (gold)",
+      "default": "Married Life Happy."
+    },
+    {
+      "type": "text",
+      "id": "headline_sub",
+      "label": "Headline subline",
+      "default": "Full Strength & Stamina."
+    },
+    {
+      "type": "text",
+      "id": "video_url",
+      "label": "Background Video MP4 URL",
+      "default": "https://themensauraofficial.com/videos/hero/hero-bg.mp4"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero"
+    }
+  ]
+}
+{% endschema %}

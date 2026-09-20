@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="{{ request.locale.iso_code }}">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="#0b0f17">
+    <link rel="canonical" href="{{ canonical_url }}">
+
+    {%- if settings.favicon != blank -%}
+      <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
+    {%- endif -%}
+
+    <title>
+      {{ page_title }}
+      {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
+      {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
+      {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
+    </title>
+
+    {% if page_description %}
+      <meta name="description" content="{{ page_description | escape }}">
+    {% endif %}
+
+    <!-- Open Graph -->
+    <meta property="og:site_name" content="{{ shop.name }}">
+    <meta property="og:url" content="{{ canonical_url }}">
+    <meta property="og:title" content="{{ page_title | escape }}">
+    <meta property="og:type" content="website">
+    {% if page_description %}
+      <meta property="og:description" content="{{ page_description | escape }}">
+    {% endif %}
+
+    <!-- Google Fonts: Cinzel + Cormorant Garamond + Plus Jakarta Sans + DM Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    {{ content_for_header }}
+
+    {{ 'base.css' | asset_url | stylesheet_tag }}
+  </head>
+
+  <body class="tma-body">
+
+    <!-- Film Grain Overlay -->
+    <div class="noise-overlay" aria-hidden="true"></div>
+
+    <!-- Ambient Gradient Mesh -->
+    <div class="ambient-mesh" aria-hidden="true"></div>
+
+    <!-- Floating Gold Particles Canvas -->
+    <canvas id="particles-canvas" aria-hidden="true"></canvas>
+
+    <!-- Luxury Cursor Glow (Desktop) -->
+    <div id="cursor-glow" aria-hidden="true"></div>
+
+    {% section 'announcement-bar' %}
+    {% section 'header' %}
+
+    <main id="main-content" tabindex="-1">
+      {{ content_for_layout }}
+    </main>
+
+    {% section 'footer' %}
+
+    <!-- Cart Drawer -->
+    {% render 'cart-drawer' %}
+
+    <!-- Sticky Mobile CTA -->
+    <div id="sticky-mobile-cta" class="sticky-mobile-cta" aria-live="polite">
+      <div class="sticky-cta-inner">
+        <div class="sticky-cta-left">
+          <span class="sticky-cta-name">Midnight Drive</span>
+          <span class="sticky-cta-price">PKR 2,499 <s>3,000</s></span>
+        </div>
+        <a href="/products/midnight-drive-by-mens-aura" class="gold-glow-button sticky-cta-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          ORDER NOW
+        </a>
+      </div>
+    </div>
+
+    <!-- WhatsApp Luxury Floating Capsule -->
+    <a
+      href="https://wa.me/923110355309?text=Hello%20The%20Men's%20Aura%20Support%2C%20I%20have%20a%20question%20about%20Midnight%20Drive"
+      class="luxury-whatsapp-float"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="WhatsApp Order & Support"
+    >
+      <div class="whatsapp-ping-wrap">
+        <span class="whatsapp-ping-circle"></span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      </div>
+      <span class="whatsapp-float-label">WhatsApp Order &amp; Support</span>
+    </a>
+
+    <script src="{{ 'theme.js' | asset_url }}" defer="defer"></script>
+  </body>
+</html>

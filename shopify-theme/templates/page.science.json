@@ -1,0 +1,16 @@
+{
+  "sections": {
+    "sensation-timeline": {
+      "type": "sensation-timeline",
+      "settings": {}
+    },
+    "product-sensory": {
+      "type": "product-sensory",
+      "settings": {}
+    }
+  },
+  "order": [
+    "sensation-timeline",
+    "product-sensory"
+  ]
+}
