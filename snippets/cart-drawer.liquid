@@ -1,0 +1,35 @@
+<!-- Cart Drawer Snippet -->
+<!-- Cart Overlay -->
+<div class="cart-overlay" id="cart-overlay" aria-hidden="true"></div>
+
+<!-- Cart Drawer -->
+<div class="cart-drawer" id="cart-drawer" role="dialog" aria-modal="true" aria-label="Shopping cart">
+
+  <div class="cart-drawer__header">
+    <h2 class="cart-drawer__title">Your Cart</h2>
+    <button type="button" class="cart-drawer__close" id="cart-close" aria-label="Close cart">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+    </button>
+  </div>
+
+  <div class="cart-drawer__body" id="cart-drawer-body">
+    <!-- Cart items injected by JS -->
+    <p class="cart-empty" id="cart-empty-msg">Your cart is empty.</p>
+    <div id="cart-items-container"></div>
+  </div>
+
+  <div class="cart-drawer__footer" id="cart-drawer-footer" style="display:none;">
+    <div class="cart-drawer__total">
+      <span>Total</span>
+      <span class="cart-drawer__total-price" id="cart-total-price">PKR 0</span>
+    </div>
+    <a href="/checkout" class="gold-glow-button cart-checkout-btn">
+      Proceed to Checkout
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+    </a>
+    <p style="text-align:center;margin-top:12px;font-family:var(--font-mono);font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:var(--slate-dim);">
+      Cash on Delivery · Secure Checkout
+    </p>
+  </div>
+
+</div>

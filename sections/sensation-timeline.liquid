@@ -1,0 +1,196 @@
+<!-- Sensation Timeline — Science Page -->
+<section class="sensation-timeline section-pad" id="sensation-timeline" style="background:var(--bg-deeper,#070b12);border-top:1px solid var(--border-gold);">
+  <div class="container">
+
+    <div class="section-header">
+      <div style="display:inline-flex;align-items:center;gap:8px;border-radius:100px;border:1px solid rgba(197,160,89,0.3);background:rgba(197,160,89,0.1);padding:6px 16px;margin-bottom:16px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c5a059" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <span style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold-light);">Application &amp; Sensation Timeline</span>
+      </div>
+      <h2 class="section-title">What You Feel <em>From Minute 1.</em></h2>
+      <p class="section-desc">Explore the 3-stage thermal &amp; bio-absorption progression when applying Midnight Drive 30ml vitality oil.</p>
+    </div>
+
+    <!-- Stage Selector Buttons -->
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:40px;" id="sensation-tabs">
+      <button class="sensation-tab sensation-tab--active" data-stage="0" onclick="switchSensation(0)">
+        <div class="sensation-tab-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div>
+        <div style="text-align:left;">
+          <div style="font-family:var(--font-mono);font-size:9px;text-transform:uppercase;letter-spacing:0.1em;opacity:0.8;">Stage 01</div>
+          <div style="font-family:var(--font-serif);font-size:13px;font-weight:600;">Minute 1–2</div>
+        </div>
+      </button>
+      <button class="sensation-tab" data-stage="1" onclick="switchSensation(1)">
+        <div class="sensation-tab-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></svg>
+        </div>
+        <div style="text-align:left;">
+          <div style="font-family:var(--font-mono);font-size:9px;text-transform:uppercase;letter-spacing:0.1em;opacity:0.8;">Stage 02</div>
+          <div style="font-family:var(--font-serif);font-size:13px;font-weight:600;">Minute 3–5</div>
+        </div>
+      </button>
+      <button class="sensation-tab" data-stage="2" onclick="switchSensation(2)">
+        <div class="sensation-tab-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        </div>
+        <div style="text-align:left;">
+          <div style="font-family:var(--font-mono);font-size:9px;text-transform:uppercase;letter-spacing:0.1em;opacity:0.8;">Stage 03</div>
+          <div style="font-family:var(--font-serif);font-size:13px;font-weight:600;">Day 7–14</div>
+        </div>
+      </button>
+    </div>
+
+    <!-- Active Stage Display Card -->
+    <div style="margin-top:32px;max-width:760px;margin-left:auto;margin-right:auto;">
+      <div id="sensation-panel-0" class="sensation-panel sensation-panel--visible">
+        <div class="sensation-card">
+          <div style="display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border-gold);padding-bottom:20px;margin-bottom:20px;flex-wrap:wrap;gap:12px;">
+            <div style="display:flex;align-items:center;gap:12px;">
+              <div class="sensation-card-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              </div>
+              <div>
+                <span style="font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:0.2em;color:var(--gold);">Stage 01 · Minute 1–2</span>
+                <h3 style="font-family:var(--font-serif);font-size:24px;font-weight:600;color:var(--cream);">Gentle Thermal Eugenol Warmth</h3>
+              </div>
+            </div>
+            <span style="font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:0.1em;border:1px solid rgba(197,160,89,0.3);background:rgba(197,160,89,0.1);padding:4px 12px;border-radius:100px;color:var(--gold-light);">30ml Bio-Formula</span>
+          </div>
+          <p style="font-size:14px;line-height:1.8;color:#c8d2e1;">Upon applying 4 to 6 drops of Midnight Drive, cold-pressed Clove Eugenol activates a mild, soothing thermal sensation across the tissue, signaling micro-circulation arousal.</p>
+          <div style="margin-top:24px;border-top:1px solid var(--border-gold);padding-top:20px;">
+            <h4 style="font-family:var(--font-mono);font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.15em;color:var(--gold);margin-bottom:12px;">Key Physiological Effects:</h4>
+            <div style="display:grid;gap:10px;" class="sensation-effects-grid">
+              <style>@media(min-width:640px){.sensation-effects-grid{grid-template-columns:repeat(3,1fr);}}</style>
+              <div class="sensation-effect-pill">Thermal micro-stimulation</div>
+              <div class="sensation-effect-pill">Zero burning or irritation</div>
+              <div class="sensation-effect-pill">Natural aroma of Clove &amp; Rosemary</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="sensation-panel-1" class="sensation-panel">
+        <div class="sensation-card">
+          <div style="display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border-gold);padding-bottom:20px;margin-bottom:20px;flex-wrap:wrap;gap:12px;">
+            <div style="display:flex;align-items:center;gap:12px;">
+              <div class="sensation-card-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></svg>
+              </div>
+              <div>
+                <span style="font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:0.2em;color:var(--gold);">Stage 02 · Minute 3–5</span>
+                <h3 style="font-family:var(--font-serif);font-size:24px;font-weight:600;color:var(--cream);">Deep Transdermal Bio-Carrier Entry</h3>
+              </div>
+            </div>
+            <span style="font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:0.1em;border:1px solid rgba(197,160,89,0.3);background:rgba(197,160,89,0.1);padding:4px 12px;border-radius:100px;color:var(--gold-light);">30ml Bio-Formula</span>
+          </div>
+          <p style="font-size:14px;line-height:1.8;color:#c8d2e1;">High-glide Ostrich &amp; Olive bio-carriers transport active Raig Mahi lipids deep into local cavernous tissues without greasy residue, nourishing blood vessel walls.</p>
+          <div style="margin-top:24px;border-top:1px solid var(--border-gold);padding-top:20px;">
+            <h4 style="font-family:var(--font-mono);font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.15em;color:var(--gold);margin-bottom:12px;">Key Physiological Effects:</h4>
+            <div style="display:grid;gap:10px;" class="sensation-effects-grid">
+              <div class="sensation-effect-pill">Fast absorption within 3 minutes</div>
+              <div class="sensation-effect-pill">Non-greasy satin finish</div>
+              <div class="sensation-effect-pill">Deep tissue nourishment</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="sensation-panel-2" class="sensation-panel">
+        <div class="sensation-card">
+          <div style="display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border-gold);padding-bottom:20px;margin-bottom:20px;flex-wrap:wrap;gap:12px;">
+            <div style="display:flex;align-items:center;gap:12px;">
+              <div class="sensation-card-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+              </div>
+              <div>
+                <span style="font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:0.2em;color:var(--gold);">Stage 03 · Day 7–14</span>
+                <h3 style="font-family:var(--font-serif);font-size:24px;font-weight:600;color:var(--cream);">Cumulative Vigor &amp; Firmness</h3>
+              </div>
+            </div>
+            <span style="font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:0.1em;border:1px solid rgba(197,160,89,0.3);background:rgba(197,160,89,0.1);padding:4px 12px;border-radius:100px;color:var(--gold-light);">30ml Bio-Formula</span>
+          </div>
+          <p style="font-size:14px;line-height:1.8;color:#c8d2e1;">With regular nightly 5-minute massage, tissue elasticity, local circulation, and intimate stamina reach peak natural performance and endurance.</p>
+          <div style="margin-top:24px;border-top:1px solid var(--border-gold);padding-top:20px;">
+            <h4 style="font-family:var(--font-mono);font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.15em;color:var(--gold);margin-bottom:12px;">Key Physiological Effects:</h4>
+            <div style="display:grid;gap:10px;" class="sensation-effects-grid">
+              <div class="sensation-effect-pill">Noticeable tissue firmness</div>
+              <div class="sensation-effect-pill">Sustained intimate endurance</div>
+              <div class="sensation-effect-pill">Enhanced confidence</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+.sensation-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border-radius: 16px;
+  border: 1px solid rgba(197,160,89,0.25);
+  background: #090e17;
+  padding: 10px 16px;
+  color: var(--slate);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.sensation-tab:hover { border-color: rgba(197,160,89,0.5); color: var(--cream); }
+.sensation-tab--active { border-color: var(--gold); background: var(--gold); color: var(--bg-deep); box-shadow: 0 0 25px rgba(197,160,89,0.35); transform: scale(1.05); }
+.sensation-tab-icon {
+  width: 28px; height: 28px; border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(197,160,89,0.15);
+}
+.sensation-tab--active .sensation-tab-icon { background: var(--bg-deep); color: var(--gold-light); }
+.sensation-panel { display: none; }
+.sensation-panel--visible { display: block; animation: fadeInUp 0.3s ease; }
+.sensation-card {
+  border-radius: 24px;
+  border: 1px solid rgba(197,160,89,0.3);
+  background: linear-gradient(135deg, #0a101c 0%, #070b12 50%, #0a101c 100%);
+  padding: 32px;
+  box-shadow: 0 25px 80px rgba(0,0,0,0.5);
+}
+.sensation-card-icon {
+  width: 48px; height: 48px; border-radius: 14px;
+  border: 1px solid rgba(197,160,89,0.4);
+  background: rgba(197,160,89,0.15);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--gold-light);
+  box-shadow: 0 0 20px rgba(197,160,89,0.2);
+}
+.sensation-effect-pill {
+  display: flex; align-items: center; gap: 8px;
+  border-radius: 12px; border: 1px solid rgba(197,160,89,0.15);
+  background: #070b12; padding: 10px 14px;
+  font-size: 12px; color: var(--cream);
+}
+.sensation-effect-pill::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+</style>
+
+<script>
+function switchSensation(idx) {
+  document.querySelectorAll('.sensation-tab').forEach(function(t, i) {
+    t.classList.toggle('sensation-tab--active', i === idx);
+  });
+  document.querySelectorAll('.sensation-panel').forEach(function(p, i) {
+    p.classList.toggle('sensation-panel--visible', i === idx);
+  });
+}
+</script>
+
+{% schema %}
+{
+  "name": "Sensation Timeline",
+  "class": "sensation-timeline-section",
+  "tag": "div",
+  "settings": [],
+  "presets": [{ "name": "Sensation Timeline" }]
+}
+{% endschema %}

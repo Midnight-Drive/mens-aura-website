@@ -1,0 +1,55 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "settings": {
+        "headline_line1": "Make Your",
+        "headline_em": "Married Life Happy.",
+        "headline_sub": "Full Strength & Stamina."
+      }
+    },
+    "five-actives": {
+      "type": "five-actives",
+      "settings": {}
+    },
+    "how-to-use": {
+      "type": "how-to-use",
+      "settings": {}
+    },
+    "bundle-offers": {
+      "type": "bundle-offers",
+      "settings": {}
+    },
+    "privacy-unboxing": {
+      "type": "privacy-unboxing",
+      "settings": {}
+    },
+    "doctor-insights": {
+      "type": "doctor-insights",
+      "settings": {}
+    },
+    "testimonials": {
+      "type": "testimonials",
+      "settings": {}
+    },
+    "faq": {
+      "type": "faq",
+      "settings": {}
+    },
+    "final-cta": {
+      "type": "final-cta",
+      "settings": {}
+    }
+  },
+  "order": [
+    "hero",
+    "five-actives",
+    "how-to-use",
+    "bundle-offers",
+    "privacy-unboxing",
+    "doctor-insights",
+    "testimonials",
+    "faq",
+    "final-cta"
+  ]
+}

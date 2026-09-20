@@ -1,0 +1,346 @@
+<!-- Main Product Section -->
+{% assign prod = product %}
+{% if prod == blank or prod.id == blank %}{% assign prod = all_products['midnight-drive-by-mens-aura'] %}{% endif %}
+{% if prod == blank or prod.id == blank %}{% assign prod = all_products['midnight-drive'] %}{% endif %}
+{% if prod == blank or prod.id == blank %}{% assign prod = collections.all.products.first %}{% endif %}
+{% assign v1 = prod.variants[0] %}
+{% assign v2 = prod.variants[1] %}
+{% assign v3 = prod.variants[2] %}
+
+{% for v in prod.variants %}
+  {% if v.title contains '3' or v.title contains 'Master' %}
+    {% assign v3 = v %}
+  {% elsif v.title contains '2' or v.title contains 'Pack' %}
+    {% assign v2 = v %}
+  {% elsif v.title contains '1' or v.title contains 'Starter' %}
+    {% assign v1 = v %}
+  {% endif %}
+{% endfor %}
+
+{% assign v1_id = section.settings.bundle_1_variant_id | default: v1.id | default: 52658897912110 %}
+{% assign v2_id = section.settings.bundle_2_variant_id | default: v2.id | default: v1_id %}
+{% assign v3_id = section.settings.bundle_3_variant_id | default: v3.id | default: v1_id %}
+{% assign variant_id = v1_id %}
+
+{% assign video_src = section.settings.product_video_url %}
+{% if video_src == blank %}
+  {% assign video_src = 'product-page-video.mp4' | asset_url %}
+{% endif %}
+{% assign cta_btn_text = section.settings.cta_button_text | default: 'ADD TO CART' %}
+
+<section class="main-product-page section-pad" style="background:var(--bg-deep);border-bottom:1px solid var(--border-gold);">
+  <div class="container">
+
+    <div class="product-page-grid" style="display:grid;gap:48px;align-items:start;">
+      <style>
+        @media(min-width:1024px){
+          .product-page-grid { grid-template-columns: 1fr 1fr !important; gap: 64px !important; }
+        }
+      </style>
+
+      <!-- Left Column: 4K Product Showcase Video -->
+      <div style="position:relative;">
+        <div style="position:relative;overflow:hidden;border-radius:28px;border:1px solid rgba(197,160,89,0.35);background:#070a10;box-shadow:0 30px 80px rgba(0,0,0,0.9);aspect-ratio:4/5;">
+          <video
+            autoplay
+            loop
+            muted
+            playsinline
+            preload="auto"
+            style="width:100%;height:100%;object-fit:cover;"
+          >
+            <source src="{{ video_src }}" type="video/mp4">
+          </video>
+
+          <!-- Ambient Video Glow -->
+          <div style="pointer-events:none;position:absolute;inset:0;box-shadow:inset 0 0 50px rgba(0,0,0,0.6);"></div>
+
+          <!-- Top Badge -->
+          <div style="position:absolute;top:16px;left:16px;z-index:10;">
+            <span style="display:inline-flex;align-items:center;gap:6px;border-radius:100px;border:1px solid rgba(197,160,89,0.4);background:rgba(9,14,23,0.9);padding:6px 14px;font-family:var(--font-mono);font-size:9px;text-transform:uppercase;letter-spacing:0.15em;color:var(--gold-light);backdrop-filter:blur(10px);">
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#c5a059" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              <span>Batch #MD-042 · 100% Pure Botanical</span>
+            </span>
+          </div>
+        </div>
+
+        <!-- 3 Quick Mini Trust Icons below video -->
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px;">
+          <div style="border-radius:16px;border:1px solid rgba(197,160,89,0.2);background:#090e17;padding:14px;text-align:center;">
+            <div style="font-family:var(--font-heading);font-size:16px;color:var(--gold-light);font-weight:700;">60s</div>
+            <div style="font-size:11px;color:var(--slate);margin-top:2px;">Thermal Activation</div>
+          </div>
+          <div style="border-radius:16px;border:1px solid rgba(197,160,89,0.2);background:#090e17;padding:14px;text-align:center;">
+            <div style="font-family:var(--font-heading);font-size:16px;color:var(--gold-light);font-weight:700;">100%</div>
+            <div style="font-size:11px;color:var(--slate);margin-top:2px;">Discreet Courier</div>
+          </div>
+          <div style="border-radius:16px;border:1px solid rgba(197,160,89,0.2);background:#090e17;padding:14px;text-align:center;">
+            <div style="font-family:var(--font-heading);font-size:16px;color:var(--gold-light);font-weight:700;">FREE</div>
+            <div style="font-size:11px;color:var(--slate);margin-top:2px;">COD All Pakistan</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Product Details & Fast Checkout -->
+      <div style="display:flex;flex-direction:column;gap:20px;">
+
+        <div>
+          <div style="display:inline-flex;align-items:center;gap:6px;border-radius:100px;border:1px solid rgba(197,160,89,0.3);background:rgba(197,160,89,0.1);padding:4px 12px;margin-bottom:12px;">
+            <span style="font-family:var(--font-mono);font-size:9px;text-transform:uppercase;letter-spacing:0.2em;color:var(--gold-light);">Pre-Launch Vitality Oil · 30ml Dropper</span>
+          </div>
+          <h1 style="font-family:var(--font-heading);font-size:36px;font-weight:700;letter-spacing:0.08em;color:var(--cream);line-height:1.2;">
+            MIDNIGHT DRIVE
+          </h1>
+          <p style="font-family:var(--font-serif);font-style:italic;font-size:18px;color:var(--gold-light);margin-top:4px;">
+            The Night Formula for Married Men.
+          </p>
+        </div>
+
+        <p style="font-size:14px;line-height:1.8;color:var(--slate);">
+          A precision-crafted transdermal vitality oil. Five cold-pressed botanical actives — including <strong style="color:var(--cream);">Raig Mahi (Sandfish Extract)</strong>, <strong style="color:var(--cream);">Steam-Distilled Clove Eugenol</strong>, and <strong style="color:var(--cream);">Ostrich Bio-Oil</strong> — work synergistically to awaken therapeutic warmth, boost stamina, and strengthen intimate married life.
+        </p>
+
+        <!-- Bundle Selection Cards (Dynamic) -->
+        <div style="margin-top:10px;">
+          <label style="display:block;font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:0.2em;color:var(--gold);margin-bottom:10px;">
+            Select Routine Quantity:
+          </label>
+          <div style="display:flex;flex-direction:column;gap:10px;" id="product-bundle-list">
+
+            <!-- 1 Bottle -->
+            <div class="product-bundle-option product-bundle-option--selected" onclick="selectProductQty(1, 2499, '1 Bottle (30ml) — Starter Ritual', '{{ v1_id }}')">
+              <div style="display:flex;align-items:center;justify-content:space-between;width:100%;">
+                <div style="display:flex;align-items:center;gap:12px;">
+                  <span class="bundle-radio-circle"></span>
+                  <div>
+                    <span style="font-family:var(--font-serif);font-size:16px;font-weight:600;color:var(--cream);">1 Bottle (30ml)</span>
+                    <span style="display:block;font-size:11px;color:var(--slate);">30-Day Starter Ritual Supply</span>
+                  </div>
+                </div>
+                <div style="text-align:right;">
+                  <span style="font-family:var(--font-heading);font-size:18px;font-weight:700;color:var(--gold-light);">PKR 2,499</span>
+                  <span style="display:block;font-size:11px;color:var(--slate);text-decoration:line-through;">PKR 3,000</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 2 Bottles (Popular) -->
+            <div class="product-bundle-option" onclick="selectProductQty(2, 4499, '2 Bottles Pack (2× 30ml) — Most Popular', '{{ v2_id }}')">
+              <div style="display:flex;align-items:center;justify-content:space-between;width:100%;">
+                <div style="display:flex;align-items:center;gap:12px;">
+                  <span class="bundle-radio-circle"></span>
+                  <div>
+                    <span style="font-family:var(--font-serif);font-size:16px;font-weight:600;color:var(--cream);">2 Bottles Pack (2× 30ml)</span>
+                    <span style="display:inline-block;border-radius:4px;background:var(--gold);color:var(--bg-deep);padding:1px 6px;font-family:var(--font-mono);font-size:9px;font-weight:700;margin-left:6px;">SAVE PKR 1,501</span>
+                    <span style="display:block;font-size:11px;color:var(--slate);margin-top:2px;">60-Day Full Vigor Protocol · Most Popular</span>
+                  </div>
+                </div>
+                <div style="text-align:right;">
+                  <span style="font-family:var(--font-heading);font-size:18px;font-weight:700;color:var(--gold-light);">PKR 4,499</span>
+                  <span style="display:block;font-size:11px;color:var(--slate);text-decoration:line-through;">PKR 6,000</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 3 Bottles (Best Value) -->
+            <div class="product-bundle-option" onclick="selectProductQty(3, 5999, '3 Bottles Master Pack (3× 30ml) — Best Value', '{{ v3_id }}')">
+              <div style="display:flex;align-items:center;justify-content:space-between;width:100%;">
+                <div style="display:flex;align-items:center;gap:12px;">
+                  <span class="bundle-radio-circle"></span>
+                  <div>
+                    <span style="font-family:var(--font-serif);font-size:16px;font-weight:600;color:var(--cream);">3 Bottles Master Pack (3× 30ml)</span>
+                    <span style="display:inline-block;border-radius:4px;background:rgba(197,160,89,0.3);border:1px solid var(--gold);color:var(--gold-light);padding:1px 6px;font-family:var(--font-mono);font-size:9px;font-weight:700;margin-left:6px;">SAVE PKR 3,001</span>
+                    <span style="display:block;font-size:11px;color:var(--slate);margin-top:2px;">90-Day Peak Vigor Supply · Best Value</span>
+                  </div>
+                </div>
+                <div style="text-align:right;">
+                  <span style="font-family:var(--font-heading);font-size:18px;font-weight:700;color:var(--gold-light);">PKR 5,999</span>
+                  <span style="display:block;font-size:11px;color:var(--slate);text-decoration:line-through;">PKR 9,000</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Checkout Actions -->
+        <form method="post" action="/cart/add" id="product-checkout-form" onsubmit="handleProductCheckout(event)" style="display:flex;flex-direction:column;gap:12px;margin-top:10px;">
+          <input type="hidden" name="id" id="product-variant-id" value="{{ variant_id }}">
+          <input type="hidden" name="quantity" id="product-selected-qty" value="1">
+
+          <!-- Primary Direct Checkout Button -->
+          <button type="submit" name="checkout" class="gold-glow-button" id="direct-checkout-btn" style="width:100%;padding:18px;font-size:12px;letter-spacing:0.2em;">
+            <span class="btn-shine"></span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+            <span id="checkout-btn-text">{{ cta_btn_text }} — PKR 2,499 (COD)</span>
+          </button>
+        </form>
+
+        <!-- 1-Click WhatsApp Order Button -->
+        <a
+          id="product-wa-order-btn"
+          href="https://wa.me/923110355309?text=Hello%20The%20Men%27s%20Aura%20Support%2C%20I%20want%20to%20order%201%20Bottle%20of%20Midnight%20Drive%2030ml%20(Total%3A%20PKR%202%2C499)%20Cash%20on%20Delivery.%20Please%20confirm%20my%20order."
+          target="_blank"
+          rel="noopener noreferrer"
+          style="display:flex;align-items:center;justify-content:center;gap:10px;border-radius:12px;border:1px solid rgba(197,160,89,0.4);background:#090e17;padding:14px;font-family:var(--font-mono);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold-light);transition:background 0.3s;"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+          <span>1-Click Order on WhatsApp</span>
+        </a>
+
+        <!-- Discreet Covenant Guarantee Box -->
+        <div style="border-radius:16px;border:1px solid rgba(197,160,89,0.25);background:#090e17;padding:18px;display:flex;align-items:flex-start;gap:12px;margin-top:6px;">
+          <div style="width:36px;height:36px;border-radius:10px;background:rgba(197,160,89,0.15);display:flex;align-items:center;justify-content:center;color:var(--gold-light);flex-shrink:0;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </div>
+          <div>
+            <h4 style="font-family:var(--font-serif);font-size:14px;font-weight:600;color:var(--cream);">100% Discreet Packaging Covenant</h4>
+            <p style="font-size:11px;line-height:1.6;color:var(--slate);margin-top:2px;">
+              Shipped in a plain, unbranded parcel. Courier riders and family members will never know what is inside. Pay Cash on Delivery.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<style>
+.product-bundle-option {
+  border-radius: 16px;
+  border: 1px solid rgba(197,160,89,0.2);
+  background: #090e17;
+  padding: 14px 18px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.product-bundle-option:hover {
+  border-color: rgba(197,160,89,0.5);
+  background: #0e1524;
+}
+.product-bundle-option--selected {
+  border: 2px solid var(--gold);
+  background: linear-gradient(135deg, #101828 0%, #090e17 100%);
+  box-shadow: 0 0 25px rgba(197,160,89,0.2);
+}
+.bundle-radio-circle {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid rgba(197,160,89,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+.product-bundle-option--selected .bundle-radio-circle {
+  border-color: var(--gold);
+  background: var(--gold);
+}
+.product-bundle-option--selected .bundle-radio-circle::after {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--bg-deep);
+}
+</style>
+
+<script>
+function selectProductQty(qty, price, title, variantId) {
+  var list = document.querySelectorAll('.product-bundle-option');
+  list.forEach(function(item, index) {
+    item.classList.toggle('product-bundle-option--selected', index === (qty - 1));
+  });
+
+  var qtyInput = document.getElementById('product-selected-qty');
+  var varInput = document.getElementById('product-variant-id');
+  var v1Id = '{{ v1_id }}';
+  
+  if (variantId && variantId !== v1Id) {
+    if (varInput) varInput.value = variantId;
+    if (qtyInput) qtyInput.value = 1;
+  } else {
+    if (varInput) varInput.value = variantId || v1Id;
+    if (qtyInput) qtyInput.value = qty;
+  }
+
+  var btnText = document.getElementById('checkout-btn-text');
+  var baseAction = "{{ cta_btn_text }}";
+  if (btnText) btnText.textContent = baseAction + ' — PKR ' + price.toLocaleString() + ' (COD)';
+
+  var waBtn = document.getElementById('product-wa-order-btn');
+  if (waBtn) {
+    var message = "Hello The Men's Aura Support, I want to order " + title + " (Total: PKR " + price.toLocaleString() + ") Cash on Delivery. Please confirm my order.";
+    waBtn.href = 'https://wa.me/923110355309?text=' + encodeURIComponent(message);
+  }
+}
+
+async function handleProductCheckout(e) {
+  e.preventDefault();
+  var btn = document.getElementById('direct-checkout-btn');
+  var btnText = document.getElementById('checkout-btn-text');
+  var variantId = document.getElementById('product-variant-id').value;
+  var qty = parseInt(document.getElementById('product-selected-qty').value, 10) || 1;
+  
+  if (btn) btn.style.opacity = '0.7';
+  if (btnText) btnText.textContent = 'ADDING TO CART...';
+
+  try {
+    await fetch('/cart/clear.js', { method: 'POST', headers: { 'Content-Type': 'application/json' } });
+    await fetch('/cart/add.js', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id: variantId, quantity: qty })
+    });
+    window.location.href = '/cart';
+  } catch (err) {
+    window.location.href = '/cart/' + variantId + ':' + qty;
+  }
+}
+</script>
+
+{% schema %}
+{
+  "name": "Main Product",
+  "class": "main-product-section",
+  "tag": "div",
+  "settings": [
+    {
+      "type": "text",
+      "id": "cta_button_text",
+      "label": "Button Action Text",
+      "default": "ADD TO CART",
+      "info": "Text displayed on the action button (e.g. 'ADD TO CART' or 'ORDER NOW')"
+    },
+    {
+      "type": "text",
+      "id": "product_video_url",
+      "label": "Product Video URL (.mp4)",
+      "info": "Leave blank to use theme asset 'product-page-video.mp4', or paste a direct video link from Shopify Admin > Content > Files."
+    },
+    {
+      "type": "text",
+      "id": "bundle_1_variant_id",
+      "label": "Bundle 1 Variant ID (1 Bottle - PKR 2,499)",
+      "default": "52658897912110"
+    },
+    {
+      "type": "text",
+      "id": "bundle_2_variant_id",
+      "label": "Bundle 2 Variant ID (2 Bottles Pack - PKR 4,499)",
+      "info": "Variant ID for 2 Bottles Pack from Shopify Admin (leave blank to auto-detect)"
+    },
+    {
+      "type": "text",
+      "id": "bundle_3_variant_id",
+      "label": "Bundle 3 Variant ID (3 Bottles Master Pack - PKR 5,999)",
+      "info": "Variant ID for 3 Bottles Master Pack from Shopify Admin (leave blank to auto-detect)"
+    }
+  ]
+}
+{% endschema %}

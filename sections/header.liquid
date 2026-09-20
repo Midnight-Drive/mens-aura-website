@@ -1,0 +1,96 @@
+<!-- Site Header -->
+<header class="site-header" id="site-header">
+  <div class="site-header__inner">
+
+    <!-- Logo -->
+    <a href="{{ routes.root_url }}" class="site-logo" aria-label="{{ shop.name }} home">
+      <span class="site-logo__name">THE MEN'S AURA</span>
+      <span class="site-logo__sub">Midnight Drive</span>
+    </a>
+
+    <!-- Desktop Navigation -->
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="{{ routes.root_url }}" class="site-nav__link {% if request.page_type == 'index' %}active{% endif %}">Home</a>
+      <a href="/pages/science" class="site-nav__link {% if request.path contains 'science' %}active{% endif %}">Science</a>
+      <a href="/pages/story" class="site-nav__link {% if request.path contains 'story' %}active{% endif %}">Film & Story</a>
+      <a href="/blogs/journal" class="site-nav__link {% if request.page_type == 'blog' %}active{% endif %}">Journal</a>
+      <a href="/pages/contact" class="site-nav__link {% if request.path contains 'contact' %}active{% endif %}">Contact</a>
+    </nav>
+
+    <!-- Header Actions -->
+    <div class="site-header__actions">
+      <!-- Order Button (Desktop) -->
+      <a
+        href="/products/midnight-drive-by-mens-aura"
+        class="gold-glow-button header-order-btn"
+      >
+        <span class="btn-shine"></span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        <span>ORDER NOW (PKR 2,499)</span>
+      </a>
+
+      <!-- Shopping Cart Icon with Real-Time Badge -->
+      <a
+        href="/cart"
+        class="header-cart-btn"
+        aria-label="View shopping cart"
+        title="View shopping cart"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/>
+          <path d="M3 6h18"/>
+          <path d="M16 10a4 4 0 0 1-8 0"/>
+        </svg>
+        <span
+          id="cart-count"
+          class="header-cart-count"
+          style="display:{% if cart.item_count > 0 %}inline-flex{% else %}none{% endif %};"
+        >
+          {{ cart.item_count }}
+        </span>
+      </a>
+
+      <!-- Hamburger (Mobile Only) -->
+      <button
+        type="button"
+        class="hamburger"
+        id="mobile-menu-toggle"
+        aria-label="Toggle mobile menu"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <svg id="hamburger-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+        <svg id="close-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </button>
+    </div>
+
+  </div>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="false" aria-label="Mobile navigation">
+    <nav class="mobile-menu__nav">
+      <a href="{{ routes.root_url }}" class="mobile-menu__link">Home</a>
+      <a href="/pages/science" class="mobile-menu__link">Science &amp; Timeline</a>
+      <a href="/pages/story" class="mobile-menu__link">Product Film</a>
+      <a href="/blogs/journal" class="mobile-menu__link">Journal &amp; Articles</a>
+      <a href="/pages/contact" class="mobile-menu__link">Contact Support</a>
+      <a href="/cart" class="mobile-menu__link" style="color:var(--gold-light);font-weight:700;display:flex;align-items:center;justify-content:space-between;">
+        <span>Your Shopping Cart</span>
+        <span style="background:var(--gold);color:#070a10;border-radius:10px;padding:2px 8px;font-size:11px;font-family:var(--font-mono);">
+          {{ cart.item_count }}
+        </span>
+      </a>
+      <a href="/products/midnight-drive-by-mens-aura" class="gold-glow-button mobile-menu__cta">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        ORDER NOW — PKR 2,499
+      </a>
+    </nav>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "class": "site-header-section"
+}
+{% endschema %}

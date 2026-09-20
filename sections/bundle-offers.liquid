@@ -1,0 +1,327 @@
+{% assign prod = all_products['midnight-drive-by-mens-aura'] %}
+{% if prod == blank or prod.id == blank %}{% assign prod = all_products['midnight-drive'] %}{% endif %}
+{% if prod == blank or prod.id == blank %}{% assign prod = collections.all.products.first %}{% endif %}
+{% assign v1 = prod.variants[0] %}
+{% assign v2 = prod.variants[1] %}
+{% assign v3 = prod.variants[2] %}
+
+{% for v in prod.variants %}
+  {% if v.title contains '3' or v.title contains 'Master' %}
+    {% assign v3 = v %}
+  {% elsif v.title contains '2' or v.title contains 'Pack' %}
+    {% assign v2 = v %}
+  {% elsif v.title contains '1' or v.title contains 'Starter' %}
+    {% assign v1 = v %}
+  {% endif %}
+{% endfor %}
+
+{% assign v1_id = section.settings.variant_id_1 | default: v1.id | default: 52658897912110 %}
+{% assign v2_id = section.settings.variant_id_2 | default: v2.id | default: v1_id %}
+{% assign v3_id = section.settings.variant_id_3 | default: v3.id | default: v1_id %}
+{% assign variant_id = v1_id %}
+{% assign product_url = prod.url | default: '/products/midnight-drive-by-mens-aura' %}
+
+<!-- Bundle Offers Section -->
+<section class="bundle-offers section-pad" id="bundles" style="background:linear-gradient(to bottom, var(--bg-deep), #0b101a, var(--bg-deep));border-top:1px solid var(--border-gold);">
+  <div class="container">
+
+    <div class="section-header">
+      <div style="display:inline-flex;align-items:center;gap:8px;border-radius:100px;border:1px solid rgba(197,160,89,0.3);background:rgba(197,160,89,0.1);padding:6px 16px;margin-bottom:16px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c5a059" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+        <span style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold-light);">Pre-Launch Bundle Offers</span>
+      </div>
+      <h2 class="section-title">Choose Your <em>30ml Routine Pack.</em></h2>
+      <p class="section-desc">Select your preferred Midnight Drive 30ml quantity. Enjoy instant bundle discounts &amp; 100% discreet Cash on Delivery.</p>
+    </div>
+
+    <!-- 3 Bundle Cards -->
+    <div class="bundle-grid" style="display:grid;gap:24px;margin-top:48px;">
+      <style>
+        @media(min-width:1024px){ .bundle-grid { grid-template-columns: repeat(3,1fr); } }
+        @media(min-width:640px) and (max-width:1023px){ .bundle-grid { grid-template-columns: repeat(1,1fr); max-width:480px; margin-left:auto; margin-right:auto; } }
+      </style>
+
+      <!-- Bundle 1: Starter -->
+      <div class="bundle-card" id="bundle-1">
+        <div class="bundle-badge" style="border-color:rgba(197,160,89,0.3);background:rgba(197,160,89,0.1);color:var(--gold-light);">
+          Starter Ritual
+        </div>
+        <h3 class="bundle-title">1 Bottle (30ml)</h3>
+        <p class="bundle-subtitle">30-Day Routine Supply</p>
+        <div class="bundle-price-row">
+          <span class="bundle-price">PKR 2,499</span>
+          <span class="bundle-price-old">PKR 3,000</span>
+        </div>
+        <ul class="bundle-benefits">
+          <li><span class="bundle-check">✓</span> 1x 30ml Amber Glass Dropper</li>
+          <li><span class="bundle-check">✓</span> 30-Day Daily Night Ritual</li>
+          <li><span class="bundle-check">✓</span> Free COD Shipping Pakistan</li>
+        </ul>
+        <div class="bundle-actions">
+          <form method="post" action="/cart/add" class="bundle-cart-form" onsubmit="handleBundleCheckout(event, '{{ v1_id }}', 1)">
+            <input type="hidden" name="id" value="{{ v1_id }}">
+            <input type="hidden" name="quantity" value="1">
+            <button type="submit" name="checkout" class="gold-glow-button bundle-order-btn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+              ORDER NOW — PKR 2,499
+            </button>
+          </form>
+          <a href="https://wa.me/923110355309?text={{ '1 Bottle Midnight Drive 30ml (PKR 2,499) COD order. Please confirm.' | url_encode }}"
+             target="_blank" rel="noopener noreferrer" class="bundle-wa-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+            1-Click Order on WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <!-- Bundle 2: Most Popular -->
+      <div class="bundle-card bundle-card--popular" id="bundle-2">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+          <div class="bundle-badge" style="border-color:var(--gold);background:var(--gold);color:var(--bg-deep);">
+            Most Popular — Save PKR 1,501
+          </div>
+          <span style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);">★ Top Seller</span>
+        </div>
+        <h3 class="bundle-title">2 Bottles Pack (2× 30ml)</h3>
+        <p class="bundle-subtitle">60-Day Full Vigor Ritual</p>
+        <div class="bundle-price-row">
+          <span class="bundle-price">PKR 4,499</span>
+          <span class="bundle-price-old">PKR 6,000</span>
+        </div>
+        <ul class="bundle-benefits">
+          <li><span class="bundle-check">✓</span> 2x 30ml Amber Glass Droppers</li>
+          <li><span class="bundle-check">✓</span> 60-Day Full Vigor Protocol</li>
+          <li><span class="bundle-check">✓</span> Save PKR 1,501 + Priority COD</li>
+        </ul>
+        <div class="bundle-actions">
+          <form method="post" action="/cart/add" class="bundle-cart-form" onsubmit="handleBundleCheckout(event, '{{ v2_id }}', {% if v2_id != v1_id %}1{% else %}2{% endif %})">
+            <input type="hidden" name="id" value="{{ v2_id }}">
+            <input type="hidden" name="quantity" value="{% if v2_id != v1_id %}1{% else %}2{% endif %}">
+            <button type="submit" name="checkout" class="gold-glow-button bundle-order-btn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+              ORDER NOW — PKR 4,499
+            </button>
+          </form>
+          <a href="https://wa.me/923110355309?text={{ '2 Bottles Midnight Drive 30ml (PKR 4,499) COD order. Please confirm.' | url_encode }}"
+             target="_blank" rel="noopener noreferrer" class="bundle-wa-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+            1-Click Order on WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <!-- Bundle 3: Best Value -->
+      <div class="bundle-card" id="bundle-3">
+        <div class="bundle-badge" style="border-color:rgba(197,160,89,0.5);background:rgba(197,160,89,0.2);color:var(--gold-light);">
+          Best Value — Save PKR 3,001
+        </div>
+        <h3 class="bundle-title">3 Bottles Master Pack (3× 30ml)</h3>
+        <p class="bundle-subtitle">90-Day Peak Vigor Pack</p>
+        <div class="bundle-price-row">
+          <span class="bundle-price">PKR 5,999</span>
+          <span class="bundle-price-old">PKR 9,000</span>
+        </div>
+        <ul class="bundle-benefits">
+          <li><span class="bundle-check">✓</span> 3x 30ml Amber Glass Droppers</li>
+          <li><span class="bundle-check">✓</span> 90-Day Maximum Stamina Pack</li>
+          <li><span class="bundle-check">✓</span> Save PKR 3,001 + VIP Support</li>
+        </ul>
+        <div class="bundle-actions">
+          <form method="post" action="/cart/add" class="bundle-cart-form" onsubmit="handleBundleCheckout(event, '{{ v3_id }}', {% if v3_id != v1_id %}1{% else %}3{% endif %})">
+            <input type="hidden" name="id" value="{{ v3_id }}">
+            <input type="hidden" name="quantity" value="{% if v3_id != v1_id %}1{% else %}3{% endif %}">
+            <button type="submit" name="checkout" class="gold-glow-button bundle-order-btn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+              ORDER NOW — PKR 5,999
+            </button>
+          </form>
+          <a href="https://wa.me/923110355309?text={{ '3 Bottles Midnight Drive 30ml (PKR 5,999) COD order. Please confirm.' | url_encode }}"
+             target="_blank" rel="noopener noreferrer" class="bundle-wa-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+            1-Click Order on WhatsApp
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="text-align:center;margin-top:36px;">
+      <a href="{{ product_url }}" style="display:inline-flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold-light);text-decoration:underline;">
+        <span>View Full Product Science &amp; Ritual Details</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+.bundle-card {
+  border-radius: 24px;
+  border: 1px solid rgba(197,160,89,0.25);
+  background: #090e17;
+  padding: 24px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  transition: border-color 0.3s, transform 0.3s;
+  cursor: pointer;
+}
+.bundle-card:hover { border-color: rgba(197,160,89,0.5); transform: translateY(-4px); }
+.bundle-card--popular {
+  border: 2px solid var(--gold);
+  background: linear-gradient(to bottom, #111929, #090e17, #111929);
+  box-shadow: 0 0 40px rgba(197,160,89,0.2);
+  transform: scale(1.02);
+}
+.bundle-card--popular:hover { transform: scale(1.02) translateY(-4px); }
+.bundle-badge {
+  display: inline-block;
+  border-radius: 100px;
+  border: 1px solid;
+  padding: 4px 14px;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.bundle-title {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--cream);
+  margin-bottom: 4px;
+}
+.bundle-subtitle {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--slate);
+  margin-bottom: 20px;
+}
+.bundle-price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  border-top: 1px solid var(--border-gold);
+  border-bottom: 1px solid var(--border-gold);
+  padding: 14px 0;
+  margin-bottom: 20px;
+}
+.bundle-price {
+  font-family: var(--font-heading);
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--gold-light);
+}
+.bundle-price-old {
+  font-size: 13px;
+  color: var(--slate-deep);
+  text-decoration: line-through;
+}
+.bundle-benefits {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+.bundle-benefits li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: #c8d2e1;
+}
+.bundle-check {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(197,160,89,0.15);
+  color: var(--gold-light);
+  font-size: 11px;
+  flex-shrink: 0;
+}
+.bundle-actions { display: flex; flex-direction: column; gap: 10px; margin-top: auto; }
+.bundle-order-btn { width: 100%; justify-content: center; padding: 14px; font-size: 11px; }
+.bundle-wa-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid rgba(197,160,89,0.4);
+  background: var(--bg-deep);
+  padding: 12px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  transition: background 0.3s;
+}
+.bundle-wa-btn:hover { background: rgba(197,160,89,0.15); }
+</style>
+
+<script>
+async function handleBundleCheckout(e, variantId, qty) {
+  e.preventDefault();
+  var btn = e.target.querySelector('button[type="submit"]');
+  if (btn) {
+    btn.style.opacity = '0.7';
+    btn.innerHTML = '<span>ADDING TO CART...</span>';
+  }
+  try {
+    await fetch('/cart/clear.js', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' }
+    });
+    var res = await fetch('/cart/add.js', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id: variantId, quantity: qty })
+    });
+    if (res.ok) {
+      window.location.href = '/cart';
+    } else {
+      window.location.href = '/cart/' + variantId + ':' + qty;
+    }
+  } catch (err) {
+    window.location.href = '/cart';
+  }
+}
+</script>
+
+{% schema %}
+{
+  "name": "Bundle Offers",
+  "class": "bundle-offers-section",
+  "tag": "div",
+  "settings": [
+    {
+      "type": "text",
+      "id": "variant_id_1",
+      "label": "Bundle 1 Variant ID (1 Bottle - PKR 2,499)",
+      "default": "52658897912110"
+    },
+    {
+      "type": "text",
+      "id": "variant_id_2",
+      "label": "Bundle 2 Variant ID (2 Bottles Pack - PKR 4,499)",
+      "info": "Variant ID for 2 Bottles Pack from Shopify Admin (leave blank to auto-detect)"
+    },
+    {
+      "type": "text",
+      "id": "variant_id_3",
+      "label": "Bundle 3 Variant ID (3 Bottles Master Pack - PKR 5,999)",
+      "info": "Variant ID for 3 Bottles Master Pack from Shopify Admin (leave blank to auto-detect)"
+    }
+  ],
+  "presets": [{ "name": "Bundle Offers" }]
+}
+{% endschema %}

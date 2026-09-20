@@ -1,0 +1,18 @@
+<!-- Main Generic Page Section -->
+<section class="main-page section-pad" style="background:var(--bg-deep);min-height:60vh;">
+  <div class="container" style="max-width:800px;">
+    <h1 style="font-family:var(--font-serif);font-size:36px;font-weight:600;color:var(--cream);margin-bottom:24px;">{{ page.title }}</h1>
+    <div style="font-size:15px;line-height:1.8;color:var(--slate);">
+      {{ page.content }}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Page Content",
+  "class": "page-content-section",
+  "tag": "div",
+  "settings": []
+}
+{% endschema %}

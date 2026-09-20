@@ -1,0 +1,273 @@
+<!-- Five Actives / Ingredients Section -->
+<section class="five-actives section-pad" id="ingredients" style="border-top:1px solid var(--border-gold);background:linear-gradient(to bottom, #070b12, #0d1422, #070b12);">
+  <div class="container">
+
+    <div class="section-header">
+      <div style="display:inline-flex;align-items:center;gap:8px;border-radius:100px;border:1px solid rgba(197,160,89,0.3);background:rgba(197,160,89,0.1);padding:6px 16px;margin-bottom:16px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c5a059" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <span style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold-light);">100% Pure Botanical Formulation</span>
+      </div>
+      <h2 class="section-title">5 Legendary <em>Cold-Pressed Actives.</em></h2>
+      <p class="section-desc">
+        Formulated with Raig Mahi, Clove Eugenol, Ostrich Bio-Oil, Wild Rosemary, and Extra Virgin Olive Oil for maximum transdermal absorption.
+      </p>
+    </div>
+
+    <!-- Actives Interactive Selector: Left List + Right Card Display -->
+    <div class="actives-layout" style="display:grid;gap:32px;margin-top:48px;align-items:center;">
+      <style>
+        @media(min-width:1024px){ .actives-layout { grid-template-columns: 5fr 7fr !important; gap: 48px !important; } }
+      </style>
+
+      <!-- Left: Buttons List -->
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <button class="active-item-btn active-item-btn--active" type="button" onclick="selectActive(0)">
+          <div>
+            <span class="active-item-num">Active 01</span>
+            <h4 class="active-item-title">Raig Mahi (Sandfish Extract)</h4>
+          </div>
+          <span class="active-item-dot"></span>
+        </button>
+
+        <button class="active-item-btn" type="button" onclick="selectActive(1)">
+          <div>
+            <span class="active-item-num">Active 02</span>
+            <h4 class="active-item-title">Pure Ostrich Bio-Oil</h4>
+          </div>
+          <span class="active-item-dot"></span>
+        </button>
+
+        <button class="active-item-btn" type="button" onclick="selectActive(2)">
+          <div>
+            <span class="active-item-num">Active 03</span>
+            <h4 class="active-item-title">Steam-Distilled Clove Oil</h4>
+          </div>
+          <span class="active-item-dot"></span>
+        </button>
+
+        <button class="active-item-btn" type="button" onclick="selectActive(3)">
+          <div>
+            <span class="active-item-num">Active 04</span>
+            <h4 class="active-item-title">Wild Rosemary Botanical Extract</h4>
+          </div>
+          <span class="active-item-dot"></span>
+        </button>
+
+        <button class="active-item-btn" type="button" onclick="selectActive(4)">
+          <div>
+            <span class="active-item-num">Active 05</span>
+            <h4 class="active-item-title">Cold-Pressed Extra Virgin Olive Oil</h4>
+          </div>
+          <span class="active-item-dot"></span>
+        </button>
+      </div>
+
+      <!-- Right: Active Card Display -->
+      <div>
+        <!-- Panel 0 -->
+        <div id="active-display-0" class="active-display-panel active-display-panel--visible">
+          <div class="active-card">
+            <span class="active-card-tag">Deep Circulation &amp; Tone</span>
+            <h3 class="active-card-name">Raig Mahi (Sandfish Extract)</h3>
+            <p class="active-card-role">The Vitaliser &amp; Deep Thermal Stimulant</p>
+            <p class="active-card-desc">
+              A legendary, time-honoured active historically prized in traditional Greco-Arab Unani medicine. Rich in bio-active natural lipids that invigorate micro-capillary circulation, awaken therapeutic warmth, and promote renewed vigour.
+            </p>
+            <div class="active-card-footer">
+              <span style="color:var(--gold-light);">Key Profile: </span>
+              Naturally rich in stimulatory lipids &amp; bio-active minerals
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel 1 -->
+        <div id="active-display-1" class="active-display-panel">
+          <div class="active-card">
+            <span class="active-card-tag">Ultra-Fast Transdermal Absorption</span>
+            <h3 class="active-card-name">Pure Ostrich Bio-Oil</h3>
+            <p class="active-card-role">The Transdermal Bio-Carrier</p>
+            <p class="active-card-desc">
+              Possesses a unique lipid profile molecularly similar to human sebum. Contains high concentrations of Omega 3, 6, and 9 essential fatty acids that allow instantaneous deep tissue penetration without leaving sticky or greasy residue.
+            </p>
+            <div class="active-card-footer">
+              <span style="color:var(--gold-light);">Key Profile: </span>
+              Non-comedogenic, featherlight transdermal carrier
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel 2 -->
+        <div id="active-display-2" class="active-display-panel">
+          <div class="active-card">
+            <span class="active-card-tag">Invigorating Heat Sensation</span>
+            <h3 class="active-card-name">Steam-Distilled Clove Oil</h3>
+            <p class="active-card-role">The Thermal Spark &amp; Sensory Awakener</p>
+            <p class="active-card-desc">
+              Distilled from organic Syzygium aromaticum flower buds. Packed with natural Eugenol, it introduces a comforting, gradual thermal sensation that relaxes tense muscular fibers and stimulates heightened local tactile awareness.
+            </p>
+            <div class="active-card-footer">
+              <span style="color:var(--gold-light);">Key Profile: </span>
+              Therapeutic warming botanical essence
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel 3 -->
+        <div id="active-display-3" class="active-display-panel">
+          <span class="active-card-tag">Herbal Composure &amp; Freshness</span>
+          <div class="active-card">
+            <h3 class="active-card-name">Wild Rosemary Botanical Extract</h3>
+            <p class="active-card-role">The Clarifier &amp; Botanical Preserver</p>
+            <p class="active-card-desc">
+              Steam-extracted Rosmarinus officinalis leaves deliver potent Rosmarinic and Carnosic acids. Provides natural antioxidant stability to the delicate oils while leaving a subtle, composed herbaceous aroma.
+            </p>
+            <div class="active-card-footer">
+              <span style="color:var(--gold-light);">Key Profile: </span>
+              Rich in Rosmarinic &amp; Carnosic organic acids
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel 4 -->
+        <div id="active-display-4" class="active-display-panel">
+          <div class="active-card">
+            <span class="active-card-tag">Enduring Velvet Slip</span>
+            <h3 class="active-card-name">Cold-Pressed Extra Virgin Olive Oil</h3>
+            <p class="active-card-role">The Velvet Glide &amp; Emollient Base</p>
+            <p class="active-card-desc">
+              First cold-pressed extra virgin grade. Loaded with Squalene, Vitamin E, and Oleic acid, it cushions every stroke with a silken glide that lasts throughout the massage ritual and deeply nourishes the skin.
+            </p>
+            <div class="active-card-footer">
+              <span style="color:var(--gold-light);">Key Profile: </span>
+              Rich in Polyphenols, Vitamin E &amp; Natural Squalene
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<style>
+.active-item-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 16px;
+  border: 1px solid rgba(197,160,89,0.15);
+  background: rgba(7,11,18,0.6);
+  padding: 16px 20px;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.3s;
+  width: 100%;
+}
+.active-item-btn:hover { border-color: rgba(197,160,89,0.4); }
+.active-item-btn--active {
+  border-color: var(--gold);
+  background: #0e1624;
+  box-shadow: 0 0 25px rgba(197,160,89,0.2);
+}
+.active-item-num {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--gold);
+}
+.active-item-title {
+  font-family: var(--font-serif);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--cream);
+  margin-top: 2px;
+}
+.active-item-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #1a2538;
+  transition: background 0.3s;
+  flex-shrink: 0;
+}
+.active-item-btn--active .active-item-dot {
+  background: var(--gold);
+  box-shadow: 0 0 8px var(--gold);
+}
+.active-display-panel { display: none; }
+.active-display-panel--visible { display: block; animation: fadeInUp 0.3s ease; }
+.active-card {
+  border-radius: 24px;
+  border: 1px solid rgba(197,160,89,0.3);
+  background: linear-gradient(135deg, #0c1322 0%, #070b12 50%, #0c1322 100%);
+  padding: 32px 36px;
+  box-shadow: 0 25px 80px rgba(0,0,0,0.6);
+}
+.active-card-tag {
+  display: inline-block;
+  border-radius: 100px;
+  border: 1px solid rgba(197,160,89,0.3);
+  background: rgba(197,160,89,0.1);
+  padding: 4px 14px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--gold-light);
+}
+.active-card-name {
+  font-family: var(--font-serif);
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--cream);
+  margin-top: 16px;
+}
+.active-card-role {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--gold);
+  margin-top: 4px;
+}
+.active-card-desc {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #c8d2e1;
+  margin-top: 16px;
+}
+.active-card-footer {
+  margin-top: 24px;
+  border-top: 1px solid rgba(197,160,89,0.15);
+  padding-top: 16px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--slate);
+}
+</style>
+
+<script>
+function selectActive(idx) {
+  document.querySelectorAll('.active-item-btn').forEach(function(b, i) {
+    b.classList.toggle('active-item-btn--active', i === idx);
+  });
+  document.querySelectorAll('.active-display-panel').forEach(function(p, i) {
+    p.classList.toggle('active-display-panel--visible', i === idx);
+  });
+}
+</script>
+
+{% schema %}
+{
+  "name": "Five Actives",
+  "class": "five-actives-section",
+  "tag": "div",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Five Actives"
+    }
+  ]
+}
+{% endschema %}

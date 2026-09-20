@@ -1,0 +1,141 @@
+<!-- Product Info Section — Midnight Drive -->
+{% assign prod = all_products['midnight-drive-by-mens-aura'] %}
+{% if prod == blank or prod.id == blank %}{% assign prod = all_products['midnight-drive'] %}{% endif %}
+{% if prod == blank or prod.id == blank %}{% assign prod = collections.all.products.first %}{% endif %}
+{% assign variant_id = prod.selected_or_first_available_variant.id | default: 52658897912110 %}
+
+<section class="product-info" id="product">
+  <div class="container">
+
+    <!-- Media (Video) -->
+    <div class="product-info__media">
+      <div class="product-info__video-wrap">
+        <video
+          class="product-info__video"
+          autoplay
+          loop
+          muted
+          playsinline
+          preload="auto"
+        >
+          <source src="https://themensauraofficial.com/videos/hero/hero-bg.mp4" type="video/mp4">
+        </video>
+        <div class="product-info__glow" aria-hidden="true"></div>
+      </div>
+    </div>
+
+    <!-- Product Content -->
+    <div class="product-info__content">
+
+      <p class="product-info__eyebrow">Premium Male Vitality Oil · 30ml</p>
+
+      <div>
+        <h2 class="product-info__title">MIDNIGHT DRIVE</h2>
+        <p class="product-info__subtitle">The Night Formula for Men.</p>
+      </div>
+
+      <p class="product-info__desc">
+        A precision-crafted transdermal vitality oil. Five cold-pressed botanical actives — including Raig Mahi (Sandfish Extract) and Steam-Distilled Clove — work synergistically to stimulate micro-circulation, awaken therapeutic warmth, and restore natural male vitality. Zero synthetics. Zero steroids. 100% cold-pressed.
+      </p>
+
+      <!-- Benefits -->
+      <ul class="benefits-list">
+        <li class="benefit-item">
+          <span class="benefit-check">
+            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+          </span>
+          Feel warmth &amp; activation within 60 seconds
+        </li>
+        <li class="benefit-item">
+          <span class="benefit-check">
+            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+          </span>
+          Full results build in 14–21 days of daily use
+        </li>
+        <li class="benefit-item">
+          <span class="benefit-check">
+            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+          </span>
+          Only 4–6 drops per night — lasts 3–4 weeks
+        </li>
+        <li class="benefit-item">
+          <span class="benefit-check">
+            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+          </span>
+          Zero parabens, zero mineral oils, zero steroids
+        </li>
+        <li class="benefit-item">
+          <span class="benefit-check">
+            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+          </span>
+          Delivered in plain, unmarked box — 100% discreet
+        </li>
+      </ul>
+
+      <!-- Price -->
+      <div class="product-info__price-block">
+        <span class="price-current">PKR 2,499</span>
+        <span class="price-old">PKR 3,000</span>
+        <span class="price-badge">Save 17%</span>
+      </div>
+
+      <!-- CTA -->
+      <div class="product-info__cta">
+        <form method="post" action="/cart/add" id="product-info-order-form" onsubmit="handleProductInfoCheckout(event, '{{ variant_id }}', 1)">
+          <input type="hidden" name="id" value="{{ variant_id }}">
+          <input type="hidden" name="quantity" value="1">
+          <button type="submit" name="checkout" class="gold-glow-button add-to-cart-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+            ORDER NOW — PKR 2,499 (COD)
+          </button>
+        </form>
+
+        <p class="product-info__reassurance">
+          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          Cash on Delivery · Pay when it arrives at your door
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+async function handleProductInfoCheckout(e, variantId, qty) {
+  e.preventDefault();
+  var btn = e.target.querySelector('button[type="submit"]');
+  if (btn) {
+    btn.style.opacity = '0.7';
+    btn.innerHTML = '<span>ADDING TO CART...</span>';
+  }
+  try {
+    await fetch('/cart/clear.js', { method: 'POST', headers: { 'Content-Type': 'application/json' } });
+    var res = await fetch('/cart/add.js', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id: variantId, quantity: qty })
+    });
+    if (res.ok) {
+      window.location.href = '/cart';
+    } else {
+      window.location.href = '/cart/' + variantId + ':' + qty;
+    }
+  } catch (err) {
+    window.location.href = '/cart';
+  }
+}
+</script>
+
+{% schema %}
+{
+  "name": "Product Info",
+  "class": "product-info-section",
+  "tag": "div",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Product Info"
+    }
+  ]
+}
+{% endschema %}

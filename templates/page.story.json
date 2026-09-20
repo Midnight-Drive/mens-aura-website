@@ -1,0 +1,11 @@
+{
+  "sections": {
+    "story-videos": {
+      "type": "story-videos",
+      "settings": {}
+    }
+  },
+  "order": [
+    "story-videos"
+  ]
+}
